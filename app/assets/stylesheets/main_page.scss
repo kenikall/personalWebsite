@@ -1,3 +1,15 @@
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+#frame{
+  position:absolute;
+  z-index: 4;
+  top: 0px;
+  left: 1000px;
+  height: 800px;
+  width:1000px;
+  border: 10px solid black;
+}
+
 #background{
   top:0px;
   z-index:1;
