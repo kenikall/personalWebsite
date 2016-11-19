@@ -1,4 +1,18 @@
-html, body {margin: 0; height: 100%; overflow: hidden}
+html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden}
+
+#panelFrame{
+  position:absolute;
+  z-index: 6;
+  top: 0px;
+  left: 0px;
+}
+
+#walkAnimation{
+  position:absolute;
+  z-index: 5;
+  top: 550px;
+  left: 200px;
+}
 
 #frame{
   position:absolute;
