@@ -8,11 +8,79 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #pannel1{
+  height: 800px;
+  width: 1600px;
+  -webkit-clip-path: polygon(0 0, 65% 0, 100% 100%, 0% 100%);
+  overflow: hidden;
   position: absolute;
   top: 100px;
   left: 100px;
-  max-width:640px;
-  max-height:230px;
+}
+
+#pannel2{
+  height: 800px;
+  width: 2800px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+  overflow: hidden;
+  position: absolute;
+  top: 100px;
+  left: 1200px;
+}
+
+#pannel3{
+  height: 800px;
+  width: 1250px;
+  overflow: hidden;
+  position: absolute;
+  top: 1000px;
+  left: 100px;
+}
+
+#pannel4{
+  height: 800px;
+  width: 1250px;
+  overflow: hidden;
+  position: absolute;
+  top: 1000px;
+  left: 1425px;
+}
+
+#pannel5{
+  height: 800px;
+  width: 1200px;
+  overflow: hidden;
+  position: absolute;
+  top: 1000px;
+  left: 2750px;
+}
+
+#pannel6{
+  height: 930px;
+  width: 1000px;
+  overflow: hidden;
+  position: absolute;
+  top: 1900px;
+  left: 100px;
+}
+
+#pannel7{
+  height: 930px;
+  width: 1950px;
+  -webkit-clip-path: polygon(0 0, 67% 0, 100% 100%, 0% 100%);
+  overflow: hidden;
+  position: absolute;
+  top: 1900px;
+  left: 1180px;
+}
+
+#pannel8{
+  height: 930px;
+  width: 1350px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
+  overflow: hidden;
+  position: absolute;
+  top: 1900px;
+  left: 2600px;
 }
 
 #officeBackground{
@@ -32,82 +100,5 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 200px;
 }
 
-#frame{
-  position:absolute;
-  z-index: 10;
-  top: 0px;
-  left: 1000px;
-  height: 800px;
-  width:1000px;
-  border: 10px solid black;
-}
 
-#background{
-  top:0px;
-  z-index:1;
-}
-
-#background1{
-  background-color: #42eef4;
-  position:absolute;
-  left:0px;
-}
-
-#background2{
-  background-color: #42eef4;
-  position:absolute;
-  left:1000px;
-}
-
-#background3{
-  background-color: #42eef4;
-  position:absolute;
-  left:2000px;
-}
-
-#midground{
-  top:0px;
-  z-index:1;
-}
-
-#midground1{
-  position:absolute;
-  position:absolute;
-  left:0px;
-}
-
-#midground2{
-  position:absolute;
-  position:absolute;
-  left:1000px;
-}
-
-#midground3{
-  position:absolute;
-  position:absolute;
-  left:2000px;
-}
-
-#foreground{
-  top:0px;
-  z-index:1;
-}
-
-#foreground1{
-  position:absolute;
-  position:absolute;
-  left:0px;
-}
-
-#foreground2{
-  position:absolute;
-  position:absolute;
-  left:1000px;
-}
-
-#foreground3{
-  position:absolute;
-  position:absolute;
-  left:2000px;
-}
 

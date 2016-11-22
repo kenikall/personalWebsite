@@ -67,7 +67,6 @@ $(document).ready(function(){
 
     // Get canvas
     canvas = document.getElementById("walkAnimation");
-    console.log(canvas);
     canvas.width = 212;
     canvas.height = 328;
 
@@ -102,8 +101,6 @@ $(document).keydown(function(e){
     //person
     pos.left -= 20;
     //office
-    console.log("oBGpos = "+oBGpos.left);
-    console.log("oFGpos = "+oFGpos.left);
     if (oBGpos.left <100){ oBGpos.left += 10;}
     if (oFGpos.left <100){ oFGpos.left += 30;}
     //person
@@ -117,8 +114,6 @@ $(document).keydown(function(e){
     //person
     pos.left += 20;
     //office
-    console.log("oBGpos = "+oBGpos.left);
-    console.log("oFGpos = "+oFGpos.left);
     if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10;}
     if (oFGpos.left <=100 && oFGpos.left > -1550){ oFGpos.left -= 30;}
     //person
