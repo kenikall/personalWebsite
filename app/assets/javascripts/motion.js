@@ -90,19 +90,42 @@ $(document).ready(function(){
   }
 })
 $(document).keydown(function(e){
+  //person
   var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
+  //office
+  var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
+  var oFGpos = {left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
+
   switch(e.which){
     // left
     case 37:
+    //person
     pos.left -= 20;
-    console.log(pos.left)
+    //office
+    console.log("oBGpos = "+oBGpos.left);
+    console.log("oFGpos = "+oFGpos.left);
+    if (oBGpos.left <100){ oBGpos.left += 10;}
+    if (oFGpos.left <100){ oFGpos.left += 30;}
+    //person
     $('#walkAnimation').offset(pos);
+    //office
+    $('#officeBackground').offset(oBGpos);
+    $('#officeForeground').offset(oFGpos);
     break;
 
     case 39:
+    //person
     pos.left += 20;
-    console.log(pos.left)
+    //office
+    console.log("oBGpos = "+oBGpos.left);
+    console.log("oFGpos = "+oFGpos.left);
+    if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10;}
+    if (oFGpos.left <=100 && oFGpos.left > -1550){ oFGpos.left -= 30;}
+    //person
     $('#walkAnimation').offset(pos);
+    //office
+    $('#officeBackground').offset(oBGpos);
+    $('#officeForeground').offset(oFGpos);
     break;
   }
 });

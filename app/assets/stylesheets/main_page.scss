@@ -2,21 +2,39 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 #panelFrame{
   position:absolute;
-  z-index: 6;
+  z-index: 10;
   top: 0px;
   left: 0px;
 }
 
+#pannel1{
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  max-width:640px;
+  max-height:230px;
+}
+
+#officeBackground{
+  position: absolute;
+  z-index:4;
+}
+
+#officeForeground{
+  position: absolute;
+  z-index:7;
+}
+
 #walkAnimation{
   position:absolute;
-  z-index: 5;
+  z-index: 6;
   top: 550px;
   left: 200px;
 }
 
 #frame{
   position:absolute;
-  z-index: 4;
+  z-index: 10;
   top: 0px;
   left: 1000px;
   height: 800px;
@@ -32,20 +50,17 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #background1{
   background-color: #42eef4;
   position:absolute;
-  position:absolute;
   left:0px;
 }
 
 #background2{
   background-color: #42eef4;
   position:absolute;
-  position:absolute;
   left:1000px;
 }
 
 #background3{
   background-color: #42eef4;
-  position:absolute;
   position:absolute;
   left:2000px;
 }
