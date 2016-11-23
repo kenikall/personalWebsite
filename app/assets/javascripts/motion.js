@@ -66,7 +66,7 @@ $(document).ready(function(){
     }
 
     // Get canvas
-    canvas = document.getElementById("walkAnimation");
+    canvas = document.getElementById("walkAnimation1");
     canvas.width = 212;
     canvas.height = 328;
 
@@ -90,10 +90,12 @@ $(document).ready(function(){
 })
 $(document).keydown(function(e){
   //person
-  var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
+  var pos = {left: $('#walkAnimation1').offset().left, top: $('#walkAnimation1').offset().top };
   //office
   var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
   var oFGpos = {left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
+  var cMGpos = {left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
+  var cBpos = {left: $('#buildings').offset().left, top: $('#buildings').offset().top };
 
   switch(e.which){
     // left
@@ -103,11 +105,21 @@ $(document).keydown(function(e){
     //office
     if (oBGpos.left <100){ oBGpos.left += 10;}
     if (oFGpos.left <100){ oFGpos.left += 30;}
+    if (cMGpos.left <1200){ cMGpos.left += 10;}
+    if (cBpos.left <2800){ cBpos.left += 20;}
     //person
-    $('#walkAnimation').offset(pos);
+    $('#walkAnimation1').offset(pos);
+
+    if(pos.left< 1600){
+      $('#officeBackground').offset(oBGpos);
+      $('#officeForeground').offset(oFGpos);
+      clearInterval(moving);
+    } else if(pos.left >= 1600){
+      $('#cityMidground').offset(cMGpos);
+      $('#buildings').offset(cBpos);
+      moveClouds(true);
+    }
     //office
-    $('#officeBackground').offset(oBGpos);
-    $('#officeForeground').offset(oFGpos);
     break;
 
     case 39:
@@ -116,87 +128,42 @@ $(document).keydown(function(e){
     //office
     if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10;}
     if (oFGpos.left <=100 && oFGpos.left > -1550){ oFGpos.left -= 30;}
+    if (cMGpos.left <=1200){ cMGpos.left -= 10;}
+    if (cBpos.left >=2800){ cBpos.left -= 20;}
     //person
-    $('#walkAnimation').offset(pos);
+    $('#walkAnimation1').offset(pos);
     //office
-    $('#officeBackground').offset(oBGpos);
-    $('#officeForeground').offset(oFGpos);
+    if(pos.left< 1600){
+      $('#officeBackground').offset(oBGpos);
+      $('#officeForeground').offset(oFGpos);
+      clearInterval(moving);
+    } else if(pos.left >= 1600){
+      $('#cityMidground').offset(cMGpos);
+      $('#buildings').offset(cBpos);
+      moveClouds();
+    }
     break;
   }
+
+  function moveClouds(loop){
+    var aCloudsPos = {left: $('#cloud1').offset().left, top: $('#cloud1').offset().top};
+    var bCloudsPos = {left: $('#cloud2').offset().left, top: $('#cloud2').offset().top};
+    var cCloudsPos = {left: $('#cloud3').offset().left, top: $('#cloud3').offset().top};
+    var dCloudsPos = {left: $('#cloud4').offset().left, top: $('#cloud4').offset().top};
+    var eCloudsPos = {left: $('#cloud5').offset().left, top: $('#cloud5').offset().top};
+    var moving = setInterval(function(){
+        aCloudsPos.left > 871 ? aCloudsPos.left-- : aCloudsPos.left = 4000;
+        bCloudsPos.left > 871 ? bCloudsPos.left-- : bCloudsPos.left = 4000;
+        cCloudsPos.left > 871 ? cCloudsPos.left-- : cCloudsPos.left = 4000;
+        dCloudsPos.left > 871 ? dCloudsPos.left-- : dCloudsPos.left = 4000;
+        eCloudsPos.left > 871 ? eCloudsPos.left-- : eCloudsPos.left = 4000;
+
+        $('#cloud1').offset(aCloudsPos);
+        $('#cloud2').offset(bCloudsPos);
+        $('#cloud3').offset(cCloudsPos);
+        $('#cloud4').offset(dCloudsPos);
+        $('#cloud5').offset(eCloudsPos);
+    }, 50);
+    // if (!loop){clearInterval(moving)}
+  }
 });
-
-
-
-// $(document).keydown(function(e){
-
-//   var bgPos1 = {left: $('#background1').offset().left, top: $('#background1').offset().top };
-//   var bgPos2 = {left: $('#background2').offset().left, top: $('#background2').offset().top };
-//   var bgPos3 = {left: $('#background3').offset().left, top: $('#background3').offset().top };
-
-//   var mgPos1 = {left: $('#midground1').offset().left, top: $('#midground1').offset().top };
-//   var mgPos2 = {left: $('#midground2').offset().left, top: $('#midground2').offset().top };
-//   var mgPos3 = {left: $('#midground3').offset().left, top: $('#midground3').offset().top };
-
-//   var fgPos1 = {left: $('#foreground1').offset().left, top: $('#foreground1').offset().top };
-//   var fgPos2 = {left: $('#foreground2').offset().left, top: $('#foreground2').offset().top };
-//   var fgPos3 = {left: $('#foreground3').offset().left, top: $('#foreground3').offset().top };
-//   switch(e.which){
-//     // left
-//     case 37:
-//       //background
-//       bgPos1.left > -1000 ? bgPos1.left -= 5 : bgPos1.left = $('#background3').offset().left+995;
-//       bgPos2.left > -1000 ? bgPos2.left -= 5 : bgPos2.left = $('#background1').offset().left+995;
-//       bgPos3.left > -1000 ? bgPos3.left -= 5 : bgPos3.left = $('#background2').offset().left+995;
-//       $('#background1').offset(bgPos1);
-//       $('#background2').offset(bgPos2);
-//       $('#background3').offset(bgPos3);
-
-//       //midground
-//       mgPos1.left > -1000 ? mgPos1.left -= 10 : mgPos1.left = $('#midground3').offset().left+990;
-//       mgPos2.left > -1000 ? mgPos2.left -= 10 : mgPos2.left = $('#midground1').offset().left+990;
-//       mgPos3.left > -1000 ? mgPos3.left -= 10 : mgPos3.left = $('#midground2').offset().left+990;
-//       $('#midground1').offset(mgPos1);
-//       $('#midground2').offset(mgPos2);
-//       $('#midground3').offset(mgPos3);
-
-//       //foreground
-//       fgPos1.left > -1000 ? fgPos1.left -= 20 : fgPos1.left = $('#foreground3').offset().left+980;
-//       fgPos2.left > -1000 ? fgPos2.left -= 20 : fgPos2.left = $('#foreground1').offset().left+980;
-//       fgPos3.left > -1000 ? fgPos3.left -= 20 : fgPos3.left = $('#foreground2').offset().left+980;
-//       $('#foreground1').offset(fgPos1);
-//       $('#foreground2').offset(fgPos2);
-//       $('#foreground3').offset(fgPos3);
-//     break;
-
-//     // right
-//     case 39:
-//       //background
-//       bgPos1.left < 3000 ? bgPos1.left += 5 : bgPos1.left = $('#background2').offset().left-995;
-//       bgPos2.left < 3000 ? bgPos2.left += 5 : bgPos2.left = $('#background3').offset().left-995;
-//       bgPos3.left < 3000 ? bgPos3.left += 5 : bgPos3.left = $('#background1').offset().left-995;
-//       $('#background1').offset(bgPos1);
-//       $('#background2').offset(bgPos2);
-//       $('#background3').offset(bgPos3);
-
-//       //midground
-//       mgPos1.left < 3000 ? mgPos1.left += 10 : mgPos1.left = $('#midground2').offset().left-990;
-//       mgPos2.left < 3000 ? mgPos2.left += 10 : mgPos2.left = $('#midground3').offset().left-990;
-//       mgPos3.left < 3000 ? mgPos3.left += 10 : mgPos3.left = $('#midground1').offset().left-990;
-//       $('#midground1').offset(mgPos1);
-//       $('#midground2').offset(mgPos2);
-//       $('#midground3').offset(mgPos3);
-
-//       //foreground
-//       fgPos1.left < 3000 ? fgPos1.left += 20 : fgPos1.left = $('#foreground2').offset().left-980;
-//       fgPos2.left < 3000 ? fgPos2.left += 20 : fgPos2.left = $('#foreground3').offset().left-980;
-//       console.log(fgPos3)
-//       fgPos3.left < 3000 ? fgPos3.left += 20 : fgPos3.left = $('#foreground1').offset().left-980;
-//       $('#foreground1').offset(fgPos1);
-//       $('#foreground2').offset(fgPos2);
-//       $('#foreground3').offset(fgPos3);
-//     break;
-
-//     default: return;
-//   }
-// });
-

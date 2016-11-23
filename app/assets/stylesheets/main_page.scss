@@ -17,6 +17,16 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 100px;
 }
 
+#officeBackground{
+  position: absolute;
+  z-index:4;
+}
+
+#officeForeground{
+  position: absolute;
+  z-index:8;
+}
+
 #pannel2{
   height: 800px;
   width: 2800px;
@@ -27,6 +37,64 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 1200px;
 }
 
+#clouds{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+}
+
+#cloud1{
+  position: absolute;
+  opacity: 0.8;
+  top: 30px;
+  left: 1800px;
+}
+
+#cloud2{
+  position: absolute;
+  opacity: 0.5;
+  top: 60px;
+  left: 300px;
+}
+
+#cloud3{
+  position: absolute;
+  opacity: 0.6;
+  top: 90px;
+  left: 2000px;
+}
+
+#cloud4{
+  position: absolute;
+  opacity: 0.4;
+  top: 120px;
+  left: 600px;
+}
+
+#cloud5{
+  position: absolute;
+  opacity: 0.4;
+  top: 150px;
+  left: 1100px;
+}
+
+#buildings{
+  position: absolute;
+  top:0px;
+  left: 2800px;
+  z-index: 6
+}
+
+#cityBackground{
+  position: absolute;
+  z-index:4;
+}
+
+#cityMidground{
+  position: absolute;
+  z-index:5;
+}
 #pannel3{
   height: 800px;
   width: 1250px;
@@ -83,21 +151,18 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 2600px;
 }
 
-#officeBackground{
-  position: absolute;
-  z-index:4;
-}
-
-#officeForeground{
-  position: absolute;
-  z-index:7;
-}
-
-#walkAnimation{
+#walkAnimation1{
   position:absolute;
-  z-index: 6;
-  top: 550px;
+  z-index: 5;
+  top: 450px;
   left: 200px;
+}
+
+#walkAnimation2{
+  position:absolute;
+  z-index: 5;
+  top: 550px;
+  left: 100px;
 }
 
 
