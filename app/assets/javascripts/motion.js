@@ -66,7 +66,7 @@ $(document).ready(function(){
     }
 
     // Get canvas
-    canvas = document.getElementById("walkAnimation1");
+    canvas = document.getElementById("walkAnimation");
     canvas.width = 212;
     canvas.height = 328;
 
@@ -90,7 +90,7 @@ $(document).ready(function(){
 })
 $(document).keydown(function(e){
   //person
-  var pos = {left: $('#walkAnimation1').offset().left, top: $('#walkAnimation1').offset().top };
+  var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
   //office
   var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
   var oFGpos = {left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
@@ -108,7 +108,7 @@ $(document).keydown(function(e){
     if (cMGpos.left <1200){ cMGpos.left += 10;}
     if (cBpos.left <2800){ cBpos.left += 20;}
     //person
-    $('#walkAnimation1').offset(pos);
+    $('#walkAnimation').offset(pos);
 
     if(pos.left< 1600){
       $('#officeBackground').offset(oBGpos);
@@ -131,7 +131,7 @@ $(document).keydown(function(e){
     if (cMGpos.left <=1200){ cMGpos.left -= 10;}
     if (cBpos.left >=2800){ cBpos.left -= 20;}
     //person
-    $('#walkAnimation1').offset(pos);
+    $('#walkAnimation').offset(pos);
     //office
     if(pos.left< 1600){
       $('#officeBackground').offset(oBGpos);
