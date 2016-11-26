@@ -220,6 +220,12 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 200px;
 }
 
+#cityWalk{
+  position:absolute;
+  z-index: 9;
+  top: 450px;
+}
+
 #marker{
  position:absolute;
   z-index: 12;

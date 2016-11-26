@@ -3,23 +3,23 @@ $(document).ready(function(){
   window.onload = function(){
     var walk,
       walkImage,
+      cityWalkImage,
       canvas;
 
-    function gameLoop(){
+  function gameLoop(){
+    window.requestAnimationFrame(gameLoop);
+    walk.update();
+    walk.render();
+    cityWalk.update();
+    cityWalk.render();
+  }
 
-      window.requestAnimationFrame(gameLoop);
-
-      walk.update();
-      walk.render();
-    }
-
-    function sprite(options){
-
-      var that = {},
-        frameIndex = 0,
-        tickCount = 0,
-        ticksPerFrame = options.ticksPerFrame || 0,
-        numberOfFrames = options.numberOfFrames || 1;
+  function sprite(options){
+    var that = {},
+      frameIndex = 0,
+      tickCount = 0,
+      ticksPerFrame = options.ticksPerFrame || 0,
+      numberOfFrames = options.numberOfFrames || 1;
 
       that.context = options.context;
       that.width = options.width;
@@ -27,29 +27,18 @@ $(document).ready(function(){
       that.image = options.image;
 
       that.update = function () {
+        tickCount += 1;
 
-              tickCount += 1;
-
-              if (tickCount > ticksPerFrame) {
-
+        if (tickCount > ticksPerFrame) {
           tickCount = 0;
-
-                  // If the current frame index is in range
-                  if (frameIndex < numberOfFrames - 1) {
-                      // Go to the next frame
-                      frameIndex += 1;
-                  } else {
-                      frameIndex = 0;
-                  }
-              }
-          };
+          if (frameIndex < numberOfFrames - 1) { frameIndex += 1; }
+          else { frameIndex = 0; }
+        }
+      };
 
       that.render = function () {
-
-        // Clear the canvas
         that.context.clearRect(0, 0, that.width, that.height);
 
-        // Draw the animation
         that.context.drawImage(
           that.image,
           frameIndex * that.width / numberOfFrames,
@@ -65,15 +54,11 @@ $(document).ready(function(){
       return that;
     }
 
-    // Get canvas
+    // Office walk
     canvas = document.getElementById("walkAnimation");
     canvas.width = 212;
     canvas.height = 328;
-
-    // Create sprite sheet
     walkImage = new Image();
-
-    // Create sprite
     walk = sprite({
       context: canvas.getContext("2d"),
       width: 1272,
@@ -82,15 +67,33 @@ $(document).ready(function(){
       numberOfFrames: 6,
       ticksPerFrame: 4
     });
+    // City walk
+    canvas = document.getElementById("cityWalk");
+    canvas.width = 424;
+    canvas.height = 656;
+    cityWalkImage = new Image();
+    cityWalk = sprite({
+      context: canvas.getContext("2d"),
+      width: 2544,
+      height: 656,
+      image: cityWalkImage,
+      numberOfFrames: 6,
+      ticksPerFrame: 4
+    });
 
-    // Load sprite sheet
+    // Load sprite sheets
     walkImage.addEventListener("load", gameLoop);
     walkImage.src = "./images/walk_spritesheet.png";
+
+    // cityWalkImage.addEventListener("load", gameLoop);
+    cityWalkImage.src = "./images/city_walk.png";
   }
 })
 $(document).keydown(function(e){
+
   //person
   var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
+
   //office
   var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
   var oFGpos = {left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
@@ -98,46 +101,46 @@ $(document).keydown(function(e){
   var cBpos = {left: $('#buildings').offset().left, top: $('#buildings').offset().top };
 
   switch(e.which){
-    // left
-    case 37:
+    case 37: //left
     //person
     pos.left -= 20;
+    $('#walkAnimation').offset(pos);
+    $('#cityWalk').offset(pos);
+
     //office
     if (oBGpos.left <100){ oBGpos.left += 10;}
     if (oFGpos.left <100){ oFGpos.left += 30;}
     if (cMGpos.left <1200){ cMGpos.left += 10;}
-    if (cBpos.left <2800){ cBpos.left += 20;}
-    //person
-    $('#walkAnimation').offset(pos);
+    if (cBpos.left <= 4000){ cBpos.left += 20;}
 
-    if(pos.left< 1600){
+    if(pos.left< 1610 && pos.top === 550){
+      console.log("pos=" + pos.left);
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
-      clearInterval(moving);
-    } else if(pos.left >= 1600){
+    } else if(pos.left >= 1610 && pos.top === 550){
+      $('#walkAnimation').offset(pos);
       $('#cityMidground').offset(cMGpos);
       $('#buildings').offset(cBpos);
       moveClouds(true);
     }
-    //office
     break;
 
-    case 39:
+    case 39:  //right
     //person
     pos.left += 20;
+    $('#walkAnimation').offset(pos);
+    $('#cityWalk').offset(pos);
+
     //office
     if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10;}
     if (oFGpos.left <=100 && oFGpos.left > -1550){ oFGpos.left -= 30;}
-    if (cMGpos.left <=1200){ cMGpos.left -= 10;}
-    if (cBpos.left >=2800){ cBpos.left -= 20;}
-    //person
-    $('#walkAnimation').offset(pos);
-    //office
-    if(pos.left< 1600){
+    if (cMGpos.left > 130){ console.log('mid= '+cMGpos.left); cMGpos.left -= 10;}
+    if (cBpos.left >=1840){ console.log('buildings= '+cBpos.left); cBpos.left -= 20;}
+
+    if(pos.left< 1610 && pos.top === 550){
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
-      clearInterval(moving);
-    } else if(pos.left >= 1600){
+    } else if(pos.left >= 1610 && pos.top === 550){
       $('#cityMidground').offset(cMGpos);
       $('#buildings').offset(cBpos);
       moveClouds();
