@@ -121,12 +121,17 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #lessonv1{
-  top: -25px;
-  left: -25px;
+  top: -250px;
+  left: -100px;
+}
+
+#lessonh1{
+  top: -250px;
+  left: -100px;
 }
 
 #lessonv2{
-  top: -25px;
+  top: -250px;
   left: 400px;
 }
 
@@ -135,10 +140,6 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 825px;
 }
 
-#lessonh1{
-  top: 525px;
-  left: -100px;
-}
 
 #lessonh2{
   top: 525px;
@@ -149,12 +150,14 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   height: 85px;
   width: 110px;
   position: absolute;
+  z-index: 3;
 }
 
 .vlesson{
   height: 110px;
   width: 85px;
   position: absolute;
+  z-index: 3;
 }
 
 #pannel5{
@@ -226,6 +229,26 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   top: 450px;
 }
 
+#classWalk{
+  position:absolute;
+  z-index: 5;
+  top: 1000px;
+  left: 1000px;
+}
+
+#lessonWalk{
+  position:absolute;
+  z-index: 5;
+  top: 1000px;
+  left: 1000px;
+}
+
+#galleryWalk{
+  position:absolute;
+  z-index: 5;
+  top: 1000px;
+  left: 1000px;
+}
 #marker{
  position:absolute;
   z-index: 12;
