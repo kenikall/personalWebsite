@@ -1,98 +1,260 @@
 html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden}
 
+.background{
+  position: absolute;
+  z-index:4;
+}
+
+.foreground{
+ position: absolute;
+  z-index:6;
+}
+
+.pannel{
+  overflow: hidden;
+  position: absolute;
+}
+
 #panelFrame{
   position:absolute;
-  z-index: 6;
+  z-index: 10;
   top: 0px;
   left: 0px;
+}
+
+#pannel1{
+  height: 810px;
+  width: 1600px;
+  -webkit-clip-path: polygon(0 0, 65% 0, 100% 100%, 0% 100%);
+  top: 100px;
+  left: 100px;
+}
+
+#officeForeground{
+  position: absolute;
+  z-index:8;
+}
+
+#pannel2{
+  height: 810px;
+  width: 2800px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+  top: 105px;
+  left: 1200px;
+}
+
+#clouds{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+}
+
+#cloud1{
+  position: absolute;
+  opacity: 0.8;
+  top: 30px;
+  left: 1800px;
+}
+
+#cloud2{
+  position: absolute;
+  opacity: 0.5;
+  top: 60px;
+  left: 300px;
+}
+
+#cloud3{
+  position: absolute;
+  opacity: 0.6;
+  top: 90px;
+  left: 2000px;
+}
+
+#cloud4{
+  position: absolute;
+  opacity: 0.4;
+  top: 120px;
+  left: 600px;
+}
+
+#cloud5{
+  position: absolute;
+  opacity: 0.4;
+  top: 150px;
+  left: 1100px;
+}
+
+#buildings{
+  position: absolute;
+  top:0px;
+  left: 2800px;
+  z-index: 6
+}
+
+#cityBackground{
+  position: absolute;
+  z-index:4;
+}
+
+#cityMidground{
+  position: absolute;
+  z-index:5;
+}
+#pannel3{
+  height: 810px;
+  width: 1250px;
+  overflow: hidden;
+  position: absolute;
+  top: 1000px;
+  left: 100px;
+}
+
+#pannel4{
+  height: 810px;
+  background-color: black;
+  width: 1250px;
+  overflow: hidden;
+  position: absolute;
+  top: 1000px;
+  left: 1425px;
+}
+
+#lessonv1{
+  top: -250px;
+  left: -100px;
+}
+
+#lessonh1{
+  top: -250px;
+  left: -100px;
+}
+
+#lessonv2{
+  top: -250px;
+  left: 400px;
+}
+
+#lessonv3{
+  top: -25px;
+  left: 825px;
+}
+
+
+#lessonh2{
+  top: 525px;
+  left: 700px;
+}
+
+.hlesson{
+  height: 85px;
+  width: 110px;
+  position: absolute;
+  z-index: 3;
+}
+
+.vlesson{
+  height: 110px;
+  width: 85px;
+  position: absolute;
+  z-index: 3;
+}
+
+#pannel5{
+  height: 810px;
+  width: 1200px;
+  top: 1000px;
+  left: 2750px;
+}
+
+#statue{
+  top:300px;
+  left:200px;
+}
+
+#pannel6{
+  background-color: black;
+  height: 950px;
+  width: 1000px;
+  top: 1900px;
+  left: 100px;
+}
+#map{
+  z-index: 4;
+}
+
+#newyork{
+  position: absolute;
+  z-index: 5;
+  top: 100px;
+  left: 500px;
+}
+
+#sanfran{
+  position: absolute;
+  z-index: 6;
+  top: -150px;
+  left: -150px;
+
+}
+
+#pannel7{
+  height: 950px;
+  width: 1950px;
+  -webkit-clip-path: polygon(0 0, 67% 0, 100% 100%, 0% 100%);
+  overflow: hidden;
+  position: absolute;
+  top: 1900px;
+  left: 1180px;
+}
+
+#pannel8{
+  height: 930px;
+  width: 1350px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
+  top: 1900px;
+  left: 2600px;
 }
 
 #walkAnimation{
   position:absolute;
   z-index: 5;
-  top: 550px;
+  top: 450px;
   left: 200px;
 }
 
-#frame{
+#cityWalk{
   position:absolute;
-  z-index: 4;
-  top: 0px;
+  z-index: 9;
+  top: 450px;
+}
+
+#classWalk{
+  position:absolute;
+  z-index: 5;
+  top: 1000px;
   left: 1000px;
-  height: 800px;
-  width:1000px;
-  border: 10px solid black;
 }
 
-#background{
-  top:0px;
-  z-index:1;
+#lessonWalk{
+  position:absolute;
+  z-index: 5;
+  top: 1000px;
+  left: 1000px;
 }
 
-#background1{
-  background-color: #42eef4;
+#galleryWalk{
   position:absolute;
-  position:absolute;
-  left:0px;
+  z-index: 5;
+  top: 1000px;
+  left: 1000px;
+}
+#marker{
+ position:absolute;
+  z-index: 12;
+  top: 450px;
+  left: 200px;
 }
 
-#background2{
-  background-color: #42eef4;
-  position:absolute;
-  position:absolute;
-  left:1000px;
-}
 
-#background3{
-  background-color: #42eef4;
-  position:absolute;
-  position:absolute;
-  left:2000px;
-}
-
-#midground{
-  top:0px;
-  z-index:1;
-}
-
-#midground1{
-  position:absolute;
-  position:absolute;
-  left:0px;
-}
-
-#midground2{
-  position:absolute;
-  position:absolute;
-  left:1000px;
-}
-
-#midground3{
-  position:absolute;
-  position:absolute;
-  left:2000px;
-}
-
-#foreground{
-  top:0px;
-  z-index:1;
-}
-
-#foreground1{
-  position:absolute;
-  position:absolute;
-  left:0px;
-}
-
-#foreground2{
-  position:absolute;
-  position:absolute;
-  left:1000px;
-}
-
-#foreground3{
-  position:absolute;
-  position:absolute;
-  left:2000px;
-}
 
