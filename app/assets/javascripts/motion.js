@@ -9,41 +9,41 @@ $(document).ready(function(){
       galleryWalkImage,
       canvas;
 
-  function gameLoop(){
-    window.requestAnimationFrame(gameLoop);
-    walk.update();
-    walk.render();
-    cityWalk.update();
-    cityWalk.render();
-    classWalk.update();
-    classWalk.render();
-    lessonWalk.update();
-    lessonWalk.render();
-    galleryWalk.update();
-    galleryWalk.render();
-  }
+    function gameLoop(){
+      window.requestAnimationFrame(gameLoop);
+      walk.update();
+      walk.render();
+      cityWalk.update();
+      cityWalk.render();
+      classWalk.update();
+      classWalk.render();
+      lessonWalk.update();
+      lessonWalk.render();
+      galleryWalk.update();
+      galleryWalk.render();
+    }
 
-  function sprite(options){
-    var that = {},
-      frameIndex = 0,
-      tickCount = 0,
-      ticksPerFrame = options.ticksPerFrame || 0,
-      numberOfFrames = options.numberOfFrames || 1;
+    function sprite(options){
+      var that = {},
+        frameIndex = 0,
+        tickCount = 0,
+        ticksPerFrame = options.ticksPerFrame || 0,
+        numberOfFrames = options.numberOfFrames || 1;
 
-      that.context = options.context;
-      that.width = options.width;
-      that.height = options.height;
-      that.image = options.image;
+        that.context = options.context;
+        that.width = options.width;
+        that.height = options.height;
+        that.image = options.image;
 
-      that.update = function () {
-        tickCount += 1;
+        that.update = function () {
+          tickCount += 1;
 
-        if (tickCount > ticksPerFrame) {
-          tickCount = 0;
-          if (frameIndex < numberOfFrames - 1) { frameIndex += 1; }
-          else { frameIndex = 0; }
-        }
-      };
+          if (tickCount > ticksPerFrame) {
+            tickCount = 0;
+            if (frameIndex < numberOfFrames - 1) { frameIndex += 1; }
+            else { frameIndex = 0; }
+          }
+        };
 
       that.render = function () {
         that.context.clearRect(0, 0, that.width, that.height);
@@ -237,27 +237,41 @@ $(document).keydown(function(e){
     var vertLesson5Pos = {left: $('#lessonv5').offset().left, top: $('#lessonv5').offset().top};
     var vertLesson6Pos = {left: $('#lessonv6').offset().left, top: $('#lessonv6').offset().top};
     var vertLesson7Pos = {left: $('#lessonv7').offset().left, top: $('#lessonv7').offset().top};
+    var vertLesson8Pos = {left: $('#lessonv8').offset().left, top: $('#lessonv8').offset().top};
 
     var horzLesson1Pos = {left: $('#lessonh1').offset().left, top: $('#lessonh1').offset().top};
     var horzLesson2Pos = {left: $('#lessonh2').offset().left, top: $('#lessonh2').offset().top};
     var horzLesson3Pos = {left: $('#lessonh3').offset().left, top: $('#lessonh3').offset().top};
     var horzLesson4Pos = {left: $('#lessonh4').offset().left, top: $('#lessonh4').offset().top};
-    var horzLesson5Pos = {left: $('#lessonh5').offset().left, top: $('#lessonh5').offset().top};
 
     var moving = setInterval(function(){
-        // vertLesson1Pos.top > -
-        aCloudsPos.left > 871 ? aCloudsPos.left-- : aCloudsPos.left = 4000;
-        bCloudsPos.left > 871 ? bCloudsPos.left-- : bCloudsPos.left = 4000;
-        cCloudsPos.left > 871 ? cCloudsPos.left-- : cCloudsPos.left = 4000;
-        dCloudsPos.left > 871 ? dCloudsPos.left-- : dCloudsPos.left = 4000;
-        eCloudsPos.left > 871 ? eCloudsPos.left-- : eCloudsPos.left = 4000;
+        vertLesson1Pos.top > 400 ? vertLesson1Pos.top-- : vertLesson1Pos.top = vertLesson6Pos.top+600;
+        vertLesson2Pos.top > 400 ? vertLesson2Pos.top-- : vertLesson2Pos.top = vertLesson6Pos.top+600;
+        vertLesson3Pos.top > 400 ? vertLesson3Pos.top-- : vertLesson3Pos.top = vertLesson1Pos.top+600;
+        vertLesson4Pos.top > 400 ? vertLesson4Pos.top-- : vertLesson4Pos.top = vertLesson3Pos.top+425;
+        vertLesson5Pos.top > 400 ? vertLesson5Pos.top-- : vertLesson5Pos.top = vertLesson3Pos.top+425;
+        vertLesson6Pos.top > 400 ? vertLesson6Pos.top-- : vertLesson6Pos.top = vertLesson5Pos.top+600;
+        vertLesson7Pos.top > 400 ? vertLesson7Pos.top-- : vertLesson7Pos.top = vertLesson5Pos.top+650;
+        vertLesson8Pos.top > 400 ? vertLesson8Pos.top-- : vertLesson8Pos.top = vertLesson5Pos.top+600;
 
-        $('#cloud1').offset(aCloudsPos);
-        $('#cloud2').offset(bCloudsPos);
-        $('#cloud3').offset(cCloudsPos);
-        $('#cloud4').offset(dCloudsPos);
-        $('#cloud5').offset(eCloudsPos);
-    }, 50);
+        horzLesson1Pos.top > 450 ? horzLesson1Pos.top-- : horzLesson1Pos.top = vertLesson6Pos.top+775;
+        horzLesson2Pos.top > 450 ? horzLesson2Pos.top-- : horzLesson2Pos.top = horzLesson1Pos.top+425;
+        horzLesson3Pos.top > 450 ? horzLesson3Pos.top-- : horzLesson3Pos.top = horzLesson1Pos.top+425;
+        horzLesson4Pos.top > 450 ? horzLesson4Pos.top-- : horzLesson4Pos.top = vertLesson4Pos.top+175;
+
+        $('#lessonv1').offset(vertLesson1Pos);
+        $('#lessonv2').offset(vertLesson2Pos);
+        $('#lessonv3').offset(vertLesson3Pos);
+        $('#lessonv4').offset(vertLesson4Pos);
+        $('#lessonv5').offset(vertLesson5Pos);
+        $('#lessonv6').offset(vertLesson6Pos);
+        $('#lessonv7').offset(vertLesson7Pos);
+        $('#lessonv8').offset(vertLesson8Pos);
+        $('#lessonh1').offset(horzLesson1Pos);
+        $('#lessonh2').offset(horzLesson2Pos);
+        $('#lessonh3').offset(horzLesson3Pos);
+        $('#lessonh4').offset(horzLesson4Pos);
+    }, 20);
     // if (!loop){clearInterval(moving)}
   }
 });
