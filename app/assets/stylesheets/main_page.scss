@@ -198,6 +198,30 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   top:300px;
   left:200px;
 }
+.frames{
+  position: absolute;
+  top:250px;
+  z-index:5;
+}
+
+#frame1{
+  left: 525px;
+  z-index:5;
+}
+
+#frame2{
+  left: 1000px;
+}
+
+.paintings{
+  z-index: 4;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 300px;
+  height: 201px;
+
+}
 
 #pannel6{
   background-color: black;
