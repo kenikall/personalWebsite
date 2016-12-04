@@ -1,5 +1,7 @@
 // $(document).
 $(document).ready(function(){
+  centerAll();
+
   window.onload = function(){
     var walk,
       walkImage,
@@ -191,6 +193,7 @@ $(document).keydown(function(e){
 
   switch(e.which){
     case 37: //left
+    center1();
     //person
     pos.left -= 20;
     $('#walkAnimation').offset(pos);
@@ -259,7 +262,22 @@ $(document).keydown(function(e){
     break;
   }
 });
+function centerAll(){
+  $(window).resize(function() {
+    var win = $(window);
+    document.getElementById('comicPanel').setAttribute("style","width:"+win.width()*.95+"px");
+    var area = $('#comicPanel');
+    $('#comicPanel').css({
+      position: 'absolute',
+      left: (win.width() - area.outerWidth()) / 2,
+      top: (win.height() - area.outerHeight()) / 2
+    });
+  });
+}
 
+function center1(){
+    $('#comicPannel').animate({ 'zoom': $('#pannel1'),'top': $('#pannel1').top, 'left': $('pannel1').left }, 400);
+}
 function moveClouds(){
   if ($('#walkAnimation').offset().left >= 1610 && $('#walkAnimation').offset().left <= 4000 && Math.round($('#walkAnimation').offset().top) === 550) {
   var aCloudsPos = {left: $('#cloud1').offset().left, top: $('#cloud1').offset().top};
