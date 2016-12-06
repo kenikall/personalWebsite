@@ -20,8 +20,8 @@ $(document).ready(function(){
       console.log(gameLoop);
       moveClouds();
       moveLessons();
-      standAnimation.render();
-      standingImage.update();
+      // standAnimation.render();
+      // standingImage.update();
       walk.update();
       walk.render();
       cityWalk.update();
@@ -99,16 +99,16 @@ $(document).ready(function(){
     });
     // City walk
     canvas = document.getElementById("cityWalk");
-    canvas.width = 424;
-    canvas.height = 656;
+    canvas.width = 373;
+    canvas.height = 541;
     cityWalkImage = new Image();
     cityWalk = sprite({
       context: canvas.getContext("2d"),
-      width: 2544,
-      height: 656,
+      width: 560,
+      height: 541,
       image: cityWalkImage,
-      numberOfFrames: 6,
-      ticksPerFrame: 4
+      numberOfFrames: 2,
+      ticksPerFrame: 12
     });
     // Class walk
     canvas = document.getElementById("classWalk");
@@ -124,18 +124,18 @@ $(document).ready(function(){
       ticksPerFrame: 4
     });
     // Standing Animation
-    canvas = document.getElementById("standAnimation");
-    canvas.width = 212;
-    canvas.height = 400;
-    standingImage = new Image();
-    standing = sprite({
-      context: canvas.getContext("2d"),
-      width: 2049,
-      height: 400,
-      image: standingImage,
-      numberOfFrames: 7,
-      ticksPerFrame: 4
-    });
+    // canvas = document.getElementById("standAnimation");
+    // canvas.width = 212;
+    // canvas.height = 400;
+    // standingImage = new Image();
+    // standing = sprite({
+    //   context: canvas.getContext("2d"),
+    //   width: 2049,
+    //   height: 400,
+    //   image: standingImage,
+    //   numberOfFrames: 7,
+    //   ticksPerFrame: 4
+    // });
 
     // Lesson walk
     canvas = document.getElementById("lessonWalk");
@@ -164,37 +164,13 @@ $(document).ready(function(){
       ticksPerFrame: 4
     });
 
-    canvas = document.getElementById("durak");
-    canvas.width = 550;
-    canvas.height = 400;
-    durakImage = new Image();
-    durak = sprite({
-      context: canvas.getContext("2d"),
-      width: 2750,
-      height: 400,
-      image: durakImage,
-      numberOfFrames: 5,
-      ticksPerFrame: 20
-    });
 
-    canvas = document.getElementById("vegimon");
-    canvas.width = 500;
-    canvas.height = 400;
-    vegiImage = new Image();
-    vegimon = sprite({
-      context: canvas.getContext("2d"),
-      width: 2500,
-      height: 400,
-      image: vegiImage,
-      numberOfFrames: 5,
-      ticksPerFrame: 20
-    });
     // Load sprite sheets
     walkImage.addEventListener("load", gameLoop);
 
-    standingImage.src = "./images/standingSpriteSheet.png";
+    // standingImage.src = "./images/standingSpriteSheet.png";
     walkImage.src = "./images/walkSpriteSheet.png";
-    cityWalkImage.src = "./images/city_walk.png";
+    cityWalkImage.src = "./images/city/cityWalkSpriteSheet.png";
     classWalkImage.src = "./images/walkSpriteSheet.png";
     lessonWalkImage.src = "./images/lessonWalk.png";
     galleryWalkImage.src = "./images/walkSpriteSheet.png";
