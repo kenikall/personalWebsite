@@ -2,7 +2,11 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 .background{
   position: absolute;
-  z-index:4;
+  z-index:3;
+}
+
+.wallStuff{
+  position:absolute;
 }
 
 .foreground{
@@ -10,19 +14,24 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   z-index:6;
 }
 
-.pannel{
+.panel{
   overflow: hidden;
   position: absolute;
 }
 
-#panelFrame{
-  position:absolute;
-  z-index: 10;
-  top: 0px;
-  left: 0px;
+#comicPanel{
+  position: absolute;
+  max-width: 4040px;
+  width: 100%;
 }
 
-#pannel1{
+#panelFrame{
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+#panel1{
   height: 810px;
   width: 1600px;
   -webkit-clip-path: polygon(0 0, 65% 0, 100% 100%, 0% 100%);
@@ -35,7 +44,61 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   z-index:8;
 }
 
-#pannel2{
+#chair{
+  z-index:4;
+  position: absolute;
+  left: 0px;
+  top: 575px;
+}
+
+#computer{
+  position: absolute;
+  left: 125px;
+  top: 560px;
+}
+
+#table{
+  position: absolute;
+  top:600px;
+  left: 0px;
+}
+
+#poster{
+  position: absolute;
+  top: 100px;
+  left:1575px;
+}
+
+.buttonO{
+  position: absolute;
+  left: 700px;
+}
+
+#facebookO{ top: 100px; }
+
+#githubO{ top: 150px; }
+
+#linkedO{ top: 200px; }
+
+#twitterO{ top: 250px; }
+
+#resumeO{ top: 300px; }
+
+
+#nav{
+  position: absolute;
+  top: 100px;
+  left: 1100px;
+}
+
+
+#text1{
+  position: absolute;
+  top: 100px;
+  left: 50px;
+}
+
+#panel2{
   height: 810px;
   width: 2800px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
@@ -101,14 +164,14 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   position: absolute;
   z-index:5;
 }
-#pannel3{
+#panel3{
   height: 810px;
   width: 1250px;
   top: 1000px;
   left: 100px;
 }
 
-#pannel4{
+#panel4{
   z-index: 15;
   height: 810px;
   background-color: black;
@@ -117,77 +180,35 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 1425px;
 }
 
-#lessonv1{
-  top: -200px;
-  left: -150px;
-}
+#lessonv1{ top: -200px; left: -150px; }
 
-#lessonv3{
-  top: 400px;
-  left: 1100px;
-}
+#lessonv3{ top: 400px; left: 1100px; }
 
-#lessonh1{
-  top: -25px;
-  left: 275px;
-}
+#lessonh1{ top: -25px; left: 275px; }
 
-#lessonv2{
-  top: -200px;
-  left: 875px;
-}
+#lessonv2{ top: -200px; left: 875px; }
 
-#lessonv4{
-  top: 825px;
-  left: -50px;
-}
+#lessonv4{ top: 825px; left: -50px; }
 
-#lessonv5{
-  top: 825px;
-  left: 375px;
-}
+#lessonv5{ top: 825px; left: 375px; }
 
-#lessonh2{
-  top: 400px;
-  left: -100px;
-}
+#lessonh2{ top: 400px; left: -100px; }
 
-#lessonh3{
-  top: 400px;
-  left: 500px;
-}
+#lessonh3{ top: 400px; left: 500px; }
 
-#lessonh4{
-  top: 1000px;
-  left: 800px;
-}
+#lessonh4{ top: 1000px; left: 800px; }
 
-#lessonv6{
-  top: 1425px;
-  left: 0px;
-}
+#lessonv6{ top: 1425px; left: 0px; }
 
-#lessonv7{
-  top: 1475px;
-  left: 425px;
-}
+#lessonv7{ top: 1475px; left: 425px; }
 
-#lessonv8{
-  top: 1425px;
-  left: 850px;
-}
+#lessonv8{ top: 1425px; left: 850px; }
 
-.hlesson{
-  position: absolute;
-  z-index: 3;
-}
+.hlesson{ position: absolute; z-index: 3; }
 
-.vlesson{
-  position: absolute;
-  z-index: 3;
-}
+.vlesson{ position: absolute; z-index: 3; }
 
-#pannel5{
+#panel5{
   height: 810px;
   width: 1200px;
   top: 1000px;
@@ -223,7 +244,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 }
 
-#pannel6{
+#panel6{
   background-color: black;
   height: 950px;
   width: 1000px;
@@ -246,10 +267,11 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   z-index: 6;
   top: -150px;
   left: -150px;
-
+  width: 5%;
+  height:5%;
 }
 
-#pannel7{
+#panel7{
   height: 950px;
   width: 1950px;
   -webkit-clip-path: polygon(0 0, 67% 0, 100% 100%, 0% 100%);
@@ -257,7 +279,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 1180px;
 }
 
-#pannel8{
+#panel8{
   height: 930px;
   width: 1350px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
@@ -268,8 +290,15 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #walkAnimation{
   position:absolute;
   z-index: 5;
-  top: 450px;
+  top: 400px;
   left: 200px;
+}
+
+#standAnimation{
+  position:absolute;
+  z-index: 5;
+  top: 450px;
+  left: -25px;
 }
 
 #cityWalk{
@@ -298,12 +327,10 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   top: 1000px;
   left: 1000px;
 }
+
 #marker{
   position:absolute;
   z-index: 12;
   top: 450px;
   left: 200px;
 }
-
-
-

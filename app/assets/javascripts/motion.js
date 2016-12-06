@@ -1,10 +1,12 @@
 // $(document).
 $(document).ready(function(){
-  centerAll();
+  //centerAll();
 
   window.onload = function(){
+    //centerAll();
     var walk,
       walkImage,
+      standingImage,
       cityWalkImage,
       classWalkImage,
       lessonWalkImage,
@@ -15,8 +17,11 @@ $(document).ready(function(){
 
     function gameLoop(){
       window.requestAnimationFrame(gameLoop);
+      console.log(gameLoop);
       moveClouds();
       moveLessons();
+      standAnimation.render();
+      standingImage.update();
       walk.update();
       walk.render();
       cityWalk.update();
@@ -32,7 +37,13 @@ $(document).ready(function(){
       durak.update();
       durak.render();
     }
-
+    // function standLoop(){
+    //   window.requestAnimationFrame(gameLoop);
+    //   for(var i=0; i< 7 ; i++;){
+    //     walk.update();
+    //     walk.render();
+    //   }
+    // }
     function sprite(options){
       var that = {},
         frameIndex = 0,
@@ -75,16 +86,16 @@ $(document).ready(function(){
 
     // Office walk
     canvas = document.getElementById("walkAnimation");
-    canvas.width = 212;
-    canvas.height = 328;
+    canvas.width = 250;
+    canvas.height = 400;
     walkImage = new Image();
     walk = sprite({
       context: canvas.getContext("2d"),
-      width: 1272,
-      height: 328,
+      width: 1600,
+      height: 400,
       image: walkImage,
       numberOfFrames: 6,
-      ticksPerFrame: 4
+      ticksPerFrame: 6
     });
     // City walk
     canvas = document.getElementById("cityWalk");
@@ -112,6 +123,20 @@ $(document).ready(function(){
       numberOfFrames: 6,
       ticksPerFrame: 4
     });
+    // Standing Animation
+    canvas = document.getElementById("standAnimation");
+    canvas.width = 212;
+    canvas.height = 400;
+    standingImage = new Image();
+    standing = sprite({
+      context: canvas.getContext("2d"),
+      width: 2049,
+      height: 400,
+      image: standingImage,
+      numberOfFrames: 7,
+      ticksPerFrame: 4
+    });
+
     // Lesson walk
     canvas = document.getElementById("lessonWalk");
     canvas.width = 212;
@@ -166,13 +191,13 @@ $(document).ready(function(){
     });
     // Load sprite sheets
     walkImage.addEventListener("load", gameLoop);
-    durakImage.addEventListener("click", gameLoop);
-    vegiImage.addEventListener("click", gameLoop);
-    walkImage.src = "./images/walk_spritesheet.png";
+
+    standingImage.src = "./images/standingSpriteSheet.png";
+    walkImage.src = "./images/walkSpriteSheet.png";
     cityWalkImage.src = "./images/city_walk.png";
-    classWalkImage.src = "./images/walk_spritesheet.png";
+    classWalkImage.src = "./images/walkSpriteSheet.png";
     lessonWalkImage.src = "./images/lessonWalk.png";
-    galleryWalkImage.src = "./images/walk_spritesheet.png";
+    galleryWalkImage.src = "./images/walkSpriteSheet.png";
     durakImage.src = "./images/gallery/durak.png";
     vegiImage.src = "./images/gallery/vegimongrow.png";
   }
@@ -186,8 +211,11 @@ $(document).keydown(function(e){
   //office
   var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
   var oFGpos = {left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
+  var oCpos = {left: $('#chair').offset().left, top: $('#chair').offset().top };
+
   var cMGpos = {left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
   var cBpos = {left: $('#buildings').offset().left, top: $('#buildings').offset().top };
+
   var gBpos = {left: $('#galleryBackground').offset().left, top: $('#galleryBackground').offset().top };
   var gSpos = {left: $('#statue').offset().left, top: $('#statue').offset().top };
 
@@ -205,20 +233,22 @@ $(document).keydown(function(e){
     //office
     if (oBGpos.left <100){ oBGpos.left += 10;}
     if (oFGpos.left <100){ oFGpos.left += 30;}
+    if (oCpos.left <100){ oCpos.left += 30;}
+
     if (cMGpos.left <1200){ cMGpos.left += 8;}
     if (cBpos.left <= 4000){ cBpos.left += 20;}
+
     if (gBpos.left <= 4000){ gBpos.left += 10;}
     if (gSpos.left <= 4000){ gSpos.left += 15;}
 
-    if(pos.left< 1610 && Math.round(pos.top) === 550){
+    if(pos.left< 1610 && Math.round(pos.top) === 500){
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
-    } else if(pos.left >= 1610 && Math.round(pos.top) === 550){
+      $('#chair').offset(oCpos);
+    } else if(pos.left >= 1610 && Math.round(pos.top) === 500){
       $('#cityMidground').offset(cMGpos);
       $('#buildings').offset(cBpos);
     } else if(pos.left >= 1280 && Math.round(pos.top) === 1450){
-      console.log("bgd = " + gBpos.left);
-      console.log("statue = " + gSpos.left);
       $('#galleryBackground').offset(gBpos);
       $('#statue').offset(gSpos);
     }
@@ -241,15 +271,19 @@ $(document).keydown(function(e){
     //office
     if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10;}
     if (oFGpos.left <=100 && oFGpos.left > -1550){ oFGpos.left -= 30;}
+    if (oFGpos.left > -1550){ oCpos.left -= 30;}
+
     if (cMGpos.left > 350){ cMGpos.left -= 8;}
     if (cBpos.left >=1840){ cBpos.left -= 20;}
+
     if (gBpos.left >= 850){ gBpos.left -= 10;}
     // if (gSpos.left >= 1700){ gSpos.left -= 15;}
 
-    if(pos.left< 1610 && Math.round(pos.top) === 550){
+    if(pos.left< 1610 && Math.round(pos.top) === 500){
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
-    } else if(pos.left >= 1610 && Math.round(pos.top) === 550){
+      $('#chair').offset(oCpos);
+    } else if(pos.left >= 1610 && Math.round(pos.top) === 500){
       console.log("buildings = " + cBpos.left);
       $('#cityMidground').offset(cMGpos);
       $('#buildings').offset(cBpos);
@@ -265,18 +299,22 @@ $(document).keydown(function(e){
 function centerAll(){
   $(window).resize(function() {
     var win = $(window);
-    document.getElementById('comicPanel').setAttribute("style","width:"+win.width()*.95+"px");
-    var area = $('#comicPanel');
-    $('#comicPanel').css({
+    $('#panelFrame *').css({width: (win.width()*.9)+'px',});
+    var frame = $('#panelFrame');
+    $('#comicPanel').css({width: (frame.width())+'px',});
+    // $('#comicPanel').width(win.width()*.9)
+    var area = $('#panelFrame');
+    $('#panelFrame').css({
       position: 'absolute',
-      left: (win.width() - area.outerWidth()) / 2,
-      top: (win.height() - area.outerHeight()) / 2
+      // width: (win.width()*.9)+'px',
+      left: (win.width() - area.outerWidth()) / 2
     });
+    console.log('after='+$('#comicPanel').width());
   });
 }
 
 function center1(){
-    $('#comicPannel').animate({ 'zoom': $('#pannel1'),'top': $('#pannel1').top, 'left': $('pannel1').left }, 400);
+    $('#comicPanel').animate({ 'zoom': $('#panel1'),'top': $('#panel1').top, 'left': $('panel1').left }, 400);
 }
 function moveClouds(){
   if ($('#walkAnimation').offset().left >= 1610 && $('#walkAnimation').offset().left <= 4000 && Math.round($('#walkAnimation').offset().top) === 550) {
