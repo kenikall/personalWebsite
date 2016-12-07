@@ -334,3 +334,62 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   top: 450px;
   left: 200px;
 }
+
+.textbox{
+  background: transparent;
+}
+
+.icon{
+  position:absolute;
+}
+
+#resume{
+  top: 20%;
+  left: 45%;
+}
+
+#linkedin{
+  top: 20%;
+  left: 60%;
+}
+
+#github{
+  top: 60%;
+  left: 45%;
+}
+
+#facebook{
+  top: 60%;
+  left: 60%;
+}
+
+#twitter{
+  top: 60%;
+  left: 75%;
+}
+
+.contact{
+  position: absolute;
+  left: 10%;
+}
+
+#email{
+  top: 20%;
+  width: 50%;
+}
+
+#subject{
+  top: 30%;
+  width: 50%;
+}
+
+#body{
+  top: 50%;
+  width: 50%;
+  height: 50%;
+}
+
+#panel1speechBubble{
+  position: absolute;
+  z-index: 5;
+}

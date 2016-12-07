@@ -3,19 +3,23 @@
   <div id="panelFrame"><img src="./images/frame.png">
     <div id=panel1 class="panel">
       <canvas id="standAnimation"></canvas>
+
       <canvas id="walkAnimation"></canvas>
+      <img id="panel1speechBubble" src="./images/text/showYou.png">
+
       <div id="officeBackground" class="background">
         <img src="./images/office/officeBackground.png">
 
         <img id="chair" src="./images/office/chair.png">
         <img class="wallStuff" id="nav" src="./images/office/navagation.png">
         <img class="wallStuff" id="poster" src="./images/office/poster.png">
-        <img class="wallStuff" id="text1" src="./images/office/text1.png">
         <img class="wallStuff buttonO" id="facebookO" src="./images/buttons/fbButton.png">
         <img class="wallStuff buttonO" id="githubO" src="./images/buttons/gtButton.png">
         <img class="wallStuff buttonO" id="linkedO" src="./images/buttons/liButton.png">
         <img class="wallStuff buttonO" id="twitterO" src="./images/buttons/twButton.png">
         <img class="wallStuff buttonO" id="resumeO" src="./images/buttons/reButton.png">
+
+        <img class="text" id="text1" src="./images/text/mannah.png">
       </div>
 
       <div id="officeForeground" class="foreground">
@@ -27,7 +31,10 @@
 
     <div id=panel2 class="panel">
       <canvas id="cityWalk"></canvas>
-      <div id="cityBackground" class="background"><img src="./images/city/cityBackground.png"></div>
+      <div id="cityBackground" class="background">
+        <img src="./images/city/cityBackground.png">
+        <img class="text" id="text1" src="./images/text/mannah.png">
+      </div>
       <div id="cityMidground"><img src="./images/city/cityMidground.png"></div>
       <div id="buildings"><img src="./images/city/cityBuildings.png"></div>
 
@@ -88,7 +95,27 @@
       </div>
     </div>
 
-    <div id=panel7 class="panel"></div>
+    <div id=panel7 class="panel">
+        <div id="email" class="contact">
+          <img src="./images/pannelFiller.png">
+          <input class="textbox" id="email-address" name="email-address" maxlength="75" placeholder="Your email" style="background: transparent">
+        </div>
+        <div id="subject" class="contact">
+          <img src="./images/pannelFiller.png" style="position: absolute; width: 20; height: 50">
+          <input class="textbox" id="email-subject" name="email-subject" maxlength="150" style="background: transparent">
+        </div>
+        <div id="body" class="contact">
+          <img src="./images/pannelFiller.png" style="position: absolute; width: 30; height: 5; background: transparent">
+          <textarea class="textbox" id="email-message" name="email-message" placeholder="Message" style="position: absolute; z-index: auto; position: relative; line-height: normal; font-size: 14px; transition: none; background: transparent !important;">
+          </textarea>
+        </div>
+      <img id="facebook" class="icon" src="./images/icons/facebook.png">
+      <img id="linkedin" class="icon" src="./images/icons/linkedin.png">
+      <img id="resume" class="icon" src="./images/icons/resume.png">
+      <img id="github" class="icon" src="./images/icons/github.png">
+      <img id="twitter" class="icon" src="./images/icons/twitter.png">
+
+    </div>
     <div id=panel8 class="panel"></div>
   </div>
 </div>

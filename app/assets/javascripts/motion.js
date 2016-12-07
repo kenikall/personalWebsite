@@ -17,7 +17,7 @@ $(document).ready(function(){
 
     function gameLoop(){
       window.requestAnimationFrame(gameLoop);
-      console.log(gameLoop);
+
       moveClouds();
       moveLessons();
       // standAnimation.render();
@@ -32,10 +32,10 @@ $(document).ready(function(){
       lessonWalk.render();
       galleryWalk.update();
       galleryWalk.render();
-      vegimon.update();
-      vegimon.render();
-      durak.update();
-      durak.render();
+      // vegimon.update();
+      // vegimon.render();
+      // durak.update();
+      // durak.render();
     }
     // function standLoop(){
     //   window.requestAnimationFrame(gameLoop);
@@ -174,8 +174,8 @@ $(document).ready(function(){
     classWalkImage.src = "./images/walkSpriteSheet.png";
     lessonWalkImage.src = "./images/lessonWalk.png";
     galleryWalkImage.src = "./images/walkSpriteSheet.png";
-    durakImage.src = "./images/gallery/durak.png";
-    vegiImage.src = "./images/gallery/vegimongrow.png";
+    // durakImage.src = "./images/gallery/durak.png";
+    // vegiImage.src = "./images/gallery/vegimongrow.png";
   }
 
 })
@@ -188,7 +188,7 @@ $(document).keydown(function(e){
   var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
   var oFGpos = {left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
   var oCpos = {left: $('#chair').offset().left, top: $('#chair').offset().top };
-
+  var oSb1 = {left: pos.left+175, top: pos.top-200}
   var cMGpos = {left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
   var cBpos = {left: $('#buildings').offset().left, top: $('#buildings').offset().top };
 
@@ -218,6 +218,7 @@ $(document).keydown(function(e){
     if (gSpos.left <= 4000){ gSpos.left += 15;}
 
     if(pos.left< 1610 && Math.round(pos.top) === 500){
+      $('#panel1speechBubble').offset(oSb1);
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
       $('#chair').offset(oCpos);
@@ -256,6 +257,7 @@ $(document).keydown(function(e){
     // if (gSpos.left >= 1700){ gSpos.left -= 15;}
 
     if(pos.left< 1610 && Math.round(pos.top) === 500){
+      $('#panel1speechBubble').offset(oSb1);
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
       $('#chair').offset(oCpos);
