@@ -1,64 +1,166 @@
 
 <div id=comicPanel>
-  <div id="panelFrame"><img src="./images/frame.png">
-  </div>
-  </div>
+  <img id="panelFrame" src="./images/frame.png">
+    <div id=panel1 class="panel">
+      <canvas id="standAnimation"></canvas>
+      <canvas id="walkAnimation"></canvas>
+      <img class="speechBubble" id="panel1speechBubble" src="./images/text/showYou.png">
+
+      <div id="officeBackground" class="background">
+        <img src="./images/office/officeBackground.png">
+
+        <img id="chair" src="./images/office/chair.png">
+
+        <img class="wallStuff" id="nav" src="./images/office/navagation.png">
+        <img class="wallStuff" id="poster" src="./images/office/poster.png">
+        <img class="wallStuff buttonO" id="facebookO" src="./images/buttons/fbButton.png">
+        <img class="wallStuff buttonO" id="githubO" src="./images/buttons/gtButton.png">
+        <img class="wallStuff buttonO" id="linkedO" src="./images/buttons/liButton.png">
+        <img class="wallStuff buttonO" id="twitterO" src="./images/buttons/twButton.png">
+        <img class="wallStuff buttonO" id="resumeO" src="./images/buttons/reButton.png">
+
+        <img class="text" id="text1" src="./images/text/mannah.png">
+        <img class="text" id="text2" src="./images/text/resume.png">
+      </div>
+
+      <div id="officeForeground" class="foreground">
+        <img src="./images/office/officeForeground.png">
+        <img id="table" src="./images/office/table.png">
+        <img id="computer" src="./images/office/computer.png">
+      </div>
+    </div>
+
+    <div id=panel2 class="panel">
+      <canvas id="cityWalk"></canvas>
+      <img class="speechBubble" id="panel2speechBubble" src="./images/text/prettyGood.png">
+
+      <div id="cityBackground" class="background">
+        <img src="./images/city/cityBackground.png">
+        <img class="text" id="text3" src="./images/text/tools.png">
+      </div>
+      <div id="cityMidground"><img src="./images/city/cityMidground.png"></div>
+      <div id="buildings"><img src="./images/city/cityBuildings.png"></div>
+
+      <div id="clouds">
+        <div id="cloud1"><img src="./images/city/cloud.png"></div>
+        <div id="cloud2"><img src="./images/city/cloud.png"></div>
+        <div id="cloud3"><img src="./images/city/cloud.png"></div>
+        <div id="cloud4"><img src="./images/city/cloud.png"></div>
+        <div id="cloud5"><img src="./images/city/cloud.png"></div>
+      </div>
+    </div>
+
+    <div id=panel3 class="panel">
+      <canvas id="classWalk"></canvas>
+      <img class="speechBubble" id="panel3speechBubble" src="./images/text/engage.png">
+
+      <img class="kidTalk" id="easy" src="./images/text/easy.png">
+      <img class="kidTalk" id="groups" src="./images/text/groups.png">
+      <img class="kidTalk" id="pictures" src="./images/text/pictures.png">
+      <img class="kidTalk" id="time" src="./images/text/time.png">
+      <img class="kidTalk" id="recess" src="./images/text/recess.png">
+
+      <div id="classroomBackground" class="background">
+        <img src="./images/classroom/classroomBackground.png">
+        <img class="text" id="text4" src="./images/text/teacher.png">
+        <img class="text" id="text5" src="./images/text/games.png">
+      </div>
+
+      <div id="classroomForeground" class="foreground">
+        <img src="./images/classroom/classroomForeground.png">
+        <img src="./images/classroom/classroomChairs.png">
+      </div>
+    </div>
+
+    <div id=panel4 class="panel">
+      <canvas id="lessonWalk"></canvas>
+      <img class="text" id="text6" src="./images/text/opportunities.png">
+      <img class="speechBubble" id="panel4speechBubble" src="./images/text/checkOut.png">
+
+      <div id="lessonh1" class="hlesson"><img src="./images/test/8.png"></div>
+      <div id="lessonh2" class="hlesson"><img src="./images/test/8.png"></div>
+      <div id="lessonh3" class="hlesson"><img src="./images/test/8.png"></div>
+      <div id="lessonh4" class="hlesson"><img src="./images/test/8.png"></div>
+
+      <div id="lessonv1" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lessonv2" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lessonv3" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lessonv4" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lessonv5" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lessonv6" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lessonv7" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lessonv8" class="vlesson"><img src="./images/test/vert.png"></div>
+    </div>
+
+    <div id=panel5 class="panel">
+      <canvas id="galleryWalk"></canvas>
+      <div id="galleryBackground" class="background">
+        <img src="./images/gallery/galleryBackground.png">
+        <img class="text" id="text7" src="./images/text/apps.png">
+        <div id="frame1" class="frames">
+          <div>
+            <img src="./images/gallery/backWall.png">
+            <canvas id="durak" class="paintings"></canvas>
+          </div>
+        </div>
+        <div id="frame2" class="frames">
+          <div>
+            <img src="./images/gallery/backWall.png">
+            <canvas id="vegimon" class="paintings"></canvas>
+          </div>
+        </div>
+      </div>
+      <div id="statue" class="foreground"><img src="./images/gallery/statue.png"></div>
+    </div>
+
+    <div id=panel6 class="panel">
+      <div id="map" class="background"><img src="./images/map/usmap.png">
+        <div id="sanfran">
+          <img src="./images/map/sanfran.png">
+          <img class="text" id="text8" src="./images/text/SanFran.png">
+        </div>
+        <div id="newyork">
+          <img src="./images/map/newyork.png">
+          <img class="text" id="text9" src="./images/text/NY.png">
+        </div>
+      </div>
+    </div>
+
+    <div id=panel7 class="panel">
+      <img class="text" id="text10" src="./images/text/suggestions.png">
+      <div id="email" class="contact">
+        <img src="./images/pannelFiller.png">
+        <input class="textbox" id="email-address" name="email-address" maxlength="75" placeholder="Your email" style="background: transparent">
+      </div>
+      <div id="subject" class="contact">
+      <img src="./images/pannelFiller.png" style="position: absolute; width: 20; height: 50">
+        <input class="textbox" id="email-subject" name="email-subject" maxlength="150" style="background: transparent">
+      </div>
+      <div id="body" class="contact">
+        <img src="./images/pannelFiller.png" style="position: absolute; width: 30; height: 5; background: transparent">
+        <textarea class="textbox" id="email-message" name="email-message" placeholder="Message" style="position: absolute; z-index: auto; position: relative; line-height: normal; font-size: 14px; transition: none; background: transparent !important;">
+        </textarea>
+      </div>
+      <img id="facebook" class="icon" src="./images/icons/facebook.png">
+      <img id="linkedin" class="icon" src="./images/icons/linkedin.png">
+      <img id="resume" class="icon" src="./images/icons/resume.png">
+      <img id="github" class="icon" src="./images/icons/github.png">
+      <img id="twitter" class="icon" src="./images/icons/twitter.png">
+
+    </div>
+    <div id=panel8 class="panel">
+      <img class="speechBubble" id="panel8speechBubble" src="./images/text/coding.png">
+      <img class="speechBubble" id="panel8speechBubble" src="./images/text/thanks.png">
+      <div class="background">
+        <img class="text" id="text11" src="./images/text/projects.png">
+        <img class="text" id="text12" src="./images/text/new.png">
+
+        <img id="galleryBackground" src="./images/bedroom/bedroomBackground.png">
+        <img id="chair" src="./images/office/chair.png">
+      </div>
+      <div class="foreground">
+        <img id="tableRoom" src="./images/office/table.png">
+        <img id="computerRoom" src="./images/office/computer.png">
+      </div>
+    </div>
 </div>
-<div id=pannel1 class="pannel">
-  <canvas id="walkAnimation"></canvas>
-  <div id="officeBackground" class="background"><img src="./images/office/officeBackground.png"></div>
-  <div id="officeForeground" class="foreground"><img src="./images/office/officeForeground.png"></div>
-</div>
-
-<div id=pannel2 class="pannel">
-  <canvas id="cityWalk"></canvas>
-  <div id="cityBackground" class="background"><img src="./images/city/cityBackground.png"></div>
-  <div id="cityMidground"><img src="./images/city/cityMidground.png"></div>
-  <div id="buildings"><img src="./images/city/cityBuildings.png"></div>
-
-  <div id="clouds">
-    <div id="cloud1"><img src="./images/city/cloud.png"></div>
-    <div id="cloud2"><img src="./images/city/cloud.png"></div>
-    <div id="cloud3"><img src="./images/city/cloud.png"></div>
-    <div id="cloud4"><img src="./images/city/cloud.png"></div>
-    <div id="cloud5"><img src="./images/city/cloud.png"></div>
-  </div>
-</div>
-
-<div id=pannel3 class="pannel">
-  <canvas id="classWalk"></canvas>
-  <div id="classroom" class="background"><img src="./images/classroom/classroom_test.png"></div>
-</div>
-
-<div id=pannel4 class="pannel">
-  <canvas id="lessonWalk"></canvas>
-  <div id="lessonh1" class="hlesson"><img src="./images/test/1.png"></div>
-  <div id="lessonh2" class="hlesson"><img src="./images/test/2.png"></div>
-  <div id="lessonh3" class="hlesson"><img src="./images/test/3.png"></div>
-  <div id="lessonh4" class="hlesson"><img src="./images/test/4.png"></div>
-  <div id="lessonh5" class="hlesson"><img src="./images/test/5.png"></div>
-
-  <div id="lessonv1" class="vlesson"><img src="./images/test/vert.png"></div>
-  <div id="lessonv2" class="vlesson"><img src="./images/test/vert.png"></div>
-  <div id="lessonv3" class="vlesson"><img src="./images/test/vert.png"></div>
-  <div id="lessonv4" class="vlesson"><img src="./images/test/vert.png"></div>
-  <div id="lessonv5" class="vlesson"><img src="./images/test/vert.png"></div>
-  <div id="lessonv6" class="vlesson"><img src="./images/test/vert.png"></div>
-  <div id="lessonv7" class="vlesson"><img src="./images/test/vert.png"></div>
-</div>
-
-<div id=pannel5 class="pannel">
-  <canvas id="galleryWalk"></canvas>
-  <div id="galleryBackground" class="background"><img src="./images/gallery/galleryBackground.png"></div>
-  <div id="statue" class="foreground"><img src="./images/gallery/statue.png"></div>
-</div>
-
-<div id=pannel6 class="pannel">
-  <div id="map" class="background"><img src="./images/map/usmap.png"></div>
-    <div id="sanfran"><img src="./images/map/sanfran.png"></div>
-    <div id="newyork"><img src="./images/map/newyork.png"></div>
-
-</div>
-
-<div id=pannel7 class="pannel"></div>
-<div id=pannel8 class="pannel"></div>

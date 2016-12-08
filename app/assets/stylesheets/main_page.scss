@@ -2,7 +2,11 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 .background{
   position: absolute;
-  z-index:4;
+  z-index:3;
+}
+
+.wallStuff{
+  position:absolute;
 }
 
 .foreground{
@@ -10,19 +14,24 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   z-index:6;
 }
 
-.pannel{
+.panel{
   overflow: hidden;
   position: absolute;
 }
 
-#panelFrame{
-  position:absolute;
-  z-index: 10;
-  top: 0px;
-  left: 0px;
+#comicPanel{
+  position: absolute;
+  max-width: 4040px;
+  width: 100%;
 }
 
-#pannel1{
+#panelFrame{
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+#panel1{
   height: 810px;
   width: 1600px;
   -webkit-clip-path: polygon(0 0, 65% 0, 100% 100%, 0% 100%);
@@ -35,7 +44,53 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   z-index:8;
 }
 
-#pannel2{
+#chair{
+  z-index:4;
+  position: absolute;
+  left: 0px;
+  top: 575px;
+}
+
+#computer{
+  position: absolute;
+  left: 125px;
+  top: 560px;
+}
+
+#table{
+  position: absolute;
+  top:600px;
+  left: 0px;
+}
+
+#poster{
+  position: absolute;
+  top: 100px;
+  left:1575px;
+}
+
+.buttonO{
+  position: absolute;
+  left: 700px;
+}
+
+#facebookO{ top: 100px; }
+
+#githubO{ top: 150px; }
+
+#linkedO{ top: 200px; }
+
+#twitterO{ top: 250px; }
+
+#resumeO{ top: 300px; }
+
+#nav{
+  position: absolute;
+  top: 100px;
+  left: 1100px;
+}
+
+#panel2{
   height: 810px;
   width: 2800px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
@@ -101,66 +156,51 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   position: absolute;
   z-index:5;
 }
-#pannel3{
+#panel3{
   height: 810px;
   width: 1250px;
-  overflow: hidden;
-  position: absolute;
   top: 1000px;
   left: 100px;
 }
 
-#pannel4{
+#panel4{
+  z-index: 15;
   height: 810px;
   background-color: black;
   width: 1250px;
-  overflow: hidden;
-  position: absolute;
   top: 1000px;
   left: 1425px;
 }
 
-#lessonv1{
-  top: -250px;
-  left: -100px;
-}
+#lessonv1{ top: -200px; left: -150px; }
 
-#lessonh1{
-  top: -250px;
-  left: -100px;
-}
+#lessonv3{ top: 400px; left: 1100px; }
 
-#lessonv2{
-  top: -250px;
-  left: 400px;
-}
+#lessonh1{ top: -25px; left: 275px; }
 
-#lessonv3{
-  top: -25px;
-  left: 825px;
-}
+#lessonv2{ top: -200px; left: 875px; }
 
+#lessonv4{ top: 825px; left: -50px; }
 
-#lessonh2{
-  top: 525px;
-  left: 700px;
-}
+#lessonv5{ top: 825px; left: 375px; }
 
-.hlesson{
-  height: 85px;
-  width: 110px;
-  position: absolute;
-  z-index: 3;
-}
+#lessonh2{ top: 400px; left: -100px; }
 
-.vlesson{
-  height: 110px;
-  width: 85px;
-  position: absolute;
-  z-index: 3;
-}
+#lessonh3{ top: 400px; left: 500px; }
 
-#pannel5{
+#lessonh4{ top: 1000px; left: 800px; }
+
+#lessonv6{ top: 1425px; left: 0px; }
+
+#lessonv7{ top: 1475px; left: 425px; }
+
+#lessonv8{ top: 1425px; left: 850px; }
+
+.hlesson{ position: absolute; z-index: 3; }
+
+.vlesson{ position: absolute; z-index: 3; }
+
+#panel5{
   height: 810px;
   width: 1200px;
   top: 1000px;
@@ -171,8 +211,32 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   top:300px;
   left:200px;
 }
+.frames{
+  position: absolute;
+  top:250px;
+  z-index:5;
+}
 
-#pannel6{
+#frame1{
+  left: 525px;
+  z-index:5;
+}
+
+#frame2{
+  left: 1000px;
+}
+
+.paintings{
+  z-index: 4;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 300px;
+  height: 201px;
+
+}
+
+#panel6{
   background-color: black;
   height: 950px;
   width: 1000px;
@@ -195,20 +259,19 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   z-index: 6;
   top: -150px;
   left: -150px;
-
+  width: 5%;
+  height:5%;
 }
 
-#pannel7{
+#panel7{
   height: 950px;
   width: 1950px;
   -webkit-clip-path: polygon(0 0, 67% 0, 100% 100%, 0% 100%);
-  overflow: hidden;
-  position: absolute;
   top: 1900px;
   left: 1180px;
 }
 
-#pannel8{
+#panel8{
   height: 930px;
   width: 1350px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
@@ -219,8 +282,15 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #walkAnimation{
   position:absolute;
   z-index: 5;
-  top: 450px;
+  top: 400px;
   left: 200px;
+}
+
+#standAnimation{
+  position:absolute;
+  z-index: 5;
+  top: 450px;
+  left: -25px;
 }
 
 #cityWalk{
@@ -249,12 +319,122 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   top: 1000px;
   left: 1000px;
 }
+
 #marker{
- position:absolute;
+  position:absolute;
   z-index: 12;
   top: 450px;
   left: 200px;
 }
 
+.textbox{
+  background: transparent;
+}
 
+.icon{
+  position:absolute;
+}
 
+#resume{
+  top: 20%;
+  left: 45%;
+}
+
+#linkedin{
+  top: 20%;
+  left: 60%;
+}
+
+#github{
+  top: 60%;
+  left: 45%;
+}
+
+#facebook{
+  top: 60%;
+  left: 60%;
+}
+
+#twitter{
+  top: 60%;
+  left: 75%;
+}
+
+.contact{
+  position: absolute;
+  left: 10%;
+}
+
+#email{
+  top: 20%;
+  width: 50%;
+}
+
+#subject{
+  top: 30%;
+  width: 50%;
+}
+
+#body{
+  top: 50%;
+  width: 50%;
+  height: 50%;
+}
+
+.speechBubble{
+ position: absolute;
+ top: 25%;
+ left: 350px;
+ z-index: 12;
+}
+
+#classroomForeground{
+  position: absolute;
+  top: 60%;
+}
+
+.kidTalk{
+ position: absolute;
+ top: 400px;
+ left: 50%;
+ z-index: 12;
+}
+
+#pictures{
+ top: 425px;
+ left: 15%;
+}
+
+#groups{
+ top: 375px;
+ left: 25%;
+}
+
+#easy{
+ top: 425px;
+ left: 35%;
+}
+
+#time{
+ top: 375px;
+ left: 45%;
+}
+
+#recess{
+ top: 425px;
+ left: 55%;
+}
+
+.text{
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  z-index: 15;
+}
+
+#text1{ top: 25px; left: 75px; }
+#text2{ top: 200px; left: 150px; }
+#text5{ top: 700px; left: 1000px; }
+#text6{ left: 50px; }
+#text3{ left: 150px; }
+#text12{ top: 200px; left: 200px; }
