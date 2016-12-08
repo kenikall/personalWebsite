@@ -1,89 +1,56 @@
 // $(document).
 $(document).ready(function(){
   //centerAll();
+  // var walk,
+  //   walkImage,
+  //   standingImage,
+  //   cityWalkImage,
+  //   classWalkImage,
+  //   lessonWalkImage,
+  //   galleryWalkImage,
+  //   durakImage,
+  //   vegiImage,
+  //   canvas;
 
-  window.onload = function(){
-    //centerAll();
-    var walk,
-      walkImage,
-      standingImage,
-      cityWalkImage,
-      classWalkImage,
-      lessonWalkImage,
-      galleryWalkImage,
-      durakImage,
-      vegiImage,
-      canvas;
-
-    function gameLoop(){
-      window.requestAnimationFrame(gameLoop);
-
-      moveClouds();
-      moveLessons();
-      // standAnimation.render();
-      // standingImage.update();
-      walk.update();
-      walk.render();
-      cityWalk.update();
-      cityWalk.render();
-      classWalk.update();
-      classWalk.render();
-      lessonWalk.update();
-      lessonWalk.render();
-      galleryWalk.update();
-      galleryWalk.render();
-      // vegimon.update();
-      // vegimon.render();
-      // durak.update();
-      // durak.render();
-    }
-    // function standLoop(){
-    //   window.requestAnimationFrame(gameLoop);
-    //   for(var i=0; i< 7 ; i++;){
-    //     walk.update();
-    //     walk.render();
-    //   }
-    // }
     function sprite(options){
-      var that = {},
-        frameIndex = 0,
-        tickCount = 0,
-        ticksPerFrame = options.ticksPerFrame || 0,
-        numberOfFrames = options.numberOfFrames || 1;
+    console.log(options.image);
+    var that = {},
+      frameIndex = 0,
+      tickCount = 0,
+      ticksPerFrame = options.ticksPerFrame || 0,
+      numberOfFrames = options.numberOfFrames || 1;
 
-        that.context = options.context;
-        that.width = options.width;
-        that.height = options.height;
-        that.image = options.image;
+      that.context = options.context;
+      that.width = options.width;
+      that.height = options.height;
+      that.image = options.image;
 
-        that.update = function () {
-          tickCount += 1;
+      that.update = function () {
+        tickCount += 1;
 
-          if (tickCount > ticksPerFrame) {
-            tickCount = 0;
-            if (frameIndex < numberOfFrames - 1) { frameIndex += 1; }
-            else { frameIndex = 0; }
-          }
-        };
-
-      that.render = function () {
-        that.context.clearRect(0, 0, that.width, that.height);
-
-        that.context.drawImage(
-          that.image,
-          frameIndex * that.width / numberOfFrames,
-          0,
-          that.width / numberOfFrames,
-          that.height,
-          0,
-          0,
-          that.width / numberOfFrames,
-          that.height);
+        if (tickCount > ticksPerFrame) {
+          tickCount = 0;
+          if (frameIndex < numberOfFrames - 1) { frameIndex += 1; }
+          else { frameIndex = 0; }
+        }
       };
 
-      return that;
-    }
+    that.render = function () {
+      that.context.clearRect(0, 0, that.width, that.height);
 
+      that.context.drawImage(
+        that.image,
+        frameIndex * that.width / numberOfFrames,
+        0,
+        that.width / numberOfFrames,
+        that.height,
+        0,
+        0,
+        that.width / numberOfFrames,
+        that.height);
+    };
+    return that;
+  }
     // Office walk
     canvas = document.getElementById("walkAnimation");
     canvas.width = 250;
@@ -166,7 +133,7 @@ $(document).ready(function(){
 
 
     // Load sprite sheets
-    walkImage.addEventListener("load", gameLoop);
+    // walkImage.addEventListener("load", gameLoop);
 
     // standingImage.src = "./images/standingSpriteSheet.png";
     walkImage.src = "./images/walkSpriteSheet.png";
@@ -174,21 +141,54 @@ $(document).ready(function(){
     classWalkImage.src = "./images/walkSpriteSheet.png";
     lessonWalkImage.src = "./images/lessonWalk.png";
     galleryWalkImage.src = "./images/walkSpriteSheet.png";
+  window.onload = function(){
+    //centerAll();
+
+    function gameLoop(){
+      window.requestAnimationFrame(gameLoop);
+
+      moveClouds();
+      moveLessons();
+      // standAnimation.render();
+      // standingImage.update();
+      // vegimon.update();
+      // vegimon.render();
+      // durak.update();
+      // durak.render();
+    }
+    // function standLoop(){
+    //   window.requestAnimationFrame(gameLoop);
+    //   for(var i=0; i< 7 ; i++;){
+    //     walk.update();
+    //     walk.render();
+    //   }
+    // }
     // durakImage.src = "./images/gallery/durak.png";
     // vegiImage.src = "./images/gallery/vegimongrow.png";
   }
 
 })
 $(document).keydown(function(e){
+    var walk,
+    walkImage,
+    standingImage,
+    cityWalkImage,
+    classWalkImage,
+    lessonWalkImage,
+    galleryWalkImage,
+    durakImage,
+    vegiImage,
+    canvas;
   //person
   var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
+  var bubble = {left: pos.left+175, top: pos.top-200}
+
   if(pos.left >= 4000 && Math.round(pos.top) === 550 ){ pos.left = 200; pos.top = 1450 }
   else if (pos.left >= 4000 && Math.round(pos.top) === 1000 ){ pos.left = 200; pos.top = 2000 }
   //office
   var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
   var oFGpos = {left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
   var oCpos = {left: $('#chair').offset().left, top: $('#chair').offset().top };
-  var oSb1 = {left: pos.left+175, top: pos.top-200}
   var cMGpos = {left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
   var cBpos = {left: $('#buildings').offset().left, top: $('#buildings').offset().top };
 
@@ -217,8 +217,21 @@ $(document).keydown(function(e){
     if (gBpos.left <= 4000){ gBpos.left += 10;}
     if (gSpos.left <= 4000){ gSpos.left += 15;}
 
+      walk.update();
+      walk.render();
+      cityWalk.update();
+      cityWalk.render();
+      classWalk.update();
+      classWalk.render();
+      lessonWalk.update();
+      lessonWalk.render();
+      galleryWalk.update();
+      galleryWalk.render();
+
     if(pos.left< 1610 && Math.round(pos.top) === 500){
-      $('#panel1speechBubble').offset(oSb1);
+      walk.update();
+      walk.render();
+      $('.panel1speechBubble').offset(bubble);
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
       $('#chair').offset(oCpos);
@@ -257,7 +270,11 @@ $(document).keydown(function(e){
     // if (gSpos.left >= 1700){ gSpos.left -= 15;}
 
     if(pos.left< 1610 && Math.round(pos.top) === 500){
-      $('#panel1speechBubble').offset(oSb1);
+      walk.update();
+      walk.render();
+
+
+      $('#panel1speechBubble').offset(bubble);
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
       $('#chair').offset(oCpos);
@@ -359,4 +376,43 @@ function moveLessons(){
   $('#lessonh3').offset(horzLesson3Pos);
   $('#lessonh4').offset(horzLesson4Pos);
   }
+
+  // function sprite(options){
+  //   var that = {},
+  //     frameIndex = 0,
+  //     tickCount = 0,
+  //     ticksPerFrame = options.ticksPerFrame || 0,
+  //     numberOfFrames = options.numberOfFrames || 1;
+
+  //     that.context = options.context;
+  //     that.width = options.width;
+  //     that.height = options.height;
+  //     that.image = options.image;
+
+  //     that.update = function () {
+  //       tickCount += 1;
+
+  //       if (tickCount > ticksPerFrame) {
+  //         tickCount = 0;
+  //         if (frameIndex < numberOfFrames - 1) { frameIndex += 1; }
+  //         else { frameIndex = 0; }
+  //       }
+  //     };
+
+  //   that.render = function () {
+  //     that.context.clearRect(0, 0, that.width, that.height);
+
+  //     that.context.drawImage(
+  //       that.image,
+  //       frameIndex * that.width / numberOfFrames,
+  //       0,
+  //       that.width / numberOfFrames,
+  //       that.height,
+  //       0,
+  //       0,
+  //       that.width / numberOfFrames,
+  //       that.height);
+  //   };
+  //   return that;
+  // }
 }

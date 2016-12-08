@@ -84,18 +84,10 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 #resumeO{ top: 300px; }
 
-
 #nav{
   position: absolute;
   top: 100px;
   left: 1100px;
-}
-
-
-#text1{
-  position: absolute;
-  top: 100px;
-  left: 50px;
 }
 
 #panel2{
@@ -389,7 +381,60 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   height: 50%;
 }
 
-#panel1speechBubble{
-  position: absolute;
-  z-index: 5;
+.speechBubble{
+ position: absolute;
+ top: 25%;
+ left: 350px;
+ z-index: 12;
 }
+
+#classroomForeground{
+  position: absolute;
+  top: 60%;
+}
+
+.kidTalk{
+ position: absolute;
+ top: 400px;
+ left: 50%;
+ z-index: 12;
+}
+
+#pictures{
+ top: 425px;
+ left: 15%;
+}
+
+#groups{
+ top: 375px;
+ left: 25%;
+}
+
+#easy{
+ top: 425px;
+ left: 35%;
+}
+
+#time{
+ top: 375px;
+ left: 45%;
+}
+
+#recess{
+ top: 425px;
+ left: 55%;
+}
+
+.text{
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  z-index: 15;
+}
+
+#text1{ top: 25px; left: 75px; }
+#text2{ top: 200px; left: 150px; }
+#text5{ top: 700px; left: 1000px; }
+#text6{ left: 50px; }
+#text3{ left: 150px; }
+#text12{ top: 200px; left: 200px; }
