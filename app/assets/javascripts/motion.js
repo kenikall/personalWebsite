@@ -1,5 +1,8 @@
 // $(document).
 $(document).ready(function(){
+  $('.speechBubble').hide();
+  // $('.kidTalk').hide();
+
   //centerAll();
   // var walk,
   //   walkImage,
@@ -13,7 +16,6 @@ $(document).ready(function(){
   //   canvas;
 
     function sprite(options){
-    console.log(options.image);
     var that = {},
       frameIndex = 0,
       tickCount = 0,
@@ -62,7 +64,7 @@ $(document).ready(function(){
       height: 400,
       image: walkImage,
       numberOfFrames: 6,
-      ticksPerFrame: 6
+      ticksPerFrame: 1
     });
     // City walk
     canvas = document.getElementById("cityWalk");
@@ -75,20 +77,20 @@ $(document).ready(function(){
       height: 541,
       image: cityWalkImage,
       numberOfFrames: 2,
-      ticksPerFrame: 12
+      ticksPerFrame: 2
     });
     // Class walk
     canvas = document.getElementById("classWalk");
-    canvas.width = 212;
-    canvas.height = 328;
+    canvas.width = 250;
+    canvas.height = 400;
     classWalkImage = new Image();
     classWalk = sprite({
       context: canvas.getContext("2d"),
-      width: 1272,
-      height: 328,
-      image: classWalkImage,
+      width: 1600,
+      height: 400,
+      image: walkImage,
       numberOfFrames: 6,
-      ticksPerFrame: 4
+      ticksPerFrame: 1
     });
     // Standing Animation
     // canvas = document.getElementById("standAnimation");
@@ -134,7 +136,6 @@ $(document).ready(function(){
 
     // Load sprite sheets
     // walkImage.addEventListener("load", gameLoop);
-
     // standingImage.src = "./images/standingSpriteSheet.png";
     walkImage.src = "./images/walkSpriteSheet.png";
     cityWalkImage.src = "./images/city/cityWalkSpriteSheet.png";
@@ -169,21 +170,12 @@ $(document).ready(function(){
 
 })
 $(document).keydown(function(e){
-    var walk,
-    walkImage,
-    standingImage,
-    cityWalkImage,
-    classWalkImage,
-    lessonWalkImage,
-    galleryWalkImage,
-    durakImage,
-    vegiImage,
-    canvas;
+
   //person
   var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
   var bubble = {left: pos.left+175, top: pos.top-200}
 
-  if(pos.left >= 4000 && Math.round(pos.top) === 550 ){ pos.left = 200; pos.top = 1450 }
+  if(pos.left >= 4000 && Math.round(pos.top) === 550 ){ pos.left = 200; pos.top = 1300 }
   else if (pos.left >= 4000 && Math.round(pos.top) === 1000 ){ pos.left = 200; pos.top = 2000 }
   //office
   var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
@@ -205,6 +197,7 @@ $(document).keydown(function(e){
     $('#classWalk').offset(pos);
     $('#lessonWalk').offset(pos);
     $('#galleryWalk').offset(pos);
+    $('.speechBubble').offset(bubble)
 
     //office
     if (oBGpos.left <100){ oBGpos.left += 10;}
@@ -217,10 +210,7 @@ $(document).keydown(function(e){
     if (gBpos.left <= 4000){ gBpos.left += 10;}
     if (gSpos.left <= 4000){ gSpos.left += 15;}
 
-      walk.update();
-      walk.render();
-      cityWalk.update();
-      cityWalk.render();
+
       classWalk.update();
       classWalk.render();
       lessonWalk.update();
@@ -231,14 +221,15 @@ $(document).keydown(function(e){
     if(pos.left< 1610 && Math.round(pos.top) === 500){
       walk.update();
       walk.render();
-      $('.panel1speechBubble').offset(bubble);
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
       $('#chair').offset(oCpos);
     } else if(pos.left >= 1610 && Math.round(pos.top) === 500){
+      cityWalk.update();
+      cityWalk.render();
       $('#cityMidground').offset(cMGpos);
       $('#buildings').offset(cBpos);
-    } else if(pos.left >= 1280 && Math.round(pos.top) === 1450){
+    } else if(pos.left >= 1280 && Math.round(pos.top) === 1300){
       $('#galleryBackground').offset(gBpos);
       $('#statue').offset(gSpos);
     }
@@ -246,10 +237,22 @@ $(document).keydown(function(e){
 
     case 39:  //right
     //person
+    console.log("left: "+pos.left+"top: "+pos.top);
     pos.left += 20;
-    if (pos.top === 550 && pos.left >= 3750) {
-      pos.top = 1450;
+    if (pos.top === 500 && pos.left >= 3750) {
+      pos.top = 1300;
       pos.left = 320;
+    } else if (pos.top === 1300 && pos.left >= 3750){
+      pos.top = 1300;
+      pos.left = 320;
+    }
+
+    if(pos.left === 420  && pos.top === 500){
+      $('#panel1speechBubble').show()
+      setTimeout(function(){ $('#panel1speechBubble').hide() }, 2000)
+    } else if (pos.left === 2400 && pos.top === 500) {
+      $('#panel2speechBubble').show()
+      setTimeout(function(){ $('#panel2speechBubble').hide() }, 2000)
     }
 
     $('#walkAnimation').offset(pos);
@@ -257,6 +260,8 @@ $(document).keydown(function(e){
     $('#classWalk').offset(pos);
     $('#lessonWalk').offset(pos);
     $('#galleryWalk').offset(pos);
+    $('.speechBubble').offset(bubble)
+
 
     //office
     if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10;}
@@ -274,17 +279,16 @@ $(document).keydown(function(e){
       walk.render();
 
 
-      $('#panel1speechBubble').offset(bubble);
+      // $('#panel1speechBubble').offset(bubble);
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
       $('#chair').offset(oCpos);
     } else if(pos.left >= 1610 && Math.round(pos.top) === 500){
-      console.log("buildings = " + cBpos.left);
+      cityWalk.update();
+      cityWalk.render();
       $('#cityMidground').offset(cMGpos);
       $('#buildings').offset(cBpos);
-    } else if(pos.left >= 2540 && Math.round(pos.top) === 1450){
-      console.log("bgd = " + gBpos.left);
-      console.log("statue = " + gSpos.left);
+    } else if(pos.left >= 2540 && Math.round(pos.top) === 1300){
       $('#galleryBackground').offset(gBpos);
       $('#statue').offset(gSpos);
     }
@@ -334,7 +338,7 @@ function moveClouds(){
 }
 
 function moveLessons(){
-  if ($('#walkAnimation').offset().left >= 1280 && $('#walkAnimation').offset().left <= 2620 && Math.round($('#walkAnimation').offset().top) === 1450) {
+  if ($('#walkAnimation').offset().left >= 1280 && $('#walkAnimation').offset().left <= 2620 && Math.round($('#walkAnimation').offset().top) === 1300) {
   var vertLesson1Pos = {left: $('#lessonv1').offset().left, top: $('#lessonv1').offset().top};
   var vertLesson2Pos = {left: $('#lessonv2').offset().left, top: $('#lessonv2').offset().top};
   var vertLesson3Pos = {left: $('#lessonv3').offset().left, top: $('#lessonv3').offset().top};

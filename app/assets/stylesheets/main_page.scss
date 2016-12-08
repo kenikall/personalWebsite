@@ -272,7 +272,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #panel8{
-  height: 930px;
+  height: 950px;
   width: 1350px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
   top: 1900px;
@@ -398,6 +398,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
  top: 400px;
  left: 50%;
  z-index: 12;
+ visibility: hidden;
 }
 
 #pictures{
