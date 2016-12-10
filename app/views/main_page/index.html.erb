@@ -41,7 +41,7 @@
       <div id="cityMidground"><img src="./images/city/cityMidground.png"></div>
       <div id="buildings"><img src="./images/city/cityBuildings.png"></div>
 
-      <div id="clouds">
+      <div class="clouds">
         <div id="cloud1"><img src="./images/city/cloud.png"></div>
         <div id="cloud2"><img src="./images/city/cloud.png"></div>
         <div id="cloud3"><img src="./images/city/cloud.png"></div>
@@ -60,16 +60,32 @@
       <img class="kidTalk" id="time" src="./images/text/time.png">
       <img class="kidTalk" id="recess" src="./images/text/recess.png">
 
-      <div id="classroomBackground" class="background">
+      <div id="classroomBackground">
         <img src="./images/classroom/classroomBackground.png">
         <img class="text" id="text4" src="./images/text/teacher.png">
         <img class="text" id="text5" src="./images/text/games.png">
+        <div id="backrow">
+          <canvas id="seatA1" class="student"></canvas>
+          <canvas id="seatA2" class="student"></canvas>
+          <canvas id="seatA3" class="student"></canvas>
+          <canvas id="seatA4" class="student"></canvas>
+        </div>
+        <img id="classroomBackground" src="./images/classroom/backDesks1.png">
       </div>
 
       <div id="classroomForeground" class="foreground">
-        <img src="./images/classroom/classroomForeground.png">
-        <img src="./images/classroom/classroomChairs.png">
+        <img id="frontDesks1" src="./images/classroom/frontDesks1.png">
+        <div id="frontrow">
+          <canvas id="seatB1" class="student"></canvas>
+          <canvas id="seatB2" class="student"></canvas>
+          <canvas id="seatB3" class="student"></canvas>
+          <canvas id="seatB4" class="student"></canvas>
+        </div>
+        <img id="frontDesks2" src="./images/classroom/frontDesks2.png">
       </div>
+      <canvas id="computer1" class="student"></canvas>
+      <canvas id="computer2" class="student"></canvas>
+
     </div>
 
     <div id=panel4 class="panel">
@@ -97,16 +113,28 @@
       <div id="galleryBackground" class="background">
         <img src="./images/gallery/galleryBackground.png">
         <img class="text" id="text7" src="./images/text/apps.png">
-        <div id="frame1" class="frames">
+        <div id="frame1">
           <div>
-            <img src="./images/gallery/backWall.png">
-            <canvas id="durak" class="paintings"></canvas>
+            <img class="frame" src="./images/gallery/backWall.png">
+            <img class="painting" src="./images/gallery/mathHunt.png">
           </div>
         </div>
-        <div id="frame2" class="frames">
+        <div id="frame2">
           <div>
-            <img src="./images/gallery/backWall.png">
-            <canvas id="vegimon" class="paintings"></canvas>
+            <img class="frame" src="./images/gallery/backWall.png">
+            <img class="painting" src="./images/gallery/vegimon.png">
+          </div>
+        </div>
+        <div id="frame3">
+          <div>
+            <img class="frame" src="./images/gallery/backWall.png">
+            <img class="painting" src="./images/gallery/flappyMath.png">
+          </div>
+        </div>
+        <div id="frame4">
+          <div>
+            <img class="frame" src="./images/gallery/backWall.png">
+            <img class="painting" src="./images/gallery/durak.png">
           </div>
         </div>
       </div>

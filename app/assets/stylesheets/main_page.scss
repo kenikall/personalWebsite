@@ -2,7 +2,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 .background{
   position: absolute;
-  z-index:3;
+  // z-index:3;
 }
 
 .wallStuff{
@@ -11,7 +11,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 .foreground{
  position: absolute;
-  z-index:6;
+ z-index:6;
 }
 
 .panel{
@@ -20,13 +20,12 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #comicPanel{
-  position: absolute;
+  position: relative;
   max-width: 4040px;
   width: 100%;
 }
 
 #panelFrame{
-  position: relative;
   z-index: 10;
   width: 100%;
 }
@@ -98,7 +97,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 1200px;
 }
 
-#clouds{
+.clouds{
   position: absolute;
   top: 0px;
   left: 0px;
@@ -211,29 +210,43 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   top:300px;
   left:200px;
 }
-.frames{
-  position: absolute;
-  top:250px;
-  z-index:5;
-}
+
+.frame{ }
 
 #frame1{
+  position: absolute;
+  top:250px;
   left: 525px;
-  z-index:5;
+  z-index:5 !important;
 }
 
 #frame2{
-  left: 1000px;
+  position: absolute;
+  top:250px;
+  left: 950px;
+  z-index:5;
 }
 
-.paintings{
+#frame3{
+  position: absolute;
+  top:250px;
+  left: 1400px;
+  z-index:5;
+}
+
+#frame4{
+  position: absolute;
+  top:250px;
+  left: 1825px;
+  z-index:5;
+}
+
+.painting{
   z-index: 4;
   position: absolute;
-  left: 0px;
   top: 0px;
   width: 300px;
   height: 201px;
-
 }
 
 #panel6{
@@ -430,7 +443,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   position: absolute;
   top: 50px;
   left: 100px;
-  z-index: 15;
+  z-index: 15 !important;
 }
 
 #text1{ top: 25px; left: 75px; }
@@ -439,3 +452,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #text6{ left: 50px; }
 #text3{ left: 150px; }
 #text12{ top: 200px; left: 200px; }
+
+#classroomBackground { position: absolute; }
+#classroomForeground { position: absolute; }
+#backrow{ position: absolute; }
+.student{ position: absolute; }
