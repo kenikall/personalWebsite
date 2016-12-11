@@ -2,6 +2,10 @@
 $(document).ready(function(){
   $('.speechBubble').hide();
   // $('.kidTalk').hide();
+  $('#nyCover').opacity = 1;
+  $('#sfCover').style.opacity = 0;
+  $('#newyork').style.width('10px');
+  $('#newyork').style.height('10px');
 
   function sprite(options){
     var that = {},
@@ -270,21 +274,19 @@ $(document).ready(function(){
     computer2.render();
     //centerAll();
 
-    function gameLoop(){
-      window.requestAnimationFrame(gameLoop);
+    window.setInterval(function(){
       moveClouds();
       moveLessons();
-    }
+    }, 1);
   }
 })
 $(document).keydown(function(e){
-
   //person
   var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
   var bubble = {left: pos.left+175, top: pos.top-200}
 
-  if(pos.left >= 4000 && Math.round(pos.top) === 550 ){ pos.left = 200; pos.top = 1300 }
-  else if (pos.left >= 4000 && Math.round(pos.top) === 1000 ){ pos.left = 200; pos.top = 2000 }
+  if(pos.left >= 3740 && Math.round(pos.top) === 500 ){ pos.left = 200; pos.top = 1300 }
+  else if (pos.left >= 3740 && Math.round(pos.top) === 1300 ){ pos.left = 200; pos.top = 2000 }
   //office
   var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
   var oFGpos = {left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
@@ -298,6 +300,9 @@ $(document).keydown(function(e){
   //gallery
   var gBpos = {left: $('#galleryBackground').offset().left, top: $('#galleryBackground').offset().top };
   var gSpos = {left: $('#statue').offset().left, top: $('#statue').offset().top };
+  //map
+  var mappos = {left: $('#map').offset().left, top: $('#map').offset().top };
+
 
   switch(e.which){
     case 37: //left
@@ -319,12 +324,12 @@ $(document).keydown(function(e){
     if (cBpos.left <= 4000){ cBpos.left += 20; }
     //classroom
     if (cRBG.left < 100){ cRBG.left += 5; }
-    if (cRFG.left < 0){ cRFG.left += 15; }
-      console.log(cRFG.left)
-
+    if (cRFG.left < 0){ cRFG.left += 8; }
     //gallery
     if (gBpos.left <= 4000){ gBpos.left += 10; }
     if (gSpos.left <= 4000){ gSpos.left += 15; }
+    //map
+    if (mappos.left > 100){ mappos.left -= 10; }
 
     if(pos.left< 1610 && Math.round(pos.top) === 500){
       walk.update();
@@ -348,6 +353,8 @@ $(document).keydown(function(e){
     } else if(pos.left >= 2660 && Math.round(pos.top) === 1300){
       $('#galleryBackground').offset(gBpos);
       $('#statue').offset(gSpos);
+    }else if(pos.left >= 100 && Math.round(pos.top) === 2000){
+      $('#map').offset(mappos);
     }
     break;
 
@@ -393,10 +400,11 @@ $(document).keydown(function(e){
     //classroom
     if (cRBG.left > -100){ cRBG.left -= 5}
     if (cRFG.left > -600){ cRFG.left -= 15}
-    console.log(cRBG.left)
     //gallery
     if (gBpos.left >= 850){ gBpos.left -= 20;}
     if (gSpos.left >= 1700){ gSpos.left -= 30;}
+    //map
+    if (mappos.left < 1628){ mappos.left -= 10; }
 
     if(pos.left< 1610 && Math.round(pos.top) === 500){
       walk.update();
@@ -420,6 +428,12 @@ $(document).keydown(function(e){
     } else if(pos.left >= 2660 && Math.round(pos.top) === 1300){
       $('#galleryBackground').offset(gBpos);
       $('#statue').offset(gSpos);
+    }else if(pos.left < 1628 && Math.round(pos.top) === 2000){
+      $('#map').offset(mappos);
+      $('sanfran').width()
+      $('sanfran').height()
+      $('newyork').width()
+      $('newyork').height()
     }
     break;
   }
