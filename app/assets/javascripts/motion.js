@@ -41,107 +41,241 @@ $(document).ready(function(){
     };
     return that;
   }
-    // Office walk
-    canvas = document.getElementById("walkAnimation");
-    canvas.width = 250;
-    canvas.height = 400;
-    walkImage = new Image();
-    walk = sprite({
-      context: canvas.getContext("2d"),
-      width: 1600,
-      height: 400,
-      image: walkImage,
-      numberOfFrames: 6,
-      ticksPerFrame: 1
-    });
-    // City walk
-    canvas = document.getElementById("cityWalk");
-    canvas.width = 373;
-    canvas.height = 541;
-    cityWalkImage = new Image();
-    cityWalk = sprite({
-      context: canvas.getContext("2d"),
-      width: 560,
-      height: 541,
-      image: cityWalkImage,
-      numberOfFrames: 2,
-      ticksPerFrame: 2
-    });
-    // Class walk
-    canvas = document.getElementById("classWalk");
-    canvas.width = 250;
-    canvas.height = 400;
-    classWalkImage = new Image();
-    classWalk = sprite({
-      context: canvas.getContext("2d"),
-      width: 1600,
-      height: 400,
-      image: walkImage,
-      numberOfFrames: 6,
-      ticksPerFrame: 1
-    });
-    // Standing Animation
-    // canvas = document.getElementById("standAnimation");
-    // canvas.width = 212;
-    // canvas.height = 400;
-    // standingImage = new Image();
-    // standing = sprite({
-    //   context: canvas.getContext("2d"),
-    //   width: 2049,
-    //   height: 400,
-    //   image: standingImage,
-    //   numberOfFrames: 7,
-    //   ticksPerFrame: 4
-    // });
 
-    // Lesson walk
-    canvas = document.getElementById("lessonWalk");
-    canvas.width = 212;
-    canvas.height = 328;
-    lessonWalkImage = new Image();
-    lessonWalk = sprite({
-      context: canvas.getContext("2d"),
-      width: 1272,
-      height: 328,
-      image: lessonWalkImage,
-      numberOfFrames: 6,
-      ticksPerFrame: 4
-    });
+  // Office walk
+  canvas = document.getElementById("walkAnimation");
+  canvas.width = 250;
+  canvas.height = 400;
+  walkImage = new Image();
+  walk = sprite({
+    context: canvas.getContext("2d"),
+    width: 1600,
+    height: 400,
+    image: walkImage,
+    numberOfFrames: 6,
+    ticksPerFrame: 1
+  });
+  // City walk
+  canvas = document.getElementById("cityWalk");
+  canvas.width = 373;
+  canvas.height = 541;
+  cityWalkImage = new Image();
+  cityWalk = sprite({
+    context: canvas.getContext("2d"),
+    width: 560,
+    height: 541,
+    image: cityWalkImage,
+    numberOfFrames: 2,
+    ticksPerFrame: 2
+  });
+  // Class walk
+  canvas = document.getElementById("classWalk");
+  canvas.width = 250;
+  canvas.height = 400;
+  classWalkImage = new Image();
+  classWalk = sprite({
+    context: canvas.getContext("2d"),
+    width: 1600,
+    height: 400,
+    image: walkImage,
+    numberOfFrames: 6,
+    ticksPerFrame: 1
+  });
+  // Standing Animation
+  canvas = document.getElementById("standAnimation");
+  canvas.width = 212;
+  canvas.height = 400;
+  standingImage = new Image();
+  standing = sprite({
+    context: canvas.getContext("2d"),
+    width: 2049,
+    height: 400,
+    image: standingImage,
+    numberOfFrames: 7,
+    ticksPerFrame: 4
+  });
+  // Lesson walk
+  canvas = document.getElementById("lessonWalk");
+  canvas.width = 212;
+  canvas.height = 328;
+  lessonWalkImage = new Image();
+  lessonWalk = sprite({
+    context: canvas.getContext("2d"),
+    width: 1272,
+    height: 328,
+    image: lessonWalkImage,
+    numberOfFrames: 6,
+    ticksPerFrame: 4
+  });
 
+  canvas = document.getElementById("seatA1");
+  canvas.width = 166;
+  canvas.height = 268;
+  girlAImage = new Image();
+  girlA = sprite({
+    context: canvas.getContext("2d"),
+    width: 300,
+    height: 268,
+    image: girlAImage,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
 
-    // Load sprite sheets
-    // standingImage.src = "./images/standingSpriteSheet.png";
-    walkImage.src = "./images/walkSpriteSheet.png";
-    cityWalkImage.src = "./images/city/cityWalkSpriteSheet.png";
-    classWalkImage.src = "./images/walkSpriteSheet.png";
-    lessonWalkImage.src = "./images/lessonWalk.png";
+  canvas = document.getElementById("seatA3");
+  canvas.width = 166;
+  canvas.height = 268;
+  girlCImage = new Image();
+  girlC = sprite({
+    context: canvas.getContext("2d"),
+    width: 300,
+    height: 268,
+    image: girlCImage,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
 
+  canvas = document.getElementById("seatB1");
+  canvas.width = 166;
+  canvas.height = 268;
+  girlDImage = new Image();
+  girlD = sprite({
+    context: canvas.getContext("2d"),
+    width: 300,
+    height: 268,
+    image: girlDImage,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
+
+  canvas = document.getElementById("seatB3");
+  canvas.width = 166;
+  canvas.height = 268;
+  girlEImage = new Image();
+  girlE = sprite({
+    context: canvas.getContext("2d"),
+    width: 300,
+    height: 268,
+    image: girlEImage,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
+
+  canvas = document.getElementById("seatA2");
+  canvas.width = 166;
+  canvas.height = 268;
+  kidAImage = new Image();
+  kidA = sprite({
+    context: canvas.getContext("2d"),
+    width: 332,
+    height: 268,
+    image: kidAImage,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
+
+  canvas = document.getElementById("seatA4");
+  canvas.width = 166;
+  canvas.height = 268;
+  kidBImage = new Image();
+  kidB = sprite({
+    context: canvas.getContext("2d"),
+    width: 332,
+    height: 268,
+    image: kidBImage,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
+
+  canvas = document.getElementById("seatB2");
+  canvas.width = 166;
+  canvas.height = 268;
+  kidCImage = new Image();
+  kidC = sprite({
+    context: canvas.getContext("2d"),
+    width: 332,
+    height: 268,
+    image: kidCImage,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
+
+  canvas = document.getElementById("seatB4");
+  canvas.width = 166;
+  canvas.height = 268;
+  kidDImage = new Image();
+  kidD = sprite({
+    context: canvas.getContext("2d"),
+    width: 332,
+    height: 268,
+    image: kidDImage,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
+
+  canvas = document.getElementById("computer1");
+  canvas.width = 168;
+  canvas.height = 256;
+  computer1Image = new Image();
+  computer1 = sprite({
+    context: canvas.getContext("2d"),
+    width: 336,
+    height: 256,
+    image: computer1Image,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
+
+  canvas = document.getElementById("computer2");
+  canvas.width = 143;
+  canvas.height = 219;
+  computer2Image = new Image();
+  computer2 = sprite({
+    context: canvas.getContext("2d"),
+    width: 286,
+    height: 219,
+    image: computer2Image,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
+
+  // Load sprite sheets
+  standingImage.src = "./images/standingSpriteSheet.png";
+  walkImage.src = "./images/walkSpriteSheet.png";
+  cityWalkImage.src = "./images/city/cityWalkSpriteSheet.png";
+  classWalkImage.src = "./images/walkSpriteSheet.png";
+  lessonWalkImage.src = "./images/lessonWalk.png";
+
+  kidAImage.src = "./images/classroom/kidASprites.png";
+  kidBImage.src = "./images/classroom/kidBSprites.png";
+  kidCImage.src = "./images/classroom/kidCSprites.png";
+  kidDImage.src = "./images/classroom/kidDSprites.png";
+
+  girlAImage.src = "./images/classroom/girlASprites.png";
+  girlCImage.src = "./images/classroom/girlCSprites.png";
+  girlDImage.src = "./images/classroom/girlDSprites.png";
+  girlEImage.src = "./images/classroom/girlESprites.png";
+  computer1Image.src = "./images/classroom/computerGirl.png";
+  computer2Image.src = "./images/classroom/computerBoy.png";
   window.onload = function(){
+    kidA.render();
+    kidB.render();
+    kidC.render();
+    kidD.render();
+    girlA.render();
+    girlC.render();
+    girlD.render();
+    girlE.render();
+    // standing.render();
+    computer1.render();
+    computer2.render();
     //centerAll();
 
     function gameLoop(){
       window.requestAnimationFrame(gameLoop);
-
       moveClouds();
       moveLessons();
-      // standAnimation.render();
-      // standingImage.update();
-      // vegimon.update();
-      // vegimon.render();
-      // durak.update();
-      // durak.render();
     }
-    // function standLoop(){
-    //   window.requestAnimationFrame(gameLoop);
-    //   for(var i=0; i< 7 ; i++;){
-    //     walk.update();
-    //     walk.render();
-    //   }
-    // }
-    // durakImage.src = "./images/gallery/durak.png";
-    // vegiImage.src = "./images/gallery/vegimongrow.png";
   }
-
 })
 $(document).keydown(function(e){
 
@@ -185,8 +319,8 @@ $(document).keydown(function(e){
     if (cBpos.left <= 4000){ cBpos.left += 20; }
     //classroom
     if (cRBG.left < 100){ cRBG.left += 5; }
-    if (cRFG.left < 100){ cRBG.left += 15; }
-      console.log(cRBG.left < 100)
+    if (cRFG.left < 0){ cRFG.left += 15; }
+      console.log(cRFG.left)
 
     //gallery
     if (gBpos.left <= 4000){ gBpos.left += 10; }
@@ -258,7 +392,7 @@ $(document).keydown(function(e){
     if (cBpos.left >=1840){ cBpos.left -= 20;}
     //classroom
     if (cRBG.left > -100){ cRBG.left -= 5}
-    if (cRFG.left > -350){ cRFG.left -= 15}
+    if (cRFG.left > -600){ cRFG.left -= 15}
     console.log(cRBG.left)
     //gallery
     if (gBpos.left >= 850){ gBpos.left -= 20;}
@@ -376,43 +510,4 @@ function moveLessons(){
   $('#lessonh3').offset(horzLesson3Pos);
   $('#lessonh4').offset(horzLesson4Pos);
   }
-
-  // function sprite(options){
-  //   var that = {},
-  //     frameIndex = 0,
-  //     tickCount = 0,
-  //     ticksPerFrame = options.ticksPerFrame || 0,
-  //     numberOfFrames = options.numberOfFrames || 1;
-
-  //     that.context = options.context;
-  //     that.width = options.width;
-  //     that.height = options.height;
-  //     that.image = options.image;
-
-  //     that.update = function () {
-  //       tickCount += 1;
-
-  //       if (tickCount > ticksPerFrame) {
-  //         tickCount = 0;
-  //         if (frameIndex < numberOfFrames - 1) { frameIndex += 1; }
-  //         else { frameIndex = 0; }
-  //       }
-  //     };
-
-  //   that.render = function () {
-  //     that.context.clearRect(0, 0, that.width, that.height);
-
-  //     that.context.drawImage(
-  //       that.image,
-  //       frameIndex * that.width / numberOfFrames,
-  //       0,
-  //       that.width / numberOfFrames,
-  //       that.height,
-  //       0,
-  //       0,
-  //       that.width / numberOfFrames,
-  //       that.height);
-  //   };
-  //   return that;
-  // }
 }
