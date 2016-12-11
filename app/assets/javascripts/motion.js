@@ -109,105 +109,131 @@ $(document).ready(function(){
   });
 
   canvas = document.getElementById("seatA1");
-  canvas.width = 208;
-  canvas.height = 335;
+  canvas.width = 166;
+  canvas.height = 268;
   girlAImage = new Image();
   girlA = sprite({
     context: canvas.getContext("2d"),
-    width: 415,
-    height: 335,
+    width: 300,
+    height: 268,
     image: girlAImage,
     numberOfFrames: 2,
     ticksPerFrame: 1000
   });
 
   canvas = document.getElementById("seatA3");
-  canvas.width = 208;
-  canvas.height = 335;
+  canvas.width = 166;
+  canvas.height = 268;
   girlCImage = new Image();
   girlC = sprite({
     context: canvas.getContext("2d"),
-    width: 415,
-    height: 335,
+    width: 300,
+    height: 268,
     image: girlCImage,
     numberOfFrames: 2,
     ticksPerFrame: 1000
   });
 
   canvas = document.getElementById("seatB1");
-  canvas.width = 208;
-  canvas.height = 335;
+  canvas.width = 166;
+  canvas.height = 268;
   girlDImage = new Image();
   girlD = sprite({
     context: canvas.getContext("2d"),
-    width: 415,
-    height: 335,
+    width: 300,
+    height: 268,
     image: girlDImage,
     numberOfFrames: 2,
     ticksPerFrame: 1000
   });
 
   canvas = document.getElementById("seatB3");
-  canvas.width = 208;
-  canvas.height = 335;
+  canvas.width = 166;
+  canvas.height = 268;
   girlEImage = new Image();
   girlE = sprite({
     context: canvas.getContext("2d"),
-    width: 415,
-    height: 335,
+    width: 300,
+    height: 268,
     image: girlEImage,
     numberOfFrames: 2,
     ticksPerFrame: 1000
   });
 
   canvas = document.getElementById("seatA2");
-  canvas.width = 208;
-  canvas.height = 335;
+  canvas.width = 166;
+  canvas.height = 268;
   kidAImage = new Image();
   kidA = sprite({
     context: canvas.getContext("2d"),
-    width: 415,
-    height: 335,
+    width: 332,
+    height: 268,
     image: kidAImage,
     numberOfFrames: 2,
     ticksPerFrame: 1000
   });
 
   canvas = document.getElementById("seatA4");
-  canvas.width = 208;
-  canvas.height = 335;
+  canvas.width = 166;
+  canvas.height = 268;
   kidBImage = new Image();
   kidB = sprite({
     context: canvas.getContext("2d"),
-    width: 415,
-    height: 335,
+    width: 332,
+    height: 268,
     image: kidBImage,
     numberOfFrames: 2,
     ticksPerFrame: 1000
   });
 
   canvas = document.getElementById("seatB2");
-  canvas.width = 208;
-  canvas.height = 335;
+  canvas.width = 166;
+  canvas.height = 268;
   kidCImage = new Image();
   kidC = sprite({
     context: canvas.getContext("2d"),
-    width: 415,
-    height: 335,
+    width: 332,
+    height: 268,
     image: kidCImage,
     numberOfFrames: 2,
     ticksPerFrame: 1000
   });
 
   canvas = document.getElementById("seatB4");
-  canvas.width = 208;
-  canvas.height = 335;
+  canvas.width = 166;
+  canvas.height = 268;
   kidDImage = new Image();
   kidD = sprite({
     context: canvas.getContext("2d"),
-    width: 415,
-    height: 335,
+    width: 332,
+    height: 268,
     image: kidDImage,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
+
+  canvas = document.getElementById("computer1");
+  canvas.width = 168;
+  canvas.height = 256;
+  computer1Image = new Image();
+  computer1 = sprite({
+    context: canvas.getContext("2d"),
+    width: 336,
+    height: 256,
+    image: computer1Image,
+    numberOfFrames: 2,
+    ticksPerFrame: 1000
+  });
+
+  canvas = document.getElementById("computer2");
+  canvas.width = 143;
+  canvas.height = 219;
+  computer2Image = new Image();
+  computer2 = sprite({
+    context: canvas.getContext("2d"),
+    width: 286,
+    height: 219,
+    image: computer2Image,
     numberOfFrames: 2,
     ticksPerFrame: 1000
   });
@@ -228,9 +254,20 @@ $(document).ready(function(){
   girlCImage.src = "./images/classroom/girlCSprites.png";
   girlDImage.src = "./images/classroom/girlDSprites.png";
   girlEImage.src = "./images/classroom/girlESprites.png";
-
-  kidA.render();
+  computer1Image.src = "./images/classroom/computerGirl.png";
+  computer2Image.src = "./images/classroom/computerBoy.png";
   window.onload = function(){
+    kidA.render();
+    kidB.render();
+    kidC.render();
+    kidD.render();
+    girlA.render();
+    girlC.render();
+    girlD.render();
+    girlE.render();
+    // standing.render();
+    computer1.render();
+    computer2.render();
     //centerAll();
 
     function gameLoop(){
@@ -282,8 +319,8 @@ $(document).keydown(function(e){
     if (cBpos.left <= 4000){ cBpos.left += 20; }
     //classroom
     if (cRBG.left < 100){ cRBG.left += 5; }
-    if (cRFG.left < 100){ cRBG.left += 15; }
-      console.log(cRBG.left < 100)
+    if (cRFG.left < 0){ cRFG.left += 15; }
+      console.log(cRFG.left)
 
     //gallery
     if (gBpos.left <= 4000){ gBpos.left += 10; }
@@ -355,7 +392,7 @@ $(document).keydown(function(e){
     if (cBpos.left >=1840){ cBpos.left -= 20;}
     //classroom
     if (cRBG.left > -100){ cRBG.left -= 5}
-    if (cRFG.left > -350){ cRFG.left -= 15}
+    if (cRFG.left > -600){ cRFG.left -= 15}
     console.log(cRBG.left)
     //gallery
     if (gBpos.left >= 850){ gBpos.left -= 20;}

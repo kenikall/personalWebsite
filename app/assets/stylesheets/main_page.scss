@@ -211,13 +211,12 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left:200px;
 }
 
-.frame{ }
+.frame{ z-index:6 }
 
 #frame1{
   position: absolute;
   top:250px;
   left: 525px;
-  z-index:5 !important;
 }
 
 #frame2{
@@ -242,7 +241,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 .painting{
-  z-index: 4;
+  z-index: 5;
   position: absolute;
   top: 0px;
   width: 300px;
@@ -314,19 +313,12 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 #classWalk{
   position:absolute;
-  z-index: 5;
+  z-index: 7;
   top: 1000px;
   left: 1000px;
 }
 
 #lessonWalk{
-  position:absolute;
-  z-index: 5;
-  top: 1000px;
-  left: 1000px;
-}
-
-#galleryWalk{
   position:absolute;
   z-index: 5;
   top: 1000px;
@@ -453,7 +445,93 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #text3{ left: 150px; }
 #text12{ top: 200px; left: 200px; }
 
-#classroomBackground { position: absolute; }
-#classroomForeground { position: absolute; }
-#backrow{ position: absolute; }
-.student{ position: absolute; }
+#classroomBackground {
+  position: absolute;
+  top: 0;
+}
+
+#classroomForeground {
+  position: absolute;
+  top: 0;
+}
+
+#backDesks2{
+  z-index:4;
+  position: absolute;
+  top: 0;
+}
+
+#backrow{
+  z-index:5;
+  position: absolute;
+  top: 50%;
+}
+
+#backDesks1{
+  z-index:6;
+  position: absolute;
+  top: 0;
+}
+
+#frontDesks2{
+  z-index:8;
+  position: absolute;
+  top: 0;
+}
+
+#frontrow{
+  z-index:9;
+  position: absolute;
+}
+
+#frontDesks1{
+  z-index:10;
+  position: absolute;
+  top: 0;
+}
+
+#seatA1{ position: absolute; top: 400px; left: 460px; }
+#seatA2{ position: absolute; top: 400px; left: 685px; }
+#seatA3{ position: absolute; top: 400px; left: 910px; }
+#seatA4{ position: absolute; top: 400px; left: 1135px; }
+#seatB1{ position: absolute; top: 475px; left: 100px; }
+#seatB2{ position: absolute; top: 475px; left: 325px; }
+#seatB3{ position: absolute; top: 475px; left: 600px; }
+#seatB4{ position: absolute; top: 475px; left: 775px; }
+#computer1{
+  z-index:9;
+  position: absolute;
+  top: 485px;
+  left: 1550px;
+}
+#computer2{
+  z-index:9;
+  position: absolute;
+  top: 485px;
+  left: 1735px;
+}
+
+.patron{
+  z-index: 7;
+  position: absolute;
+}
+
+#patron1{
+  top: 400px;
+  left: 1200px;
+}
+
+#patron2{
+  top: 375px;
+  left: 1325px;
+}
+
+#patron3{
+  top: 350px;
+  left: 1000px;
+}
+
+#galleryForeground{
+  height: 100%;
+  width: 100%;
+}
