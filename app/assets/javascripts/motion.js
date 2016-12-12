@@ -2,10 +2,10 @@
 $(document).ready(function(){
   $('.speechBubble').hide();
   // $('.kidTalk').hide();
-  $('#nyCover').opacity = 1;
-  $('#sfCover').style.opacity = 0;
-  $('#newyork').style.width('10px');
-  $('#newyork').style.height('10px');
+  // $('#nyCover').opacity = 1;
+  // $('#sfCover').style.opacity = 0;
+  // $('#newyork').style.width('10px');
+  // $('#newyork').style.height('10px');
 
   function sprite(options){
     var that = {},
