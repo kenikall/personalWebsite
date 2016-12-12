@@ -26,7 +26,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #panelFrame{
-  z-index: 10;
+  position: absolute;
+  z-index: 15;
   width: 100%;
 }
 
@@ -249,7 +250,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #panel6{
-  background-color: black;
+  overflow: visible;
+  background-color: white;
   height: 950px;
   width: 1000px;
   top: 1900px;
@@ -262,15 +264,15 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #newyork{
   position: absolute;
   z-index: 5;
-  top: 100px;
-  left: 500px;
+  top: 0%;
+  left: 50%;
 }
 
 #sanfran{
   position: absolute;
   z-index: 6;
-  top: -150px;
-  left: -150px;
+  top: 0%;
+  left: -10%;
   width: 5%;
   height:5%;
 }
@@ -493,7 +495,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #seatA1{ position: absolute; top: 400px; left: 460px; }
 #seatA2{ position: absolute; top: 400px; left: 685px; }
 #seatA3{ position: absolute; top: 400px; left: 910px; }
-#seatA4{ position: absolute; top: 400px; left: 1135px; }
+#seatA4{ position: absolute; top: 400px; left: 1085px; }
 #seatB1{ position: absolute; top: 475px; left: 100px; }
 #seatB2{ position: absolute; top: 475px; left: 325px; }
 #seatB3{ position: absolute; top: 475px; left: 600px; }
