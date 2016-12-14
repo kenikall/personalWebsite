@@ -29,9 +29,10 @@ $(document).ready(function(){
         }
       };
 
-    that.render = function () {
+    that.render = function (frame) {
       that.context.clearRect(0, 0, that.width, that.height);
-
+      if (frame === 0) {frameIndex = 0}
+      if (frame === 1) {frameIndex = 1}
       that.context.drawImage(
         that.image,
         frameIndex * that.width / numberOfFrames,
@@ -81,13 +82,13 @@ $(document).ready(function(){
     context: canvas.getContext("2d"),
     width: 1600,
     height: 400,
-    image: walkImage,
+    image: classWalkImage,
     numberOfFrames: 6,
     ticksPerFrame: 1
   });
   // Standing Animation
   canvas = document.getElementById("standAnimation");
-  canvas.width = 212;
+  canvas.width = 292;
   canvas.height = 400;
   standingImage = new Image();
   standing = sprite({
@@ -96,20 +97,20 @@ $(document).ready(function(){
     height: 400,
     image: standingImage,
     numberOfFrames: 7,
-    ticksPerFrame: 4
+    ticksPerFrame: 1
   });
   // Lesson walk
   canvas = document.getElementById("lessonWalk");
-  canvas.width = 212;
-  canvas.height = 328;
+  canvas.width = 250;
+  canvas.height = 400;
   lessonWalkImage = new Image();
   lessonWalk = sprite({
     context: canvas.getContext("2d"),
-    width: 1272,
-    height: 328,
+    width: 1600,
+    height: 400,
     image: lessonWalkImage,
     numberOfFrames: 6,
-    ticksPerFrame: 4
+    ticksPerFrame: 1
   });
 
   canvas = document.getElementById("seatA1");
@@ -243,11 +244,11 @@ $(document).ready(function(){
   });
 
   // Load sprite sheets
-  standingImage.src = "./images/standingSpriteSheet.png";
-  walkImage.src = "./images/walkSpriteSheet.png";
-  cityWalkImage.src = "./images/city/cityWalkSpriteSheet.png";
-  classWalkImage.src = "./images/walkSpriteSheet.png";
-  lessonWalkImage.src = "./images/lessonWalk.png";
+  standingImage.src = "./images/animations/standingSpriteSheet.png";
+  walkImage.src = "./images/animations/walkSpriteSheet.png";
+  cityWalkImage.src = "./images/animations/cityWalkSpriteSheetv2.png";
+  classWalkImage.src = "./images/animations/teacherSpriteSheet.png";
+  lessonWalkImage.src = "./images/animations/lessonWalk.png";
 
   kidAImage.src = "./images/classroom/kidASprites.png";
   kidBImage.src = "./images/classroom/kidBSprites.png";
@@ -261,6 +262,7 @@ $(document).ready(function(){
   computer1Image.src = "./images/classroom/computerGirl.png";
   computer2Image.src = "./images/classroom/computerBoy.png";
   window.onload = function(){
+    // standing.render();
     kidA.render();
     kidB.render();
     kidC.render();
@@ -269,7 +271,6 @@ $(document).ready(function(){
     girlC.render();
     girlD.render();
     girlE.render();
-    // standing.render();
     computer1.render();
     computer2.render();
     //centerAll();
@@ -309,7 +310,7 @@ $(document).keydown(function(e){
     center1();
     //person
     pos.left -= 20;
-    $('#walkAnimation').offset(pos);
+    $('#standAnimation').offset(pos);
     $('#cityWalk').offset(pos);
     $('#classWalk').offset(pos);
     $('#lessonWalk').offset(pos);
@@ -345,6 +346,7 @@ $(document).keydown(function(e){
     } else if(pos.left <= 1250 && Math.round(pos.top) === 1300){
       classWalk.update();
       classWalk.render();
+      turnKids(pos.left);
       $('#classroomBackground').offset(cRBG);
       $('#classroomForeground').offset(cRFG);
     } else if(pos.left > 1240 && pos.left < 1250 &&Math.round(pos.top) === 1300){
@@ -420,6 +422,7 @@ $(document).keydown(function(e){
     } else if(pos.left <= 1240 && Math.round(pos.top) === 1300){
       classWalk.update();
       classWalk.render();
+      turnKids(pos.left);
       $('#classroomBackground').offset(cRBG);
       $('#classroomForeground').offset(cRFG);
     } else if(pos.left > 1240 && pos.left < 2660 &&Math.round(pos.top) === 1300){
@@ -436,6 +439,20 @@ $(document).keydown(function(e){
       $('newyork').height()
     }
     break;
+  }
+  function turnKids(teacher){
+    console.log('teacher= '+teacher);
+    console.log('student'+$('#seatA1').offset().left);
+    ($('#seatA1').offset().left > teacher)? girlA.render(0) : girlA.render(1);
+    ($('#seatA2').offset().left > teacher)? kidA.render(0) : kidA.render(1);
+    ($('#seatA3').offset().left > teacher)? girlC.render(0) : girlC.render(1);
+    ($('#seatA4').offset().left > teacher)? kidB.render(0) : kidB.render(1);
+    ($('#seatB1').offset().left > teacher)? girlD.render(0) : girlD.render(1);
+    ($('#seatB2').offset().left > teacher)? kidC.render(0) : kidC.render(1);
+    ($('#seatB3').offset().left > teacher)? girlE.render(0) : girlE.render(1);
+    ($('#seatB4').offset().left > teacher)? kidD.render(0) : kidD.render(1);
+    ($('#computer1').offset().left > teacher)? computer1.render(0) : computer1.render(1);
+    ($('#computer2').offset().left > teacher)? computer2.render(0) : computer2.render(1);
   }
 });
 
@@ -460,7 +477,7 @@ function center1(){
     $('#comicPanel').animate({ 'zoom': $('#panel1'),'top': $('#panel1').top, 'left': $('panel1').left }, 400);
 }
 function moveClouds(){
-  if ($('#walkAnimation').offset().left >= 1610 && $('#walkAnimation').offset().left <= 4000 && Math.round($('#walkAnimation').offset().top) === 550) {
+  if ($('#walkAnimation').offset().left >= 1610 && $('#walkAnimation').offset().left <= 4000 && Math.round($('#walkAnimation').offset().top) === 500) {
   var aCloudsPos = {left: $('#cloud1').offset().left, top: $('#cloud1').offset().top};
   var bCloudsPos = {left: $('#cloud2').offset().left, top: $('#cloud2').offset().top};
   var cCloudsPos = {left: $('#cloud3').offset().left, top: $('#cloud3').offset().top};

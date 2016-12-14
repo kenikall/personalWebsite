@@ -1,6 +1,6 @@
 
 <div id=comicPanel>
-  <!-- <img id="panelFrame" src="./images/frame.png"> -->
+  <img id="panelFrame" src="./images/frame.png">
     <div id=panel1 class="panel">
       <canvas id="standAnimation"></canvas>
       <canvas id="walkAnimation"></canvas>
@@ -13,11 +13,11 @@
 
         <img class="wallStuff" id="nav" src="./images/office/navagation.png">
         <img class="wallStuff" id="poster" src="./images/office/poster.png">
-        <img class="wallStuff buttonO" id="facebookO" src="./images/buttons/fbButton.png">
-        <img class="wallStuff buttonO" id="githubO" src="./images/buttons/gtButton.png">
-        <img class="wallStuff buttonO" id="linkedO" src="./images/buttons/liButton.png">
-        <img class="wallStuff buttonO" id="twitterO" src="./images/buttons/twButton.png">
-        <img class="wallStuff buttonO" id="resumeO" src="./images/buttons/reButton.png">
+        <img class="wallStuff buttonO fbButton" id="facebookO" src="./images/buttons/fbButton.png">
+        <img class="wallStuff buttonO gitButton" id="githubO" src="./images/buttons/gtButton.png">
+        <img class="wallStuff buttonO liButton" id="linkedO" src="./images/buttons/liButton.png">
+        <img class="wallStuff buttonO twitButton" id="twitterO" src="./images/buttons/twButton.png">
+        <img class="wallStuff buttonO resButton" id="resumeO" src="./images/buttons/reButton.png">
 
         <img class="text" id="text1" src="./images/text/mannah.png">
         <img class="text" id="text2" src="./images/text/resume.png">
@@ -94,19 +94,19 @@
       <img class="text" id="text6" src="./images/text/opportunities.png">
       <img class="speechBubble" id="panel4speechBubble" src="./images/text/checkOut.png">
 
-      <div id="lessonh1" class="hlesson"><img src="./images/test/8.png"></div>
-      <div id="lessonh2" class="hlesson"><img src="./images/test/8.png"></div>
-      <div id="lessonh3" class="hlesson"><img src="./images/test/8.png"></div>
-      <div id="lessonh4" class="hlesson"><img src="./images/test/8.png"></div>
+      <div id="lesson1Button" class="hlesson"><img src="./images/test/8.png"></div>
+      <div id="lesson2Button" class="hlesson"><img src="./images/test/8.png"></div>
+      <div id="lesson3Button" class="hlesson"><img src="./images/test/8.png"></div>
+      <div id="lesson4Button" class="hlesson"><img src="./images/test/8.png"></div>
 
-      <div id="lessonv1" class="vlesson"><img src="./images/test/vert.png"></div>
-      <div id="lessonv2" class="vlesson"><img src="./images/test/vert.png"></div>
-      <div id="lessonv3" class="vlesson"><img src="./images/test/vert.png"></div>
-      <div id="lessonv4" class="vlesson"><img src="./images/test/vert.png"></div>
-      <div id="lessonv5" class="vlesson"><img src="./images/test/vert.png"></div>
-      <div id="lessonv6" class="vlesson"><img src="./images/test/vert.png"></div>
-      <div id="lessonv7" class="vlesson"><img src="./images/test/vert.png"></div>
-      <div id="lessonv8" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lesson5Button" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lesson6Button" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lesson7Button" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lesson8Button" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lesson9Button" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lesson10Button" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lesson11Button" class="vlesson"><img src="./images/test/vert.png"></div>
+      <div id="lesson12Button" class="vlesson"><img src="./images/test/vert.png"></div>
     </div>
 
     <div id=panel5 class="panel">
@@ -179,11 +179,22 @@
         <textarea class="textbox" id="email-message" name="email-message" placeholder="Message" style="position: absolute; z-index: auto; position: relative; line-height: normal; font-size: 14px; transition: none; background: transparent !important;">
         </textarea>
       </div>
-      <img id="facebook" class="icon" src="./images/icons/facebook.png">
-      <img id="linkedin" class="icon" src="./images/icons/linkedin.png">
-      <img id="resume" class="icon" src="./images/icons/resume.png">
-      <img id="github" class="icon" src="./images/icons/github.png">
-      <img id="twitter" class="icon" src="./images/icons/twitter.png">
+      <a id="facebook" class="icon fbButton" href="https://www.facebook.com/mannahcodes/" target="_blank">
+        <img  src="./images/icons/facebook.png">
+      </a>
+      <a id="linkedin" class="icon liButton" href="https://www.linkedin.com/in/kenikall" target="_blank">
+        <img id="linkedin" class="icon liButton" src="./images/icons/linkedin.png">
+      </a>
+      <a id="github" class="icon gitButton" href="https://github.com/kenikall" target="_blank">
+        <img id="github" class="icon gitButton" src="./images/icons/github.png">
+      </a>
+      <a id="twitter" class="icon twitButton" href="https://twitter.com/mannahKallon" target="_blank">
+        <img id="twitter" class="icon twitButton" src="./images/icons/twitter.png">
+      </a>
+      <a id="resume" class="icon resButton" href="./images/mannah_resume.pdf" target="_blank">
+        <img id="resume" class="icon resButton" src="./images/icons/resume.png">
+      </a>
+
 
     </div>
     <div id=panel8 class="panel">
@@ -201,4 +212,76 @@
         <img id="computerRoom" src="./images/office/computer.png">
       </div>
     </div>
+</div>
+<div id="lessonModal1" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 1</p>
+  </div>
+</div>
+<div id="lessonModal2" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 2</p>
+  </div>
+</div>
+<div id="lessonModal3" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 3</p>
+  </div>
+</div>
+<div id="lessonModal4" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 4</p>
+  </div>
+</div>
+<div id="lessonModal5" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 5</p>
+  </div>
+</div>
+<div id="lessonModal6" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 6</p>
+  </div>
+</div>
+<div id="lessonModal7" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 7</p>
+  </div>
+</div>
+<div id="lessonModal8" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 8</p>
+  </div>
+</div>
+<div id="lessonModal9" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 9</p>
+  </div>
+</div>
+<div id="lessonModal10" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 10</p>
+  </div>
+</div>
+<div id="lessonModal11" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 11</p>
+  </div>
+</div>
+<div id="lessonModal12" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Lesson 12</p>
+  </div>
 </div>
