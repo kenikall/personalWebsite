@@ -1,4 +1,3 @@
-// $(document).
 $(document).ready(function(){
   $('.speechBubble').hide();
   // $('.kidTalk').hide();
