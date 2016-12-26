@@ -102,7 +102,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   position: absolute;
   top: 0px;
   left: 0px;
-  z-index: 5;
+  z-index: 4;
 }
 
 #cloud1{
@@ -287,7 +287,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   position:absolute;
   z-index: 5;
   top: 400px;
-  left: 200px;
+  left: -250px;
 }
 
 #standAnimation{
@@ -509,21 +509,32 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #patron1{
-  top: 400px;
-  left: 1200px;
+  z-index: 5;
+  top: 450px;
+  left: 1600px;
 }
 
 #patron2{
+  z-index: 3;
   top: 375px;
-  left: 1325px;
+  left: 1700px;
 }
 
 #patron3{
-  top: 350px;
-  left: 1000px;
+  z-index: 5;
+  top: 450px;
+  left: 1200px;
+}
+
+#patron4{
+  z-index: 3;
+  top: 375px;
+  left: 1225px;
 }
 
 #galleryForeground{
+  position: absolute;
+  top: 0px;
   height: 100%;
   width: 100%;
 }

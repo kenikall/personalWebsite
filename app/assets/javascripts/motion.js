@@ -300,6 +300,8 @@ $(document).keydown(function(e){
   //gallery
   var gBpos = {left: $('#galleryBackground').offset().left, top: $('#galleryBackground').offset().top };
   var gSpos = {left: $('#statue').offset().left, top: $('#statue').offset().top };
+  var gP1pos = {left: $('#patron1').offset().left, top: $('#patron1').offset().top };
+  var gP3pos = {left: $('#patron3').offset().left, top: $('#patron3').offset().top };
   //map
   var mappos = {left: $('#map').offset().left, top: $('#map').offset().top };
 
@@ -328,6 +330,9 @@ $(document).keydown(function(e){
     //gallery
     if (gBpos.left <= 4000){ gBpos.left += 10; }
     if (gSpos.left <= 4000){ gSpos.left += 15; }
+    if (gP1pos.left <= 4000){ gP1pos.left += 15; }
+    if (gP3pos.left <= 4000){ gP3pos.left += 15; }
+
     //map
     if (mappos.left > 100){ mappos.left -= 10; }
 
@@ -354,6 +359,8 @@ $(document).keydown(function(e){
     } else if(pos.left >= 2660 && Math.round(pos.top) === 1300){
       $('#galleryBackground').offset(gBpos);
       $('#statue').offset(gSpos);
+      $('#patron1').offset(gP1pos);
+      $('#patron3').offset(gP3pos);
     }else if(pos.left >= 100 && Math.round(pos.top) === 2000){
       $('#map').offset(mappos);
     }
@@ -403,7 +410,9 @@ $(document).keydown(function(e){
     if (cRFG.left > -600){ cRFG.left -= 15}
     //gallery
     if (gBpos.left >= 850){ gBpos.left -= 20;}
-    if (gSpos.left >= 1700){ gSpos.left -= 30;}
+    if (gSpos.left >= 1700){ gSpos.left -= 15;}
+    if (gP1pos.left >= 1700){ gP1pos.left -= 15;}
+    if (gP3pos.left >= 1700){ gP3pos.left -= 15;}
     //map
     if (mappos.left < 1628){ mappos.left -= 10; }
 
@@ -430,6 +439,8 @@ $(document).keydown(function(e){
     } else if(pos.left >= 2660 && Math.round(pos.top) === 1300){
       $('#galleryBackground').offset(gBpos);
       $('#statue').offset(gSpos);
+      $('#patron1').offset(gP1pos);
+      $('#patron3').offset(gP3pos);
     }else if(pos.left < 1628 && Math.round(pos.top) === 2000){
       $('#map').offset(mappos);
       $('sanfran').width()
