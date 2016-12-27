@@ -240,7 +240,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #panel6{
-  overflow: visible;
+  overflow: hidden;
   background-color: white;
   height: 950px;
   width: 1000px;
@@ -251,20 +251,20 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   z-index: 4;
 }
 
-#newyork{
+#nyCircle{
   position: absolute;
   z-index: 5;
   top: 0%;
-  left: 50%;
+  left: 90%;
+  height: 50px;
+  width: 50px;
 }
 
-#sanfran{
+#sfCircle{
   position: absolute;
   z-index: 6;
   top: 0%;
-  left: -10%;
-  width: 5%;
-  height:5%;
+  left: 0%;
 }
 
 #panel7{

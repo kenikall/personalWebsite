@@ -1,6 +1,5 @@
 $(document).ready(function(){
   $('.speechBubble').hide();
-
   $('.kidTalk').hide();
   // $('#nyCover').opacity = 1;
   // $('#sfCover').style.opacity = 0;
@@ -283,11 +282,12 @@ $(document).ready(function(){
 })
 $(document).keydown(function(e){
   //person
-  var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
+  // var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
+  var pos = {left: 0, top: 2000 };
   var bubble = {left: pos.left+175, top: pos.top-200}
 
   if(pos.left >= 3740 && Math.round(pos.top) === 500 ){ pos.left = -250; pos.top = 1300 }
-  else if (pos.left >= 3740 && Math.round(pos.top) === 1300 ){ pos.left = 200; pos.top = 2000 }
+  else if (pos.left >= 3740 && Math.round(pos.top) === 1300 ){ pos.left = 0; pos.top = 2000 }
   //office
   var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
   var oFGpos = {left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
@@ -305,6 +305,12 @@ $(document).keydown(function(e){
   var gP3pos = {left: $('#patron3').offset().left, top: $('#patron3').offset().top };
   //map
   var mappos = {left: $('#map').offset().left, top: $('#map').offset().top };
+  var sfScale = document.getElementById('sfCircle').offsetWidth;
+  var sfTop = $('#sfCircle').offset().top;
+  var sfLeft = $('#sfCircle').offset().left;
+  var nyScale = document.getElementById('nyCircle').offsetWidth;
+  var nyTop = $('#nyCircle').offset().top;
+  var nyLeft = $('#nyCircle').offset().left;
 
   switch(e.which){
     case 37: //left
@@ -368,17 +374,8 @@ $(document).keydown(function(e){
 
     case 39:  //right
     // //person
-    // // console.log("left: "+pos.left+" top: "+Math.round(pos.top));
     pos.left += 20;
-    // if (Math.round(pos.top) === 500 && pos.left >= 3750) {
-    //   pos.top = 1300;
-    //   pos.left = -250;
-    //   console.log ("row2 " + pos.left)
-    // }
-    // // else if (pos.top === 1300 && pos.left >= 3900){
-    // //   pos.top = 1300;
-    // //   pos.left = 320;
-    // // }
+    console.log(sfScale);
 
     if(pos.left > 420  && pos.left < 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').show(); }
     else if (pos.left >= 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').hide(); }
@@ -412,6 +409,13 @@ $(document).keydown(function(e){
     if (gP3pos.left >= 1700){ gP3pos.left -= 15;}
     //map
     if (mappos.left < 1628){ mappos.left -= 10; }
+    if (sfTop < 45){ sfTop += 1;}
+    if (sfLeft < 26){ sfLeft += 1;}
+    if (sfScale > 100){ sfScale -= 20;}
+
+    if (nyTop > 0){ nyTop -= 1;}
+    if (nyLeft > -10){ nyLeft -= 1;}
+    if (nyScale < 1000){ nyScale += 20;}
 
     if(pos.left< 1610 && Math.round(pos.top) === 500){
       walk.update();
@@ -443,15 +447,12 @@ $(document).keydown(function(e){
       $('#patron3').offset(gP3pos);
     }else if(pos.left < 1628 && Math.round(pos.top) === 2000){
       $('#map').offset(mappos);
-      $('sanfran').width()
-      $('sanfran').height()
-      $('newyork').width()
-      $('newyork').height()
+      $('#sfCircle').css({width:sfScale+'px', height:sfScale+'px'});
+      $('#nyCircle').css({width:nyScale+'px', height:nyScale+'px'});
     }
     break;
   }
   function turnKids(teacher){
-    console.log (teacher);
     (teacher > -250 && teacher < $('#seatB1').offset().left)? $('#pictures').show() : $('#pictures').hide();
     (teacher > $('#seatB1').offset().left && teacher < $('#seatB2').offset().left)? $('#easy').show() : $('#easy').hide();
     (teacher > $('#seatB2').offset().left && teacher < $('#seatB3').offset().left)? $('#groups').show() : $('#groups').hide();
