@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $('.speechBubble').hide();
-  // $('.kidTalk').hide();
+
+  $('.kidTalk').hide();
   // $('#nyCover').opacity = 1;
   // $('#sfCover').style.opacity = 0;
   // $('#newyork').style.width('10px');
@@ -285,7 +286,7 @@ $(document).keydown(function(e){
   var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
   var bubble = {left: pos.left+175, top: pos.top-200}
 
-  if(pos.left >= 3740 && Math.round(pos.top) === 500 ){ pos.left = 200; pos.top = 1300 }
+  if(pos.left >= 3740 && Math.round(pos.top) === 500 ){ pos.left = -250; pos.top = 1300 }
   else if (pos.left >= 3740 && Math.round(pos.top) === 1300 ){ pos.left = 200; pos.top = 2000 }
   //office
   var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
@@ -304,7 +305,6 @@ $(document).keydown(function(e){
   var gP3pos = {left: $('#patron3').offset().left, top: $('#patron3').offset().top };
   //map
   var mappos = {left: $('#map').offset().left, top: $('#map').offset().top };
-
 
   switch(e.which){
     case 37: //left
@@ -367,30 +367,27 @@ $(document).keydown(function(e){
     break;
 
     case 39:  //right
-    //person
-    console.log("left: "+pos.left+" top: "+pos.top);
+    // //person
+    // // console.log("left: "+pos.left+" top: "+Math.round(pos.top));
     pos.left += 20;
-    if (pos.top === 500 && pos.left >= 3750) {
-      pos.top = 1300;
-      pos.left = 320;
-    } else if (pos.top === 1300 && pos.left >= 3900){
-      pos.top = 1300;
-      pos.left = 320;
-    }
+    // if (Math.round(pos.top) === 500 && pos.left >= 3750) {
+    //   pos.top = 1300;
+    //   pos.left = -250;
+    //   console.log ("row2 " + pos.left)
+    // }
+    // // else if (pos.top === 1300 && pos.left >= 3900){
+    // //   pos.top = 1300;
+    // //   pos.left = 320;
+    // // }
 
-    if(pos.left === 420  && pos.top === 500){
-      $('#panel1speechBubble').show()
-      setTimeout(function(){ $('#panel1speechBubble').hide() }, 2000)
-    } else if (pos.left === 2400 && pos.top === 500) {
-      $('#panel2speechBubble').show()
-      setTimeout(function(){ $('#panel2speechBubble').hide() }, 2000)
-    } else if (pos.left === 520 && pos.top === 1300) {
-      $('#panel3speechBubble').show()
-      setTimeout(function(){ $('#panel3speechBubble').hide() }, 2000)
-    } else if (pos.left === 1580 && pos.top === 1300) {
-      $('#panel4speechBubble').show()
-      setTimeout(function(){ $('#panel4speechBubble').hide() }, 2000)
-    }
+    if(pos.left > 420  && pos.left < 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').show(); }
+    else if (pos.left >= 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').hide(); }
+    if (pos.left > 2400 && pos.left < 2700 && Math.round(pos.top) === 500) { $('#panel2speechBubble').show(); }
+    else if (pos.left >= 2700 && Math.round(pos.top) === 500){ $('#panel2speechBubble').hide(); }
+    if (pos.left > 420 && pos.left > 720 && Math.round(pos.top) === 1300) { $('#panel3speechBubble').show(); }
+    else if (pos.left >= 820 && Math.round(pos.top) === 1300){ $('#panel3speechBubble').hide(); }
+    if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').show(); }
+    else if (pos.left >= 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').hide() }
 
     $('#walkAnimation').offset(pos);
     $('#cityWalk').offset(pos);
@@ -431,9 +428,12 @@ $(document).keydown(function(e){
       classWalk.update();
       classWalk.render();
       turnKids(pos.left);
-      $('#classroomBackground').offset(cRBG);
-      $('#classroomForeground').offset(cRFG);
+      if (pos.left > 0){
+        $('#classroomBackground').offset(cRBG);
+        $('#classroomForeground').offset(cRFG);
+      }
     } else if(pos.left > 1240 && pos.left < 2660 &&Math.round(pos.top) === 1300){
+      $('#awesome').hide();
       lessonWalk.update();
       lessonWalk.render();
     } else if(pos.left >= 2660 && Math.round(pos.top) === 1300){
@@ -451,8 +451,14 @@ $(document).keydown(function(e){
     break;
   }
   function turnKids(teacher){
-    console.log('teacher= '+teacher);
-    console.log('student'+$('#seatA1').offset().left);
+    console.log (teacher);
+    (teacher > -250 && teacher < $('#seatB1').offset().left)? $('#pictures').show() : $('#pictures').hide();
+    (teacher > $('#seatB1').offset().left && teacher < $('#seatB2').offset().left)? $('#easy').show() : $('#easy').hide();
+    (teacher > $('#seatB2').offset().left && teacher < $('#seatB3').offset().left)? $('#groups').show() : $('#groups').hide();
+    (teacher > $('#seatB3').offset().left && teacher < $('#seatB4').offset().left)? $('#time').show() : $('#time').hide();
+    (teacher > $('#seatB4').offset().left && teacher < $('#seatA4').offset().left)? $('#recess').show() : $('#recess').hide();
+    (teacher > $('#computer1').offset().left)? $('#awesome').show() : $('#awesome').hide();
+
     ($('#seatA1').offset().left > teacher)? girlA.render(0) : girlA.render(1);
     ($('#seatA2').offset().left > teacher)? kidA.render(0) : kidA.render(1);
     ($('#seatA3').offset().left > teacher)? girlC.render(0) : girlC.render(1);
