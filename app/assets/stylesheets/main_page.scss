@@ -15,17 +15,20 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 .panel{
+  pointer-events: none;
   overflow: hidden;
   position: absolute;
 }
 
 #comicPanel{
+  pointer-events: none;
   position: relative;
   max-width: 4040px;
   width: 100%;
 }
 
 #panelFrame{
+  pointer-events: none;
   position: absolute;
   z-index: 15;
   width: 100%;
@@ -580,7 +583,100 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
     cursor: pointer;
 }
 
+body {
+    display: block;
+    padding: 20px;
+    font-family: sans-serif;
+}
 
+.social-icons {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.icon {
+    display: block;
+    // float: left;
+    position: relative;
+    width: 18%;
+    height: 0;
+    margin: 0.5% 0.5% 1% 1%;
+    padding-bottom: 0%;
+
+    @media all and (min-width: 600px) {
+        width: 9%;
+        padding-bottom: 9%;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    a {
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 10px;
+        background-color: #fff;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        transition: all .2s ease-out;
+
+        &:hover {
+            background-color: #222;
+            background-size: 0%;
+            transition: all .2s ease-out;
+        }
+    }
+}
+
+.icon__name {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -7px;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+
+    transition: all .3s ease-out;
+    opacity: 0;
+    filter: blur(25px);
+    transform: translateZ(0);
+    will-change: transform;
+
+    .icon:hover & {
+        transition: all .3s ease-out;
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+
+.icon--facebook a {
+    background-color: #3b5998;
+    background-image: url("../../images/icons/facebook.png");
+}
+.icon--twitter a {
+    background-color: #00aced;
+    background-image: url("../../images/icons/twitter.png");
+}
+.icon--linkedin a {
+    background-color: #007fb1;
+    background-image: url("../../images/icons/linkedin.png");
+}
+.icon--github a {
+    background-color: #4183c4;
+    background-image: url("../../images/icons/github.png");
+}
+.icon--resume a {
+    background-color: #E50914;
+    background-image: url("../../images/icons/resume.png");
+}
 
 
 

@@ -282,8 +282,9 @@ $(document).ready(function(){
 })
 $(document).keydown(function(e){
   //person
-  // var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
-  var pos = {left: 0, top: 2000 };
+  var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
+  // DEBUG
+  // var pos = {left: 0, top: 2000 };
   var bubble = {left: pos.left+175, top: pos.top-200}
 
   if(pos.left >= 3740 && Math.round(pos.top) === 500 ){ pos.left = -250; pos.top = 1300 }
