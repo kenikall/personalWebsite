@@ -30,7 +30,6 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #panel1{
-
   height: 810px;
   width: 1600px;
   -webkit-clip-path: polygon(0 0, 65% 0, 100% 100%, 0% 100%);
@@ -41,25 +40,6 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #officeForeground{
   position: absolute;
   z-index:8;
-}
-
-#chair{
-  z-index:4;
-  position: absolute;
-  left: 0px;
-  top: 575px;
-}
-
-#computer{
-  position: absolute;
-  left: 125px;
-  top: 585px;
-}
-
-#table{
-  position: absolute;
-  top:625px;
-  left: 0px;
 }
 
 #poster{
@@ -238,30 +218,12 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 #panel6{
   overflow: hidden;
+  border: solid black 10px;
   background-color: white;
-  height: 950px;
-  width: 1000px;
+  height: 930px;
+  width: 975px;
   top: 1900px;
   left: 100px;
-}
-#map{
-  z-index: 4;
-}
-
-#nyCircle{
-  position: absolute;
-  z-index: 5;
-  top: 0%;
-  left: 90%;
-  height: 50px;
-  width: 50px;
-}
-
-#sfCircle{
-  position: absolute;
-  z-index: 6;
-  top: 0%;
-  left: 0%;
 }
 
 #panel7{
@@ -273,7 +235,6 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #panel8{
-
   height: 950px;
   width: 1350px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
@@ -846,3 +807,53 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   z-index:1;
 }
 
+#opportunitiesText{
+  position: absolute;
+  z-index: 5;
+  top: 2em;
+  left: 7.25em;
+}
+
+#sfText{
+  position: absolute;
+  z-index: 5;
+  top: 6em;
+  left: 2em;
+}
+
+#nyText{
+  position: absolute;
+  z-index: 5;
+  top: 20em;
+  left: 2em;
+}
+
+#newyork{
+  opacity: 0;
+  position: absolute;
+  z-index: 4;
+}
+
+#sanfran{
+  position: absolute;
+  z-index: 3;
+}
+
+#chair{
+  z-index:4;
+  position: absolute;
+  left: 30em;
+  top: 20em;
+}
+
+#computer{
+  position: absolute;
+  left: 125px;
+  top: 585px;
+}
+
+#table{
+  position: absolute;
+  top:625px;
+  left: 0px;
+}

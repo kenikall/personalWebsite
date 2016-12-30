@@ -1,10 +1,6 @@
 $(document).ready(function(){
   $('.speechBubble').hide();
   $('.kidTalk').hide();
-  // $('#nyCover').opacity = 1;
-  // $('#sfCover').style.opacity = 0;
-  // $('#newyork').style.width('10px');
-  // $('#newyork').style.height('10px');
 
   function sprite(options){
     var that = {},
@@ -66,8 +62,8 @@ $(document).ready(function(){
   contactWalk1Image = new Image();
   contactWalk1 = sprite({
     context: canvas.getContext("2d"),
-    width: 1600,
-    height: 400,
+    width: 3200,
+    height: 800,
     image: walkImage,
     numberOfFrames: 6,
     ticksPerFrame: 1
@@ -269,6 +265,8 @@ $(document).ready(function(){
   });
 
   // Load sprite sheets
+  contactWalk1Image.src = "./images/animations/finalWalkSpriteSheet.png";
+  contactWalk2Image.src = "./images/animations/finalLessonWalk.png";
   sittingImage.src = "./images/animations/sittingSpriteSheet.png";
   walkImage.src = "./images/animations/walkSpriteSheet.png";
   cityWalkImage.src = "./images/animations/cityWalkSpriteSheetv2.png";
@@ -332,13 +330,7 @@ $(document).keydown(function(e){
   var gP1pos = { left: $('#patron1').offset().left, top: $('#patron1').offset().top };
   var gP3pos = { left: $('#patron3').offset().left, top: $('#patron3').offset().top };
   //map
-  var mappos = { left: $('#map').offset().left, top: $('#map').offset().top };
-  var sfScale = document.getElementById('sfCircle').offsetWidth;
-  var sfTop = $('#sfCircle').offset().top;
-  var sfLeft = $('#sfCircle').offset().left;
-  var nyScale = document.getElementById('nyCircle').offsetWidth;
-  var nyTop = $('#nyCircle').offset().top;
-  var nyLeft = $('#nyCircle').offset().left;
+  var nyOpacity = parseFloat($('#newyork').css('opacity'));
   //bedroom
   var brPos = { left: $('#bedroomBackground').offset().left, top: $('#bedroomBackground').offset().top };
 
@@ -373,9 +365,6 @@ $(document).keydown(function(e){
     if (gP3pos.left <= 4000){ gP3pos.left += 15; }
     //bedroom
     //if (brPos.left) <= 21
-
-    //map
-    if (mappos.left > 100){ mappos.left -= 10; }
 
     if(pos.left< 1610 && Math.round(pos.top) === 500){
       walk.update();
@@ -447,14 +436,8 @@ $(document).keydown(function(e){
     if (gP1pos.left >= 1700){ gP1pos.left -= 15; }
     if (gP3pos.left >= 1700){ gP3pos.left -= 15; }
     //map
-    if (mappos.left < 1628){ mappos.left -= 10; }
-    if (sfTop < 45){ sfTop += 1; }
-    if (sfLeft < 26){ sfLeft += 1; }
-    if (sfScale > 100){ sfScale -= 20; }
-
-    if (nyTop > 0){ nyTop -= 1; }
-    if (nyLeft > -10){ nyLeft -= 1; }
-    if (nyScale < 1000){ nyScale += 20; }
+    if (nyOpacity < 1){ nyOpacity += 0.1; }
+    console.log(nyOpacity);
     //bedroom
     //if (brPos.left >= 2000){
       brPos.left -=15; //}
@@ -489,10 +472,12 @@ $(document).keydown(function(e){
       $('#statue').offset(gSpos);
       $('#patron1').offset(gP1pos);
       $('#patron3').offset(gP3pos);
-    }else if(pos.left < 1000 && Math.round(pos.top) === 2300){
-      $('#map').offset(mappos);
-      $('#sfCircle').css({width:sfScale+'px', height:sfScale+'px'});
-      $('#nyCircle').css({width:nyScale+'px', height:nyScale+'px'});
+    }else if(pos.left > 150 && pos.left < 850 && pos && Math.round(pos.top) === 2300){
+      $('#newyork').css({opacity:nyOpacity});
+      console.log("called");
+      // $('#map').offset(mappos);
+      // $('#sfCircle').css({width:sfScale+'px', height:sfScale+'px'});
+      // $('#nyCircle').css({width:nyScale+'px', height:nyScale+'px'});
     }else if(pos.left >= 1000 && pos.left < 3000 && Math.round(pos.top) === 2300){
       contactWalk1.update();
       contactWalk1.render();
