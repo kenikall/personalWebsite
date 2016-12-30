@@ -462,6 +462,8 @@ $(document).keydown(function(e){
     if(pos.left< 1610 && Math.round(pos.top) === 500){
       walk.update();
       walk.render();
+      cityWalk.update();
+      cityWalk.render();
       $('#officeBackground').offset(oBGpos);
       $('#officeForeground').offset(oFGpos);
       $('#chair').offset(oCpos);

@@ -65,8 +65,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #poster{
   pointer-events: auto;
   position: absolute;
-  top: 100px;
-  left:1400px;
+  top: 2em;
+  left: 40em;
 }
 
 .buttonO{
@@ -74,21 +74,11 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 700px;
 }
 
-#facebookO{ pointer-events: auto; top: 100px; }
-
-#githubO{ pointer-events: auto; top: 150px; }
-
-#linkedO{ pointer-events: auto; top: 200px; }
-
-#twitterO{ pointer-events: auto; top: 250px; }
-
-#resumeO{ pointer-events: auto; top: 300px; }
-
 #nav{
   pointer-events: auto;
   position: absolute;
-  top: 100px;
-  left: 1000px;
+  top: 2em;
+  left: 25em;
 }
 
 #panel2{
@@ -590,14 +580,12 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 .icon {
-  z-index: 5;
+  z-index: 3;
   display: block;
-  // float: left;
   position: relative;
   width: 10%;
   height: 0;
   margin: 1% 0.5% 4% 1%;
-  // padding-bottom: 5%;
 
   @media all and (min-width: 400px) {
       width: 6%;
@@ -634,7 +622,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   pointer-events: auto;
   z-index: 5;
   position: absolute;
-  top: 50%;
+  top: 40%;
+  left: -10%;
   width: 100%;
   margin-top: -7px;
   color: #fff;
@@ -654,36 +643,128 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   }
 }
 
+#contactlocFB{
+  position: absolute;
+  width: 3em;
+  height: 3em;
+  top: 0.7em;
+  left: 2em;
+}
+
+#officelocFB{
+  position: absolute;
+  z-index: 3;
+  width: 3em;
+  height: 0em;
+  top: 8em;
+  left: 4.5em;
+}
 
 .icon--facebook a {
-  top: 0.7em;
-  left: 1.75em;
   background-color: #3b5998;
   background-image: url("../../images/icons/facebook.png");
 }
-.icon--twitter a {
+
+#contactlocTW{
+  position: absolute;
+  width: 3em;
+  height: 3em;
   top: 0.5em;
   left: 1.5em;
+}
+
+#officelocTW{
+  position: absolute;
+  z-index: 3;
+  width: 3em;
+  height: 0em;
+  top: 8em;
+  left: 1em;
+}
+
+.icon--twitter a {
   background-color: #00aced;
   background-image: url("../../images/icons/twitter.png");
 }
-.icon--linkedin a {
+
+#contactlocLI{
+  position: absolute;
+  width: 3em;
+  height: 3em;
   top: 1.1em;
   left: 2em;
+}
+
+#officelocLI{
+  position: absolute;
+  z-index: 3;
+  width: 3em;
+  height: 0em;
+  top: 8em;
+  left: 8em;
+}
+
+.icon--linkedin a {
   background-color: #0076B2;
   background-image: url("../../images/icons/linkedin.png");
 }
-.icon--github a {
+
+#contactlocGH{
+  position: absolute;
+  width: 3em;
+  height: 3em;
   top: 0.5em;
   left: 1.5em;
+}
+
+#officelocGH{
+  position: absolute;
+  z-index: 3;
+  width: 3em;
+  height: 0em;
+  top: 8em;
+  left: 11.5em;
+}
+
+.icon--github a {
   background-color: #000000;
   background-image: url("../../images/icons/github.png");
 }
-.icon--resume a {
+
+#contactlocRM{
+  position: absolute;
+  width: 3em;
+  height: 3em;
   top: 0.5em;
   left: 1.5em;
+}
+
+#officelocRM{
+  position: absolute;
+  z-index: 3;
+  width: 3em;
+  height: 0em;
+  top: 8em;
+  left: 15em;
+}
+
+#officelocEM{
+  position: absolute;
+  z-index: 3;
+  width: 3em;
+  height: 0em;
+  top: 8em;
+  left: 18.5em;
+}
+
+.icon--resume a {
   background-color: #E50914;
   background-image: url("../../images/icons/resume.png");
+}
+
+.icon--email a {
+  background-color: #F89A1E;
+  background-image: url("../../images/icons/email.png");
 }
 
 .comntactBalloon{
@@ -728,6 +809,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #subButton{
+  pointer-events: auto;
   position: absolute;
   top: 16em;
   left: 28em;
