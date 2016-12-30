@@ -59,6 +59,19 @@ $(document).ready(function(){
     numberOfFrames: 6,
     ticksPerFrame: 1
   });
+  // Contact walk 1
+  canvas = document.getElementById("contactWalk1");
+  canvas.width = 250;
+  canvas.height = 400;
+  contactWalk1Image = new Image();
+  contactWalk1 = sprite({
+    context: canvas.getContext("2d"),
+    width: 1600,
+    height: 400,
+    image: walkImage,
+    numberOfFrames: 6,
+    ticksPerFrame: 1
+  });
   // City walk
   canvas = document.getElementById("cityWalk");
   canvas.width = 373;
@@ -85,16 +98,16 @@ $(document).ready(function(){
     numberOfFrames: 6,
     ticksPerFrame: 1
   });
-  // Standing Animation
-  canvas = document.getElementById("standAnimation");
+  // Sitting Animation
+  canvas = document.getElementById("sitting");
   canvas.width = 292;
   canvas.height = 400;
-  standingImage = new Image();
-  standing = sprite({
+  sittingImage = new Image();
+  sitting = sprite({
     context: canvas.getContext("2d"),
     width: 2049,
     height: 400,
-    image: standingImage,
+    image: sittingImage,
     numberOfFrames: 7,
     ticksPerFrame: 1
   });
@@ -111,7 +124,20 @@ $(document).ready(function(){
     numberOfFrames: 6,
     ticksPerFrame: 1
   });
-
+  // Contact walk 2
+  canvas = document.getElementById("contactWalk2");
+  canvas.width = 250;
+  canvas.height = 400;
+  contactWalk2Image = new Image();
+  contactWalk2 = sprite({
+    context: canvas.getContext("2d"),
+    width: 1600,
+    height: 400,
+    image: lessonWalkImage,
+    numberOfFrames: 6,
+    ticksPerFrame: 1
+  });
+  // Kids
   canvas = document.getElementById("seatA1");
   canvas.width = 166;
   canvas.height = 268;
@@ -243,7 +269,7 @@ $(document).ready(function(){
   });
 
   // Load sprite sheets
-  standingImage.src = "./images/animations/standingSpriteSheet.png";
+  sittingImage.src = "./images/animations/sittingSpriteSheet.png";
   walkImage.src = "./images/animations/walkSpriteSheet.png";
   cityWalkImage.src = "./images/animations/cityWalkSpriteSheetv2.png";
   classWalkImage.src = "./images/animations/teacherSpriteSheet.png";
@@ -285,33 +311,36 @@ $(document).keydown(function(e){
   var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
   // DEBUG
   // var pos = {left: 0, top: 2000 };
+  // console.log(pos.left);
   var bubble = {left: pos.left+175, top: pos.top-200}
 
   if(pos.left >= 3740 && Math.round(pos.top) === 500 ){ pos.left = -250; pos.top = 1300 }
-  else if (pos.left >= 3740 && Math.round(pos.top) === 1300 ){ pos.left = 0; pos.top = 2000 }
+  else if (pos.left >= 3740 && Math.round(pos.top) === 1300 ){ pos.left = 0; pos.top = 2300 }
   //office
-  var oBGpos = {left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
-  var oFGpos = {left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
-  var oCpos = {left: $('#chair').offset().left, top: $('#chair').offset().top };
+  var oBGpos = { left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
+  var oFGpos = { left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
+  var oCpos = { left: $('#chair').offset().left, top: $('#chair').offset().top };
   //city
-  var cMGpos = {left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
-  var cBpos = {left: $('#buildings').offset().left, top: $('#buildings').offset().top };
+  var cMGpos = { left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
+  var cBpos = { left: $('#buildings').offset().left, top: $('#buildings').offset().top };
   //classroom
-  var cRBG  = {left: $('#classroomBackground').offset().left, top: $('#classroomBackground').offset().top };
-  var cRFG  = {left: $('#classroomForeground').offset().left, top: $('#classroomForeground').offset().top };
+  var cRBG  = { left: $('#classroomBackground').offset().left, top: $('#classroomBackground').offset().top };
+  var cRFG  = { left: $('#classroomForeground').offset().left, top: $('#classroomForeground').offset().top };
   //gallery
-  var gBpos = {left: $('#galleryBackground').offset().left, top: $('#galleryBackground').offset().top };
-  var gSpos = {left: $('#statue').offset().left, top: $('#statue').offset().top };
-  var gP1pos = {left: $('#patron1').offset().left, top: $('#patron1').offset().top };
-  var gP3pos = {left: $('#patron3').offset().left, top: $('#patron3').offset().top };
+  var gBpos = { left: $('#galleryBackground').offset().left, top: $('#galleryBackground').offset().top };
+  var gSpos = { left: $('#statue').offset().left, top: $('#statue').offset().top };
+  var gP1pos = { left: $('#patron1').offset().left, top: $('#patron1').offset().top };
+  var gP3pos = { left: $('#patron3').offset().left, top: $('#patron3').offset().top };
   //map
-  var mappos = {left: $('#map').offset().left, top: $('#map').offset().top };
+  var mappos = { left: $('#map').offset().left, top: $('#map').offset().top };
   var sfScale = document.getElementById('sfCircle').offsetWidth;
   var sfTop = $('#sfCircle').offset().top;
   var sfLeft = $('#sfCircle').offset().left;
   var nyScale = document.getElementById('nyCircle').offsetWidth;
   var nyTop = $('#nyCircle').offset().top;
   var nyLeft = $('#nyCircle').offset().left;
+  //bedroom
+  var brPos = { left: $('#bedroomBackground').offset().left, top: $('#bedroomBackground').offset().top };
 
   switch(e.which){
     case 37: //left
@@ -322,7 +351,10 @@ $(document).keydown(function(e){
     $('#cityWalk').offset(pos);
     $('#classWalk').offset(pos);
     $('#lessonWalk').offset(pos);
-    $('.speechBubble').offset(bubble)
+    $('#contactWalk1').offset(pos);
+    $('#contactWalk2').offset(pos);
+    $('#sitting').offset(pos);
+    $('.speechBubble').offset(bubble);
 
     //office
     if (oBGpos.left < 100){ oBGpos.left += 10; }
@@ -339,6 +371,8 @@ $(document).keydown(function(e){
     if (gSpos.left <= 4000){ gSpos.left += 15; }
     if (gP1pos.left <= 4000){ gP1pos.left += 15; }
     if (gP3pos.left <= 4000){ gP3pos.left += 15; }
+    //bedroom
+    //if (brPos.left) <= 21
 
     //map
     if (mappos.left > 100){ mappos.left -= 10; }
@@ -368,15 +402,16 @@ $(document).keydown(function(e){
       $('#statue').offset(gSpos);
       $('#patron1').offset(gP1pos);
       $('#patron3').offset(gP3pos);
-    }else if(pos.left >= 100 && Math.round(pos.top) === 2000){
+    }else if(pos.left >= 100 && Math.round(pos.top) === 2300){
       $('#map').offset(mappos);
+    }else if(pos.left >= 100 && Math.round(pos.top) === 2300){
+      $('#bedroomBackground').offset(brPos);
     }
     break;
 
     case 39:  //right
     // //person
     pos.left += 20;
-    console.log(sfScale);
 
     if(pos.left > 420  && pos.left < 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').show(); }
     else if (pos.left >= 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').hide(); }
@@ -391,32 +426,38 @@ $(document).keydown(function(e){
     $('#cityWalk').offset(pos);
     $('#classWalk').offset(pos);
     $('#lessonWalk').offset(pos);
-    $('.speechBubble').offset(bubble)
+    $('#contactWalk1').offset(pos);
+    $('#contactWalk2').offset(pos);
+    $('#sitting').offset(pos);
+    $('.speechBubble').offset(bubble);
 
     //office
-    if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10;}
-    if (oFGpos.left <=100 && oFGpos.left > -1550){ oFGpos.left -= 30;}
-    if (oFGpos.left > -1550){ oCpos.left -= 30;}
+    if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10; }
+    if (oFGpos.left <=100 && oFGpos.left > -1550){ oFGpos.left -= 30; }
+    if (oFGpos.left > -1550){ oCpos.left -= 30; }
     //city
-    if (cMGpos.left > 350){ cMGpos.left -= 8;}
-    if (cBpos.left >=1840){ cBpos.left -= 20;}
+    if (cMGpos.left > 350){ cMGpos.left -= 8; }
+    if (cBpos.left >=1840){ cBpos.left -= 20; }
     //classroom
-    if (cRBG.left > -100){ cRBG.left -= 5}
-    if (cRFG.left > -600){ cRFG.left -= 15}
+    if (cRBG.left > -100){ cRBG.left -= 5; }
+    if (cRFG.left > -600){ cRFG.left -= 15; }
     //gallery
-    if (gBpos.left >= 850){ gBpos.left -= 20;}
-    if (gSpos.left >= 1700){ gSpos.left -= 15;}
-    if (gP1pos.left >= 1700){ gP1pos.left -= 15;}
-    if (gP3pos.left >= 1700){ gP3pos.left -= 15;}
+    if (gBpos.left >= 850){ gBpos.left -= 20; }
+    if (gSpos.left >= 1700){ gSpos.left -= 15; }
+    if (gP1pos.left >= 1700){ gP1pos.left -= 15; }
+    if (gP3pos.left >= 1700){ gP3pos.left -= 15; }
     //map
     if (mappos.left < 1628){ mappos.left -= 10; }
-    if (sfTop < 45){ sfTop += 1;}
-    if (sfLeft < 26){ sfLeft += 1;}
-    if (sfScale > 100){ sfScale -= 20;}
+    if (sfTop < 45){ sfTop += 1; }
+    if (sfLeft < 26){ sfLeft += 1; }
+    if (sfScale > 100){ sfScale -= 20; }
 
-    if (nyTop > 0){ nyTop -= 1;}
-    if (nyLeft > -10){ nyLeft -= 1;}
-    if (nyScale < 1000){ nyScale += 20;}
+    if (nyTop > 0){ nyTop -= 1; }
+    if (nyLeft > -10){ nyLeft -= 1; }
+    if (nyScale < 1000){ nyScale += 20; }
+    //bedroom
+    //if (brPos.left >= 2000){
+      brPos.left -=15; //}
 
     if(pos.left< 1610 && Math.round(pos.top) === 500){
       walk.update();
@@ -446,10 +487,20 @@ $(document).keydown(function(e){
       $('#statue').offset(gSpos);
       $('#patron1').offset(gP1pos);
       $('#patron3').offset(gP3pos);
-    }else if(pos.left < 1628 && Math.round(pos.top) === 2000){
+    }else if(pos.left < 1000 && Math.round(pos.top) === 2300){
       $('#map').offset(mappos);
       $('#sfCircle').css({width:sfScale+'px', height:sfScale+'px'});
       $('#nyCircle').css({width:nyScale+'px', height:nyScale+'px'});
+    }else if(pos.left >= 1000 && pos.left < 3000 && Math.round(pos.top) === 2300){
+      contactWalk1.update();
+      contactWalk1.render();
+      contactWalk2.update();
+      contactWalk2.render();
+    }else if(pos.left >= 3000 && Math.round(pos.top) === 2300){
+      // console.log("called");
+      $('#bedroomBackground').offset(brPos);
+      sitting.update();
+      sitting.render();
     }
     break;
   }

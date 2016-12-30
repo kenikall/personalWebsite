@@ -69,7 +69,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #poster{
   position: absolute;
   top: 100px;
-  left:1575px;
+  left:1400px;
 }
 
 .buttonO{
@@ -90,7 +90,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #nav{
   position: absolute;
   top: 100px;
-  left: 1100px;
+  left: 1000px;
 }
 
 #panel2{
@@ -320,6 +320,20 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 1000px;
 }
 
+#contactWalk1{
+  position:absolute;
+  z-index: 5;
+  top: 1000px;
+  left: 1000px;
+}
+
+#contactWalk2{
+  position:absolute;
+  z-index: 7;
+  top: 1000px;
+  left: 1000px;
+}
+
 #marker{
   position:absolute;
   z-index: 12;
@@ -363,22 +377,6 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 .contact{
   position: absolute;
   left: 10%;
-}
-
-#email{
-  top: 20%;
-  width: 50%;
-}
-
-#subject{
-  top: 30%;
-  width: 50%;
-}
-
-#body{
-  top: 50%;
-  width: 50%;
-  height: 50%;
 }
 
 .speechBubble{
@@ -442,6 +440,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #text5{ top: 700px; left: 1000px; }
 #text6{ left: 50px; }
 #text3{ left: 150px; }
+#text10{ top: 1em; left: 8em; }
 #text12{ top: 200px; left: 200px; }
 
 #classroomBackground {
@@ -583,58 +582,50 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
     cursor: pointer;
 }
 
-body {
-    display: block;
-    padding: 20px;
-    font-family: sans-serif;
-}
-
-.social-icons {
-  max-width: 980px;
-  margin: 0 auto;
-}
-
 .icon {
-    display: block;
-    // float: left;
-    position: relative;
-    width: 18%;
-    height: 0;
-    margin: 0.5% 0.5% 1% 1%;
-    padding-bottom: 0%;
+  z-index: 5;
+  display: block;
+  // float: left;
+  position: relative;
+  width: 10%;
+  height: 0;
+  margin: 1% 0.5% 4% 1%;
+  // padding-bottom: 5%;
 
-    @media all and (min-width: 600px) {
-        width: 9%;
-        padding-bottom: 9%;
-    }
+  @media all and (min-width: 400px) {
+      width: 6%;
+      height: 1%;
+      padding-bottom: 5%;
+  }
 
-    &:last-of-type {
-        margin-right: 0;
-    }
+  &:last-of-type {
+      margin-right: 0;
+  }
 
-    a {
-        display: block;
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-        border-radius: 10px;
-        background-color: #fff;
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-position: center center;
-        transition: all .2s ease-out;
+  a {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 10px;
+      background-color: #fff;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      transition: all .2s ease-out;
 
-        &:hover {
-            background-color: #222;
-            background-size: 0%;
-            transition: all .2s ease-out;
-        }
-    }
+      &:hover {
+          background-color: #222;
+          background-size: 0%;
+          transition: all .2s ease-out;
+      }
+  }
 }
 
 .icon__name {
+    z-index: 5;
     position: absolute;
     top: 50%;
     width: 100%;
@@ -658,30 +649,110 @@ body {
 
 
 .icon--facebook a {
-    background-color: #3b5998;
-    background-image: url("../../images/icons/facebook.png");
+  top: 0.7em;
+  left: 1.75em;
+  background-color: #3b5998;
+  background-image: url("../../images/icons/facebook.png");
 }
 .icon--twitter a {
-    background-color: #00aced;
-    background-image: url("../../images/icons/twitter.png");
+  top: 0.5em;
+  left: 1.5em;
+  background-color: #00aced;
+  background-image: url("../../images/icons/twitter.png");
 }
 .icon--linkedin a {
-    background-color: #007fb1;
-    background-image: url("../../images/icons/linkedin.png");
+  top: 1.1em;
+  left: 2em;
+  background-color: #0076B2;
+  background-image: url("../../images/icons/linkedin.png");
 }
 .icon--github a {
-    background-color: #4183c4;
-    background-image: url("../../images/icons/github.png");
+  top: 0.5em;
+  left: 1.5em;
+  background-color: #000000;
+  background-image: url("../../images/icons/github.png");
 }
 .icon--resume a {
-    background-color: #E50914;
-    background-image: url("../../images/icons/resume.png");
+  top: 0.5em;
+  left: 1.5em;
+  background-color: #E50914;
+  background-image: url("../../images/icons/resume.png");
 }
 
+.comntactBalloon{
+  position: absolute;
+  z-index:4;
+}
 
+.textbox {
+  border: none;
+  background: transparent;
+  font-size: 2em;
+}
 
+#email{
+  position: absolute;
+  z-index: 8;
+  top: 20%;
+  left: 10em;
+}
 
+#sender{
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  width: 15em;
+}
 
+#subject{
+  position: absolute;
+  top: 1em;
+  left: 18em;
+  width: 10em;
+}
 
+#content{
+  position: absolute;
+  top: 4.5em;
+  left: 0em;
+  width: 27em;
+  height: 11.5em;
+}
 
+#subButton{
+  position: absolute;
+  top: 16em;
+  left: 28em;
+}
+
+#emailBalloon{
+  position: absolute;
+  z-index: 6;
+  top: 15%;
+  left: 17%;
+}
+
+#emailPanel{
+  overflow: hidden;
+  position: absolute;
+  z-index: 7;
+  top: 9.4em;
+  left: 9.5em;
+  width: 30em;
+  height: 16.3em;
+  -webkit-clip-path: polygon(0 0, 91.5% 0, 100% 74%, 60% 74%, 39% 101%, 37% 72%, 2% 70%);
+}
+
+#sitting{
+  position:absolute;
+  z-index: 7;
+  top: 1000px;
+  left: 1000px;
+}
+
+#bedroomBackground{
+  position: absolute;
+  top: 0px;
+  z-index:1;
+}
 

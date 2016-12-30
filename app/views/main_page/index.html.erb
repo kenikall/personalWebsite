@@ -1,7 +1,6 @@
  <div id=comicPanel>
   <img id="panelFrame" src="./images/frame.png">
     <div id=panel1 class="panel">
-      <canvas id="standAnimation"></canvas>
       <canvas id="walkAnimation"></canvas>
       <img class="speechBubble" id="panel1speechBubble" src="./images/text/showYou.png">
 
@@ -166,49 +165,66 @@
     </div>
 
     <div id=panel7 class="panel">
+      <canvas id="contactWalk1"></canvas>
+      <img class="background" src="./images/contact/contact.png">
       <img class="text" id="text10" src="./images/text/suggestions.png">
       <div id="email" class="contact">
-        <img src="./images/pannelFiller.png">
-        <input class="textbox" id="email-address" name="email-address" maxlength="75" placeholder="Your email" style="background: transparent">
+        <form method="post" action="email.php">
+          <input id="sender" class="textbox" type="email-address" name="text" maxlength="75" placeholder="Your email">
+          <input id="subject" class="textbox" type="email-subject" name="text" maxlength="75" placeholder="Subject">
+          <textarea id="content" class="textbox" type="email-body" name="text" placeholder="Your message"  rows="5" cols="50"></textarea>
+          <input id="subButton" type="image" src="./images/contact/subButton.png" value="Send email">
+        </form>
       </div>
-      <div id="subject" class="contact">
-      <img src="./images/pannelFiller.png" style="position: absolute; width: 20; height: 50">
-        <input class="textbox" id="email-subject" name="email-subject" maxlength="150" style="background: transparent">
-      </div>
-      <div id="body" class="contact">
-        <img src="./images/pannelFiller.png" style="position: absolute; width: 30; height: 5; background: transparent">
-        <textarea class="textbox" id="email-message" name="email-message" placeholder="Message" style="position: absolute; z-index: auto; position: relative; line-height: normal; font-size: 14px; transition: none; background: transparent !important;">
-        </textarea>
-      </div>
-        <div class="icon icon--facebook">
+      <div class="icon">
+        <div class="icon--facebook">
           <a href="https://www.facebook.com/mannahcodes/">
             <span class="icon__name">Facebook</span>
           </a>
         </div>
-        <div class="icon icon--twitter">
+        <img class="contactBalloon" id="fbBalloon" src="./images/contact/fbBalloon.png">
+      </div>
+      <div class="icon">
+        <div class="icon--twitter">
           <a href="https://twitter.com/mannahKallon">
             <span class="icon__name">Twitter</span>
           </a>
+        <img class="contactBalloon" id="twitBalloon" src="./images/contact/twitBalloon.png">
         </div>
-        <div class="icon icon--linkedin">
+      </div>
+      <div class="icon">
+        <div class="icon--linkedin">
           <a href="https://www.linkedin.com/in/kenikall">
             <span class="icon__name">LinkedIn</span>
           </a>
         </div>
-        <div class="icon icon--github">
+        <img class="contactBalloon" id="liBalloon" src="./images/contact/liBalloon.png">
+      </div>
+      <div class="icon">
+        <div class="icon--github">
           <a href="https://github.com/kenikall">
             <span class="icon__name">GitHub</span>
           </a>
         </div>
-        <div class="icon icon--resume">
+        <img class="contactBalloon" id="gitBalloon" src="./images/contact/gitBalloon.png">
+      </div>
+      <div class="icon">
+        <div class="icon--resume">
           <a href="./images/mannah_resume.pdf">
             <span class="icon__name">Resume</span>
           </a>
         </div>
-      </ul>
+        <img class="contactBalloon" id="resBalloon" src="./images/contact/resBalloon.png">
+      </div>
+      <img id="emailBalloon" src="./images/contact/emailBubble.png">
+      <div id="emailPanel">
+        <canvas id="contactWalk2"></canvas>
+      </div>
+
 
     </div>
     <div id=panel8 class="panel">
+      <canvas id="sitting"></canvas>
       <img class="speechBubble" id="panel8speechBubble" src="./images/text/coding.png">
       <img class="speechBubble" id="panel8speechBubble" src="./images/text/thanks.png">
       <div class="background">
@@ -224,7 +240,7 @@
       </div>
     </div>
 </div>
-<div id="lessonModal1" class="modal">
+<!-- <div id="lessonModal1" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
     <p>Lesson 1</p>
@@ -296,3 +312,4 @@
     <p>Lesson 12</p>
   </div>
 </div>
+ -->
