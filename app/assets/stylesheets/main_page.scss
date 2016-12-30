@@ -1,13 +1,8 @@
 html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden}
 
-.background{
-  position: absolute;
-  // z-index:3;
-}
+.background{ position: absolute; }
 
-.wallStuff{
-  position:absolute;
-}
+.wallStuff{ position: absolute; }
 
 .foreground{
  position: absolute;
@@ -35,6 +30,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #panel1{
+
   height: 810px;
   width: 1600px;
   -webkit-clip-path: polygon(0 0, 65% 0, 100% 100%, 0% 100%);
@@ -67,6 +63,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #poster{
+  pointer-events: auto;
   position: absolute;
   top: 100px;
   left:1400px;
@@ -77,17 +74,18 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 700px;
 }
 
-#facebookO{ top: 100px; }
+#facebookO{ pointer-events: auto; top: 100px; }
 
-#githubO{ top: 150px; }
+#githubO{ pointer-events: auto; top: 150px; }
 
-#linkedO{ top: 200px; }
+#linkedO{ pointer-events: auto; top: 200px; }
 
-#twitterO{ top: 250px; }
+#twitterO{ pointer-events: auto; top: 250px; }
 
-#resumeO{ top: 300px; }
+#resumeO{ pointer-events: auto; top: 300px; }
 
 #nav{
+  pointer-events: auto;
   position: absolute;
   top: 100px;
   left: 1000px;
@@ -189,9 +187,9 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #lessonv7{ top: 1475px; left: 425px; }
 #lessonv8{ top: 1425px; left: 850px; }
 
-.hlesson{ position: absolute; z-index: 3; }
+.hlesson{ pointer-events: auto; position: absolute; z-index: 3; }
 
-.vlesson{ position: absolute; z-index: 3; }
+.vlesson{ pointer-events: auto; position: absolute; z-index: 3; }
 
 #panel5{
   height: 810px;
@@ -205,7 +203,12 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left:200px;
 }
 
-.frame{ z-index:6 }
+.frame{
+  position: absolute;
+  top: -0.6em;
+  left: -0.8em;
+  z-index:3;
+}
 
 #frame1{
   position: absolute;
@@ -235,6 +238,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 .painting{
+  pointer-events: auto;
   position: absolute;
   z-index: 4x;
   top: 0px;
@@ -279,11 +283,13 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #panel8{
+
   height: 950px;
   width: 1350px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
   top: 1900px;
   left: 2600px;
+  overflow: visible;
 }
 
 #walkAnimation{
@@ -341,43 +347,43 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 200px;
 }
 
-.textbox{
-  background: transparent;
-}
+// .textbox{
+//   background: transparent;
+// }
 
-.icon{
-  position:absolute;
-}
+// .icon{
+//   position:absolute;
+// }
 
-#resume{
-  top: 20%;
-  left: 45%;
-}
+// #resume{
+//   top: 20%;
+//   left: 45%;
+// }
 
-#linkedin{
-  top: 20%;
-  left: 60%;
-}
+// #linkedin{
+//   top: 20%;
+//   left: 60%;
+// }
 
-#github{
-  top: 60%;
-  left: 45%;
-}
+// #github{
+//   top: 60%;
+//   left: 45%;
+// }
 
-#facebook{
-  top: 60%;
-  left: 60%;
-}
+// #facebook{
+//   top: 60%;
+//   left: 60%;
+// }
 
-#twitter{
-  top: 60%;
-  left: 75%;
-}
+// #twitter{
+//   top: 60%;
+//   left: 75%;
+// }
 
-.contact{
-  position: absolute;
-  left: 10%;
-}
+// .contact{
+//   position: absolute;
+//   left: 10%;
+// }
 
 .speechBubble{
  position: absolute;
@@ -441,7 +447,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #text6{ left: 50px; }
 #text3{ left: 150px; }
 #text10{ top: 1em; left: 8em; }
-#text12{ top: 200px; left: 200px; }
+#text11{ left: 130px; }
+#text12{ top: 200px; left: 250px; }
 
 #classroomBackground {
   position: absolute;
@@ -533,7 +540,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #patron4{
-  z-index: 4;
+  z-index: 7;
   top: 375px;
   left: 1225px;
 }
@@ -617,7 +624,6 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
       transition: all .2s ease-out;
 
       &:hover {
-          background-color: #222;
           background-size: 0%;
           transition: all .2s ease-out;
       }
@@ -625,26 +631,27 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 .icon__name {
-    z-index: 5;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    margin-top: -7px;
-    color: #fff;
-    font-size: 13px;
-    text-align: center;
+  pointer-events: auto;
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  margin-top: -7px;
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
 
-    transition: all .3s ease-out;
-    opacity: 0;
-    filter: blur(25px);
-    transform: translateZ(0);
-    will-change: transform;
+  transition: all .3s ease-out;
+  opacity: 0;
+  filter: blur(25px);
+  transform: translateZ(0);
+  will-change: transform;
 
-    .icon:hover & {
-        transition: all .3s ease-out;
-        opacity: 1;
-        filter: blur(0);
-    }
+  .icon:hover & {
+      transition: all .3s ease-out;
+      opacity: 1;
+      filter: blur(0);
+  }
 }
 
 
@@ -685,6 +692,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 .textbox {
+  pointer-events: auto;
   border: none;
   background: transparent;
   font-size: 2em;
