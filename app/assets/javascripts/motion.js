@@ -62,8 +62,8 @@ $(document).ready(function(){
   contactWalk1Image = new Image();
   contactWalk1 = sprite({
     context: canvas.getContext("2d"),
-    width: 3200,
-    height: 800,
+    width: 1600,
+    height: 400,
     image: walkImage,
     numberOfFrames: 6,
     ticksPerFrame: 1
@@ -296,7 +296,7 @@ $(document).ready(function(){
     girlE.render();
     computer1.render();
     computer2.render();
-    //centerAll();
+    // centerAll();
 
     window.setInterval(function(){
       moveClouds();
@@ -305,7 +305,14 @@ $(document).ready(function(){
   }
 })
 $(document).keydown(function(e){
-  //person
+  var officeWidth = $('officeBackground').width();
+  console.log('buildings = '  + $('buildings').width());
+  // var cityWidth = $('buildings').width() + $('buildings').offset().left;
+  // $('#comicPanel').css({width: $(window).width()*.9 < 4000 ? $(window).width()*.9 : 4000 }) ;
+  // console.log($('#comicPanel').width());
+  // var winOffset = { left: $(window).width()/2 - $('#comicPanel').width()/2, top: $('#comicPanel').width()*0.01 };
+  // $('#comicPanel').offset(winOffset);
+  //Positioning
   var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
   // DEBUG
   // var pos = {left: 0, top: 2000 };
@@ -336,7 +343,7 @@ $(document).keydown(function(e){
 
   switch(e.which){
     case 37: //left
-    center1();
+    // center1();
     //person
     pos.left -= 20;
     $('#standAnimation').offset(pos);
@@ -475,9 +482,6 @@ $(document).keydown(function(e){
     }else if(pos.left > 150 && pos.left < 850 && pos && Math.round(pos.top) === 2300){
       $('#newyork').css({opacity:nyOpacity});
       console.log("called");
-      // $('#map').offset(mappos);
-      // $('#sfCircle').css({width:sfScale+'px', height:sfScale+'px'});
-      // $('#nyCircle').css({width:nyScale+'px', height:nyScale+'px'});
     }else if(pos.left >= 1000 && pos.left < 3000 && Math.round(pos.top) === 2300){
       contactWalk1.update();
       contactWalk1.render();
@@ -512,26 +516,6 @@ $(document).keydown(function(e){
   }
 });
 
-function centerAll(){
-  $(window).resize(function() {
-    var win = $(window);
-    $('#panelFrame *').css({width: (win.width()*.9)+'px',});
-    var frame = $('#panelFrame');
-    $('#comicPanel').css({width: (frame.width())+'px',});
-    // $('#comicPanel').width(win.width()*.9)
-    var area = $('#panelFrame');
-    $('#panelFrame').css({
-      position: 'absolute',
-      // width: (win.width()*.9)+'px',
-      left: (win.width() - area.outerWidth()) / 2
-    });
-    console.log('after='+$('#comicPanel').width());
-  });
-}
-
-function center1(){
-    $('#comicPanel').animate({ 'zoom': $('#panel1'),'top': $('#panel1').top, 'left': $('panel1').left }, 400);
-}
 function moveClouds(){
   if ($('#walkAnimation').offset().left >= 1610 && $('#walkAnimation').offset().left <= 4000 && Math.round($('#walkAnimation').offset().top) === 500) {
   var aCloudsPos = {left: $('#cloud1').offset().left, top: $('#cloud1').offset().top};
@@ -597,4 +581,16 @@ function moveLessons(){
   $('#lessonh3').offset(horzLesson3Pos);
   $('#lessonh4').offset(horzLesson4Pos);
   }
+}
+
+// function centerAll(){
+//   var win = $(window);
+//   $('#comicPanel').css({width: $(window).width()*.9 < 4000 ? $(window).width()*.9 : 4000 }) ;
+//   console.log($('#comicPanel').width());
+//   var winOffset = { left: $(window).width()/2 - $('#comicPanel').width()/2, top: $('#comicPanel').width()*0.01 };
+//   $('#comicPanel').offset(winOffset);
+// }
+
+function center1(){
+    $('#comicPanel').animate({ 'zoom': $('#panel1'),'top': $('#panel1').top, 'left': $('panel1').left }, 400);
 }

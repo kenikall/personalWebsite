@@ -1,6 +1,6 @@
 html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden}
 
-.background{ position: absolute; }
+.background{ position: absolute; height: 100%}
 
 .wallStuff{ position: absolute; }
 
@@ -17,14 +17,14 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 #comicPanel{
   pointer-events: none;
-  position: relative;
+  position: absolute;
   max-width: 4040px;
   width: 100%;
 }
 
 #panelFrame{
-  pointer-events: none;
   position: absolute;
+  max-width: 4040px;
   z-index: 15;
   width: 100%;
 }
@@ -389,12 +389,12 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   position: absolute;
   top: 50px;
   left: 100px;
-  z-index: 15 !important;
+  z-index: 15;
 }
 
 #text1{ top: 25px; left: 75px; }
 #text2{ top: 200px; left: 150px; }
-#text5{ top: 700px; left: 1000px; }
+#text5{ z-index: 7; top: 700px; left: 1000px; }
 #text6{ left: 50px; }
 #text3{ left: 150px; }
 #text10{ top: 1em; left: 8em; }
@@ -404,6 +404,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #classroomBackground {
   position: absolute;
   top: 0;
+  left: 0;
+  height: 100%;
 }
 
 #classroomForeground {
