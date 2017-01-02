@@ -306,6 +306,15 @@ $(document).ready(function(){
 })
 $(document).keydown(function(e){
   var officeWidth = $('officeBackground').width();
+  var cityWidth = $('cityMidground').width();
+  var classWidth = $('classroomBackground').width();
+  var lessonWidth = $('panel4').width();
+  var galleryWidth = $('galleryBackground').width();
+  var mapWidth = $('panel6').width();
+  var mapWidth = $('panel7').width();
+  var homeWidth = $('homeBackground').width();
+
+
   console.log('buildings = '  + $('buildings').width());
   // var cityWidth = $('buildings').width() + $('buildings').offset().left;
   // $('#comicPanel').css({width: $(window).width()*.9 < 4000 ? $(window).width()*.9 : 4000 }) ;
@@ -339,7 +348,7 @@ $(document).keydown(function(e){
   //map
   var nyOpacity = parseFloat($('#newyork').css('opacity'));
   //bedroom
-  var brPos = { left: $('#bedroomBackground').offset().left, top: $('#bedroomBackground').offset().top };
+  var brPos = { left: $('#homeBackground').offset().left, top: $('#homeBackground').offset().top };
 
   switch(e.which){
     case 37: //left
@@ -401,7 +410,7 @@ $(document).keydown(function(e){
     }else if(pos.left >= 100 && Math.round(pos.top) === 2300){
       $('#map').offset(mappos);
     }else if(pos.left >= 100 && Math.round(pos.top) === 2300){
-      $('#bedroomBackground').offset(brPos);
+      $('#homeBackground').offset(brPos);
     }
     break;
 
@@ -489,7 +498,7 @@ $(document).keydown(function(e){
       contactWalk2.render();
     }else if(pos.left >= 3000 && Math.round(pos.top) === 2300){
       // console.log("called");
-      $('#bedroomBackground').offset(brPos);
+      $('#homeBackground').offset(brPos);
       sitting.update();
       sitting.render();
     }

@@ -298,44 +298,6 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 200px;
 }
 
-// .textbox{
-//   background: transparent;
-// }
-
-// .icon{
-//   position:absolute;
-// }
-
-// #resume{
-//   top: 20%;
-//   left: 45%;
-// }
-
-// #linkedin{
-//   top: 20%;
-//   left: 60%;
-// }
-
-// #github{
-//   top: 60%;
-//   left: 45%;
-// }
-
-// #facebook{
-//   top: 60%;
-//   left: 60%;
-// }
-
-// #twitter{
-//   top: 60%;
-//   left: 75%;
-// }
-
-// .contact{
-//   position: absolute;
-//   left: 10%;
-// }
-
 .speechBubble{
  position: absolute;
  top: 25%;
@@ -506,32 +468,38 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    background: transparent;
+    margin: 5% auto; /* 5% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    height: 90%;
+}
+
+.lessonPDF{
+  margin: auto;
+  height: 90%;
+  width: 90%;
 }
 
 /* The Close Button */
 .close {
-    color: #aaa;
+    color: red;
     float: right;
-    font-size: 28px;
+    font-size: 20em;
     font-weight: bold;
 }
 
@@ -586,11 +554,11 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   z-index: 5;
   position: absolute;
   top: 40%;
-  left: -10%;
+  left: 0%;
   width: 100%;
   margin-top: -7px;
   color: #fff;
-  font-size: 13px;
+  font-size: 1em;
   text-align: center;
 
   transition: all .3s ease-out;
@@ -803,7 +771,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 1000px;
 }
 
-#bedroomBackground{
+#homeBackground{
   position: absolute;
   top: 0px;
   z-index:1;
