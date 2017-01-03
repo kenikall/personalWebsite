@@ -1,28 +1,18 @@
 $(document).ready(function(){
   $('.speechBubble').hide();
   $('.kidTalk').hide();
+  var count = 0;
   var officeBGOriginal = $('#officeBackground').offset().left;
-  var officeBGMax = $('#officeBackground').offset().left + $('#officeBackground').width();
   var officeFGOriginal = $('#officeForeground').offset().left;
-  var officeFGMax = $('#officeForeground').offset().left + $('#officeForeground').width();
   var cityMGOriginal = $('#cityMidground').offset().left;
-  var cityMGMax = $('#cityMidground').offset().left + $('#cityMidground').width();
   var cityBOriginal = $('#buildings').offset().left;
-  var cityBMax = $('#buildings').offset().left + $('#buildings').width();
   var classBGOriginal = $('#classroomBackground').offset().left;
-  var classBGMax = $('#classroomBackground').offset().left + $('#classroomBackground').width();
   var classFGOriginal = $('#classroomForeground').offset().left;
-  var classFGMax = $('#classroomForeground').offset().left + $('#classroomForeground').width();
   var galleryBGOriginal = $('#galleryBackground').offset().left;
-  var galleryBGMax = $('#galleryBackground').offset().left + $('#galleryBackground').width();
   var galerySOriginal = $('#statue').offset().left;
-  var galerySMax = $('#statue').offset().left + $('#statue').width();
   var galeryP1Original = $('#patron1').offset().left;
-  var galeryP1Max = $('#patron1').offset().left + $('#patron1').width();
   var galeryP2Original = $('#patron3').offset().left;
-  var galeryP2Max = $('#patron3').offset().left + $('#patron3').width();
   var galeryHOriginal = $('#homeBackground').offset().left;
-  var galeryHMax = $('#homeBackground').offset().left + $('#homeBackground').width();
 
   function sprite(options){
     var that = {},
@@ -326,18 +316,35 @@ $(document).ready(function(){
   }
 
   $(document).keydown(function(e){
-    console.log(test);
     //Positioning
     var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
+    var officeBGCurrent = $('#officeBackground').offset().left + $('#officeBackground').width();
+    var officeFGCurrent = $('#officeForeground').offset().left + $('#officeForeground').width();
+    var cityMGCurrent = $('#cityMidground').offset().left + $('#cityMidground').width();
+    var cityBCurrent = $('#buildings').offset().left + $('#buildings').width();
+    var classBGCurrent = $('#classroomBackground').offset().left + $('#classroomBackground').width();
+    var classFGCurrent = $('#classroomForeground').offset().left + $('#classroomForeground').width();
+    var galleryBGCurrent = $('#galleryBackground').offset().left + $('#galleryBackground').width();
+    var galerySCurrent = $('#statue').offset().left + $('#statue').width();
+    var galeryP1Current = $('#patron1').offset().left + $('#patron1').width();
+    var galeryP2Current = $('#patron3').offset().left + $('#patron3').width();
+    var galeryHCurrent = $('#homeBackground').offset().left + $('#homeBackground').width();
 
+    var border = $('#comicPanel').width()*0.025;
     var panel1Transition = $('#panel1').width() + $('#walkAnimation').width();
+    var panel1Width = $('#panel1').width() + $('#panel1').offset().left * 2;
     var panel2Transition = $('#comicPanel').width() + $('#cityWalk').width();
+    var panel2Width = $('#panel2').width() + $('#panel2').offset().left;
     var panel3Transition = $('#panel3').width() + $('#classWalk').width();
+    var panel3Width = $('#panel3').width() + $('#panel3').offset().left;
     var panel4Transition = $('#panel3').width() + $('#panel4').width() + $('#lessonWalk').width();
+    var panel4Width = $('#panel4').width() + $('#panel4').offset().left;
     var panel5Transition = $('#panel3').width() + $('#panel4').width() + $('#galleryBackground').width();
     var panel6Transition = $('#panel6').width();
     var panel7Transition = $('#panel6').width() + $('#panel7').width() + $('#contactWalk1').width();
-    var panel8Transition = $('#panel6').width() + $('#panel7').width() + $('#panel8').width() +$('#sitting').width();
+    var panel7Width = $('#panel7').width() + $('#panel7').offset().left;
+    var panel8Width = $('#panel8').width() + $('#panel8').offset().left;
+    // var panel8Transition = $('#panel6').width() + $('#panel7').width() + $('#panel8').width() +$('#sitting').width();
 
     var officeWidth = $('#officeBackground').width();
     var cityWidth = $('#cityMidground').width();
@@ -350,11 +357,10 @@ $(document).ready(function(){
     var bubble = {left: pos.left+175, top: pos.top-200}
 
     if(pos.left >= panel2Transition && Math.round(pos.top) === 500 ){ pos.left = -250; pos.top = 1300 }
-    else if (pos.left >= panel5Transition && Math.round(pos.top) === 1300 ){ pos.left = 0; pos.top = 2300 }
+    else if (pos.left >= panel5Transition && Math.round(pos.top) === 1300 ){ pos.left = -250; pos.top = 2300 }
     //office
     var oBGpos = { left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
     var oFGpos = { left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
-    var oCpos = { left: $('#chair').offset().left, top: $('#chair').offset().top };
     //city
     var cMGpos = { left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
     var cBpos = { left: $('#buildings').offset().left, top: $('#buildings').offset().top };
@@ -373,65 +379,63 @@ $(document).ready(function(){
 
     switch(e.which){
       case 37: //left
-      // center1();
-      //person
-      pos.left -= 20;
-      $('#cityWalk').offset(pos);
-      $('#classWalk').offset(pos);
-      $('#lessonWalk').offset(pos);
-      $('#contactWalk1').offset(pos);
-      $('#contactWalk2').offset(pos);
-      $('#sitting').offset(pos);
-      $('.speechBubble').offset(bubble);
+      // // center1();
+      // //person
+      // pos.left -= 20;
+      // $('#cityWalk').offset(pos);
+      // $('#classWalk').offset(pos);
+      // $('#lessonWalk').offset(pos);
+      // $('#contactWalk1').offset(pos);
+      // $('#contactWalk2').offset(pos);
+      // $('#sitting').offset(pos);
+      // $('.speechBubble').offset(bubble);
 
-      //office
-      if (oBGpos.left < 100){ oBGpos.left += 10; }
-      if (oFGpos.left < 100){ oFGpos.left += 30; }
-      if (oCpos.left < 100){ oCpos.left += 30; }
-      //city
-      if (cMGpos.left < 1200){ cMGpos.left += 8; }
-      if (cBpos.left <= 4000){ cBpos.left += 20; }
-      //classroom
-      if (cRBG.left < 100){ cRBG.left += 5; }
-      if (cRFG.left < 0){ cRFG.left += 8; }
-      //gallery
-      if (gBpos.left <= 4000){ gBpos.left += 10; }
-      if (gSpos.left <= 4000){ gSpos.left += 15; }
-      if (gP1pos.left <= 4000){ gP1pos.left += 15; }
-      if (gP3pos.left <= 4000){ gP3pos.left += 15; }
-      //bedroom
-      //if (brPos.left) <= 21
+      // //office
+      // if (oBGpos.left < 100){ oBGpos.left += 10; }
+      // if (oFGpos.left < 100){ oFGpos.left += 30; }
+      // //city
+      // if (cMGpos.left < 1200){ cMGpos.left += 8; }
+      // if (cBpos.left <= 4000){ cBpos.left += 20; }
+      // //classroom
+      // if (cRBG.left < 100){ cRBG.left += 5; }
+      // if (cRFG.left < 0){ cRFG.left += 8; }
+      // //gallery
+      // if (gBpos.left <= 4000){ gBpos.left += 10; }
+      // if (gSpos.left <= 4000){ gSpos.left += 15; }
+      // if (gP1pos.left <= 4000){ gP1pos.left += 15; }
+      // if (gP3pos.left <= 4000){ gP3pos.left += 15; }
+      // //bedroom
+      // //if (brPos.left) <= 21
 
-      if(pos.left< 1610 && Math.round(pos.top) === 500){
-        walk.update();
-        walk.render();
-        $('#officeBackground').offset(oBGpos);
-        $('#officeForeground').offset(oFGpos);
-        $('#chair').offset(oCpos);
-      } else if(pos.left >= 1610 && Math.round(pos.top) === 500){
-        cityWalk.update();
-        cityWalk.render();
-        $('#cityMidground').offset(cMGpos);
-        $('#buildings').offset(cBpos);
-      } else if(pos.left <= 1250 && Math.round(pos.top) === 1300){
-        classWalk.update();
-        classWalk.render();
-        turnKids(pos.left);
-        $('#classroomBackground').offset(cRBG);
-        $('#classroomForeground').offset(cRFG);
-      } else if(pos.left > 1240 && pos.left < 1250 &&Math.round(pos.top) === 1300){
-        lessonWalk.update();
-        lessonWalk.render();
-      } else if(pos.left >= 2660 && Math.round(pos.top) === 1300){
-        $('#galleryBackground').offset(gBpos);
-        $('#statue').offset(gSpos);
-        $('#patron1').offset(gP1pos);
-        $('#patron3').offset(gP3pos);
-      }else if(pos.left >= 100 && Math.round(pos.top) === 2300){
-        $('#map').offset(mappos);
-      }else if(pos.left >= 100 && Math.round(pos.top) === 2300){
-        $('#homeBackground').offset(brPos);
-      }
+      // if(pos.left< 1610 && Math.round(pos.top) === 500){
+      //   walk.update();
+      //   walk.render();
+      //   $('#officeBackground').offset(oBGpos);
+      //   $('#officeForeground').offset(oFGpos);
+      // } else if(pos.left >= 1610 && Math.round(pos.top) === 500){
+      //   cityWalk.update();
+      //   cityWalk.render();
+      //   $('#cityMidground').offset(cMGpos);
+      //   $('#buildings').offset(cBpos);
+      // } else if(pos.left <= 1250 && Math.round(pos.top) === 1300){
+      //   classWalk.update();
+      //   classWalk.render();
+      //   turnKids(pos.left);
+      //   $('#classroomBackground').offset(cRBG);
+      //   $('#classroomForeground').offset(cRFG);
+      // } else if(pos.left > 1240 && pos.left < 1250 &&Math.round(pos.top) === 1300){
+      //   lessonWalk.update();
+      //   lessonWalk.render();
+      // } else if(pos.left >= 2660 && Math.round(pos.top) === 1300){
+      //   $('#galleryBackground').offset(gBpos);
+      //   $('#statue').offset(gSpos);
+      //   $('#patron1').offset(gP1pos);
+      //   $('#patron3').offset(gP3pos);
+      // }else if(pos.left >= 100 && Math.round(pos.top) === 2300){
+      //   $('#map').offset(mappos);
+      // }else if(pos.left >= 100 && Math.round(pos.top) === 2300){
+      //   $('#homeBackground').offset(brPos);
+      // }
       break;
 
       case 39:  //right
@@ -446,7 +450,7 @@ $(document).ready(function(){
       else if (pos.left >= 820 && Math.round(pos.top) === 1300){ $('#panel3speechBubble').hide(); }
       if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').show(); }
       else if (pos.left >= 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').hide() }
-      if(pos.left > $('#panel3').width() && pos.left < panel4Transition &&Math.round(pos.top) === 1300){
+      if(pos.left > $('#panel3').width() && Math.round(pos.top) === 1300){
         $('#awesome').hide();}
 
       $('#walkAnimation').offset(pos);
@@ -459,25 +463,36 @@ $(document).ready(function(){
       $('.speechBubble').offset(bubble);
 
       //office
-      if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10; }
-      if (oFGpos.left <=100 && oFGpos.left > -1550){ oFGpos.left -= 30; }
-      if (oFGpos.left > -1550){ oCpos.left -= 30; }
+      // if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10; }
+      // console.log("officeWidth = "+officeWidth);
+      // console.log("");
+      if (oBGpos.left <= officeBGOriginal && officeBGCurrent > panel1Width) {
+        oBGpos.left -= (officeWidth-$('#panel1').width())/90;
+        oFGpos.left -= (officeFGOriginal)/5;
+      }
       //city
-      if (cMGpos.left > 350){ cMGpos.left -= 8; }
-      if (cBpos.left >=1840){ cBpos.left -= 20; }
+      if (cityBCurrent > panel2Width-border*3){
+        cMGpos.left -= cityWidth/500;
+        cBpos.left -= $('#buildings').width()/100;
+      }
       //classroom
-      if (cRBG.left > -100){ cRBG.left -= 5; }
-      if (cRFG.left > -600){ cRFG.left -= 15; }
+      if (pos.left < panel3Width){
+        cRBG.left -= panel3Width/420;
+        cRFG.left -= panel3Width/120;
+      }
       //gallery
-      if (gBpos.left >= 850){ gBpos.left -= 20; }
-      if (gSpos.left >= 1700){ gSpos.left -= 15; }
-      if (gP1pos.left >= 1700){ gP1pos.left -= 15; }
-      if (gP3pos.left >= 1700){ gP3pos.left -= 15; }
+      if (pos.left > panel4Width){
+        gBpos.left -= $('#panel5').width()/50;
+        gSpos.left -= $('#panel5').width()/65;
+        gP1pos.left -= $('#panel5').width()/65;
+        gP3pos.left -= $('#panel5').width()/65;
+      }
       //map
       if (nyOpacity < 1){ nyOpacity += 0.1; }
       //bedroom
-      //if (brPos.left >= 2000){
-        brPos.left -=15; //}
+      if (pos.left > panel7Width && pos.left < panel7Width + $('#panel7').width()*0.4){
+        brPos.left -=15;
+      }
 
       if(pos.left< panel1Transition && Math.round(pos.top) === 500){
         walk.update();
@@ -486,7 +501,6 @@ $(document).ready(function(){
         cityWalk.render();
         $('#officeBackground').offset(oBGpos);
         $('#officeForeground').offset(oFGpos);
-        $('#chair').offset(oCpos);
       } else if(pos.left <= panel2Transition && Math.round(pos.top) === 500){
         cityWalk.update();
         cityWalk.render();
@@ -514,7 +528,9 @@ $(document).ready(function(){
         contactWalk1.render();
         contactWalk2.update();
         contactWalk2.render();
-      }else if(pos.left >= panel7Transition && Math.round(pos.top) === 2300){
+      }else if(pos.left >= panel7Transition && (pos.left < panel7Width + $('#panel7').width()*0.4) && Math.round(pos.top) === 2300){
+        console.log("pos= "+pos.left);
+        console.log("p8= "+panel7Width + $('#panel7').width()*0.4)
         $('#homeBackground').offset(brPos);
         sitting.update();
         sitting.render();
@@ -612,7 +628,6 @@ $(document).ready(function(){
   // function centerAll(){
   //   var win = $(window);
   //   $('#comicPanel').css({width: $(window).width()*.9 < 4000 ? $(window).width()*.9 : 4000 }) ;
-  //   console.log($('#comicPanel').width());
   //   var winOffset = { left: $(window).width()/2 - $('#comicPanel').width()/2, top: $('#comicPanel').width()*0.01 };
   //   $('#comicPanel').offset(winOffset);
   // }
