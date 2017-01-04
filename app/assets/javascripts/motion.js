@@ -1,7 +1,10 @@
 $(document).ready(function(){
   $('.speechBubble').hide();
   $('.kidTalk').hide();
-  var count = 0;
+  var start = { left: $('#walkAnimation').width()*-1, top: 500 };
+  // var start = { left: $('#panel6').width(), top: 2300 };
+  $('#walkAnimation').offset(start)
+  var sitCount = 0;
   var officeBGOriginal = $('#officeBackground').offset().left;
   var officeFGOriginal = $('#officeForeground').offset().left;
   var cityMGOriginal = $('#cityMidground').offset().left;
@@ -121,15 +124,15 @@ $(document).ready(function(){
   });
   // Sitting Animation
   canvas = document.getElementById("sitting");
-  canvas.width = 439;
+  canvas.width = 400;
   canvas.height = 600;
   sittingImage = new Image();
   sitting = sprite({
     context: canvas.getContext("2d"),
-    width: 3074,
+    width: 5200,
     height: 600,
     image: sittingImage,
-    numberOfFrames: 7,
+    numberOfFrames: 13,
     ticksPerFrame: 1
   });
   // Lesson walk
@@ -343,9 +346,9 @@ $(document).ready(function(){
     var panel5Transition = $('#panel3').width() + $('#panel4').width() + $('#galleryBackground').width();
     var panel6Transition = $('#panel6').width();
     var panel7Transition = $('#panel6').width() + $('#panel7').width() + $('#contactWalk1').width();
-    var panel7Width = $('#panel7').width() + $('#panel7').offset().left;
+    var panel7Width = $('#panel7').width()*0.67 + $('#panel7').offset().left;
     var panel8Width = $('#panel8').width() + $('#panel8').offset().left;
-    // var panel8Transition = $('#panel6').width() + $('#panel7').width() + $('#panel8').width() +$('#sitting').width();
+    var panel8Transition = $('#panel7').offset().left + $('#panel7').width()*0.67;
 
     var officeWidth = $('#officeBackground').width();
     var cityWidth = $('#cityMidground').width();
@@ -451,8 +454,11 @@ $(document).ready(function(){
       else if (pos.left >= 820 && Math.round(pos.top) === 1300){ $('#panel3speechBubble').hide(); }
       if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').show(); }
       else if (pos.left >= 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').hide() }
-      if(pos.left > $('#panel3').width() && Math.round(pos.top) === 1300){
-        $('#awesome').hide();}
+      if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').show(); }
+      else if (pos.left >= panel7Width && Math.round(pos.top) === 1300) { $('#thanksSpeechBubble').hide() }
+      if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#thanksSpeechBubble').show(); }
+      else if (pos.left >= 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').hide() }
+      if(pos.left > $('#panel3').width() && Math.round(pos.top) === 1300){ $('#awesome').hide(); }
 
       $('#walkAnimation').offset(pos);
       $('#cityWalk').offset(pos);
@@ -460,7 +466,6 @@ $(document).ready(function(){
       $('#lessonWalk').offset(pos);
       $('#contactWalk1').offset(pos);
       $('#contactWalk2').offset(pos);
-      $('#sitting').offset(pos);
       $('.speechBubble').offset(bubble);
 
       //office
@@ -486,14 +491,10 @@ $(document).ready(function(){
         gP3pos.left -= $('#panel5').width()/65;
       }
       //map
-      if (nyOpacity < 1){ nyOpacity += 0.1; }
+      if (nyOpacity < 1){ nyOpacity += 0.05; }
       //bedroom
       if (pos.left > panel7Width && pos.left < panel7Width + $('#panel7').width()*0.4){
-        brPos.left -= $('#homeBackground').width()/125;
-      }
-      console.log($('#comicPanel').width()-$('#sitting').width()-panel8Width)
-      if (pos.left> $('#comicPanel').width()-$('#sitting').width()-$('#panel8Width')){
-
+        brPos.left -= $('#homeBackground').width()/150;
       }
 
       if(pos.left< panel1Transition && Math.round(pos.top) === 500){
@@ -525,19 +526,32 @@ $(document).ready(function(){
         $('#patron3').offset(gP3pos);
       }else if(pos.left > 0 && pos.left < panel6Transition && pos && Math.round(pos.top) === 2300){
         $('#newyork').css({opacity:nyOpacity});
-      }else if(pos.left >= panel6Transition && pos.left < panel7Transition && Math.round(pos.top) === 2300){
+      }else if(pos.left >= panel6Transition && pos.left < panel7Width && Math.round(pos.top) === 2300){
         contactWalk1.update();
         contactWalk1.render();
         contactWalk2.update();
         contactWalk2.render();
-        sitting.update();
-        sitting.render();
-      }else if(pos.left >= panel7Transition && (pos.left < panel7Width + $('#panel7').width()*0.4) && Math.round(pos.top) === 2300){
+      }else if(pos.left >= panel7Width && pos.left < panel7Width + $('#panel8').width()*0.4  && Math.round(pos.top) === 2300){
+        contactWalk1.update();
+        contactWalk1.render();
         $('#homeBackground').offset(brPos);
-        sitting.update();
-        sitting.render();
-      }
+        $('#homeForeground').offset(brPos);
+      }else if(pos.left >= panel7Width && Math.round(pos.top) === 2300){
+        contactWalk1.context.clearRect(0, 0, $('#contactWalk1').width(), $('#contactWalk1').height());
+        if (pos.left < $('#comicPanel').width()*0.85){
+          $('#homeBackground').offset(brPos);
+          $('#homeForeground').offset(brPos);
+          $('#sitting').offset(pos);
+        }else{
+          $('#sitting').offset({left: $('#comicPanel').width()*0.85, top: pos.top });
+        }
+        if(sitCount<=23){
+          sitting.update();
+          sitting.render();
+          sitCount+=1;
+        }
 
+      }
       break;
     }
     function turnKids(teacher){
@@ -611,7 +625,7 @@ $(document).ready(function(){
     horzLesson1Pos.top > 450 ? horzLesson1Pos.top-- : horzLesson1Pos.top = vertLesson6Pos.top+775;
     horzLesson2Pos.top > 450 ? horzLesson2Pos.top-- : horzLesson2Pos.top = horzLesson1Pos.top+425;
     horzLesson3Pos.top > 450 ? horzLesson3Pos.top-- : horzLesson3Pos.top = horzLesson1Pos.top+425;
-    horzLesson4Pos.top > 450 ? horzLesson4Pos.top-- : horzLesson4Pos.top = vertLesson4Pos.top+175;
+    horzLesson4Pos.top > 450 ? horzLesson4Pos.top-- : horzLesson4Pos.top = vertLesson4Pos.top+275;
 
     $('#lessonv1').offset(vertLesson1Pos);
     $('#lessonv2').offset(vertLesson2Pos);

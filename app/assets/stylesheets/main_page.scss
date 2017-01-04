@@ -146,7 +146,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #lessonh1{ top: -25px; left: 275px; }
 #lessonh2{ top: 400px; left: -100px; }
 #lessonh3{ top: 400px; left: 500px; }
-#lessonh4{ top: 1000px; left: 800px; }
+#lessonh4{ top: 900px; left: 800px; }
 
 #lessonv1{ top: -200px; left: -150px; }
 #lessonv2{ top: -200px; left: 875px; }
@@ -217,7 +217,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #panel6{
-  overflow: hidden;
+  z-index: 10;
   border: solid black 10px;
   background-color: white;
   height: 930px;
@@ -711,13 +711,14 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 #email{
   position: absolute;
-  z-index: 8;
-  top: 20%;
-  left: 10em;
+  z-index: 10;
+  top: 58em;
+  left: 43em;
 }
 
 #sender{
   position: absolute;
+  z-index: 12;
   top: 0em;
   left: 0em;
   width: 15em;
@@ -725,13 +726,15 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 #subject{
   position: absolute;
-  top: 1em;
+  z-index: 12;
+  top: 1.3em;
   left: 18em;
   width: 10em;
 }
 
 #content{
   position: absolute;
+  z-index: 12;
   top: 4.5em;
   left: 0em;
   width: 27em;
@@ -747,7 +750,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 #emailBalloon{
   position: absolute;
-  z-index: 6;
+  z-index: 10;
   top: 15%;
   left: 17%;
 }
@@ -755,17 +758,17 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #emailPanel{
   overflow: hidden;
   position: absolute;
-  z-index: 7;
-  top: 9.4em;
-  left: 9.5em;
+  z-index: 11;
+  top: 62.1em;
+  left: 42.4em;
   width: 30em;
   height: 16.3em;
-  -webkit-clip-path: polygon(0 0, 91.5% 0, 100% 74%, 60% 74%, 39% 101%, 37% 72%, 2% 70%);
+  -webkit-clip-path: polygon(0 0, 91.5% 0, 100% 75%, 60% 74%, 39% 101%, 37% 72%, 2% 70%);
 }
 
 #sitting{
   position:absolute;
-  z-index: 2;
+  z-index: 5;
   top: 1000px;
   left: 1000px;
 }
@@ -811,18 +814,20 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #chair{
   z-index:4;
   position: absolute;
-  left: 30em;
-  top: 20em;
+  left: 35em;
+  top: 17em;
 }
 
 #computer{
   position: absolute;
-  left: 125px;
-  top: 585px;
+  z-index:8;
+  left: 42em;
+  top: 17.5em;
 }
 
 #table{
   position: absolute;
-  top:625px;
-  left: 0px;
+  z-index:8;
+  left: 38em;
+  top: 19em;
 }
