@@ -240,7 +240,6 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
   top: 1900px;
   left: 2600px;
-  overflow: visible;
 }
 
 #walkAnimation{
@@ -766,7 +765,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 #sitting{
   position:absolute;
-  z-index: 7;
+  z-index: 2;
   top: 1000px;
   left: 1000px;
 }

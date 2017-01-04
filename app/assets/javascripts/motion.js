@@ -69,14 +69,27 @@ $(document).ready(function(){
   });
   // Contact walk 1
   canvas = document.getElementById("contactWalk1");
-  canvas.width = 250;
-  canvas.height = 400;
+  canvas.width = 375;
+  canvas.height = 600;
   contactWalk1Image = new Image();
   contactWalk1 = sprite({
     context: canvas.getContext("2d"),
-    width: 1600,
-    height: 400,
-    image: walkImage,
+    width: 2400,
+    height: 600,
+    image: contactWalk1Image,
+    numberOfFrames: 6,
+    ticksPerFrame: 1
+  });
+
+  canvas = document.getElementById("contactWalk2");
+  canvas.width = 375;
+  canvas.height = 600;
+  contactWalk2Image = new Image();
+  contactWalk2 = sprite({
+    context: canvas.getContext("2d"),
+    width: 2400,
+    height: 600,
+    image: contactWalk2Image,
     numberOfFrames: 6,
     ticksPerFrame: 1
   });
@@ -108,13 +121,13 @@ $(document).ready(function(){
   });
   // Sitting Animation
   canvas = document.getElementById("sitting");
-  canvas.width = 292;
-  canvas.height = 400;
+  canvas.width = 439;
+  canvas.height = 600;
   sittingImage = new Image();
   sitting = sprite({
     context: canvas.getContext("2d"),
-    width: 2049,
-    height: 400,
+    width: 3074,
+    height: 600,
     image: sittingImage,
     numberOfFrames: 7,
     ticksPerFrame: 1
@@ -133,18 +146,6 @@ $(document).ready(function(){
     ticksPerFrame: 1
   });
   // Contact walk 2
-  canvas = document.getElementById("contactWalk2");
-  canvas.width = 250;
-  canvas.height = 400;
-  contactWalk2Image = new Image();
-  contactWalk2 = sprite({
-    context: canvas.getContext("2d"),
-    width: 1600,
-    height: 400,
-    image: lessonWalkImage,
-    numberOfFrames: 6,
-    ticksPerFrame: 1
-  });
   // Kids
   canvas = document.getElementById("seatA1");
   canvas.width = 166;
@@ -463,9 +464,6 @@ $(document).ready(function(){
       $('.speechBubble').offset(bubble);
 
       //office
-      // if (oBGpos.left <=100 && oBGpos.left > -450) { oBGpos.left -= 10; }
-      // console.log("officeWidth = "+officeWidth);
-      // console.log("");
       if (oBGpos.left <= officeBGOriginal && officeBGCurrent > panel1Width) {
         oBGpos.left -= (officeWidth-$('#panel1').width())/90;
         oFGpos.left -= (officeFGOriginal)/5;
@@ -491,7 +489,11 @@ $(document).ready(function(){
       if (nyOpacity < 1){ nyOpacity += 0.1; }
       //bedroom
       if (pos.left > panel7Width && pos.left < panel7Width + $('#panel7').width()*0.4){
-        brPos.left -=15;
+        brPos.left -= $('#homeBackground').width()/125;
+      }
+      console.log($('#comicPanel').width()-$('#sitting').width()-panel8Width)
+      if (pos.left> $('#comicPanel').width()-$('#sitting').width()-$('#panel8Width')){
+
       }
 
       if(pos.left< panel1Transition && Math.round(pos.top) === 500){
@@ -528,13 +530,14 @@ $(document).ready(function(){
         contactWalk1.render();
         contactWalk2.update();
         contactWalk2.render();
+        sitting.update();
+        sitting.render();
       }else if(pos.left >= panel7Transition && (pos.left < panel7Width + $('#panel7').width()*0.4) && Math.round(pos.top) === 2300){
-        console.log("pos= "+pos.left);
-        console.log("p8= "+panel7Width + $('#panel7').width()*0.4)
         $('#homeBackground').offset(brPos);
         sitting.update();
         sitting.render();
       }
+
       break;
     }
     function turnKids(teacher){
