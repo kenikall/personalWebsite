@@ -65,7 +65,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   height: 810px;
   width: 2800px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
-  top: 105px;
+  top: 100px;
   left: 1200px;
 }
 
@@ -577,17 +577,17 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   position: absolute;
   width: 120px;
   height: 100px;
-  top: 30px;
-  left: 2em;
+  top: 20px;
+  left: 75px;
 }
 
 #officelocFB{
   position: absolute;
   z-index: 3;
   width: 120px;
-  height: 0em;
+  height: 0px;
   top: 290px;
-  left: 4.5em;
+  left: 20px;
 }
 
 .icon--facebook a {
@@ -598,18 +598,18 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #contactlocTW{
   position: absolute;
   width: 120px;
-  height: 3em;
-  top: 0.5em;
-  left: 1.5em;
+  height: 90px;
+  top: 20px;
+  left: 50px;
 }
 
 #officelocTW{
   position: absolute;
   z-index: 3;
   width: 120px;
-  height: 0em;
+  height: 0px;
   top: 290px;
-  left: 1em;
+  left: 170px;
 }
 
 .icon--twitter a {
@@ -620,18 +620,18 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #contactlocLI{
   position: absolute;
   width: 120px;
-  height: 3em;
-  top: 1.1em;
-  left: 2em;
+  height: 100px;
+  top: 50px;
+  left: 70px;
 }
 
 #officelocLI{
   position: absolute;
   z-index: 3;
   width: 120px;
-  height: 0em;
+  height: 0px;
   top: 290px;
-  left: 8em;
+  left: 320px;
 }
 
 .icon--linkedin a {
@@ -642,18 +642,18 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #contactlocGH{
   position: absolute;
   width: 120px;
-  height: 3em;
-  top: 0.5em;
-  left: 1.5em;
+  height: 120px;
+  top: 10px;
+  left: 50px;
 }
 
 #officelocGH{
   position: absolute;
   z-index: 3;
   width: 120px;
-  height: 0em;
+  height: 0px;
   top: 290px;
-  left: 11.5em;
+  left: 470px;
 }
 
 .icon--github a {
@@ -664,27 +664,27 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #contactlocRM{
   position: absolute;
   width: 120px;
-  height: 3em;
-  top: 0.5em;
-  left: 1.5em;
+  height: 100px;
+  top: 25px;
+  left: 50px;
 }
 
 #officelocRM{
   position: absolute;
   z-index: 3;
   width: 120px;
-  height: 0em;
+  height: 0px;
   top: 290px;
-  left: 15em;
+  left: 620px;
 }
 
 #officelocEM{
   position: absolute;
   z-index: 3;
   width: 120px;
-  height: 0em;
+  height: 0px;
   top: 290px;
-  left: 18.5em;
+  left: 770px;
 }
 
 .icon--resume a {
@@ -706,7 +706,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   pointer-events: auto;
   border: none;
   background: transparent;
-  font-size: 2em;
+  font-size: 0.2vw;
 }
 
 #email{
@@ -782,22 +782,22 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #opportunitiesText{
   position: absolute;
   z-index: 5;
-  top: 2em;
-  left: 7.25em;
+  top: 60px;
+  left: 210px;
 }
 
 #sfText{
   position: absolute;
   z-index: 5;
-  top: 6em;
-  left: 2em;
+  top: 180px;
+  left: 60px;
 }
 
 #nyText{
   position: absolute;
   z-index: 5;
-  top: 20em;
-  left: 2em;
+  top: 600px;
+  left: 600px;
 }
 
 #newyork{

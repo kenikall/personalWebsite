@@ -1,4 +1,38 @@
 $(document).ready(function(){
+  var frame = 0
+    var panels = [
+      {left: $('#comicPanel').offset().left, top: $('#comicPanel').offset().top, width: $('#comicPanel').width() },
+      {left: $('#panel1').offset().left, top: $('#panel1').offset().top, width: $('#panel1').width() },
+      {left: $('#panel2').offset().left, top: $('#panel2').offset().top, width: $('#panel2').width() },
+      {left: $('#panel3').offset().left, top: $('#panel3').offset().top, width: $('#panel3').width() },
+      {left: $('#panel4').offset().left, top: $('#panel4').offset().top, width: $('#panel4').width() },
+      {left: $('#panel5').offset().left, top: $('#panel5').offset().top, width: $('#panel5').width() },
+      {left: $('#panel6').offset().left, top: $('#panel6').offset().top, width: $('#panel6').width() },
+      {left: $('#panel7').offset().left, top: $('#panel7').offset().top, width: $('#panel7').width() },
+      {left: $('#panel8').offset().left, top: $('#panel8').offset().top, width: $('#panel8').width() },
+    ];
+    // var panelsTop= [
+    //   $('#comicPanel').offset().top,
+    //   $('#panel1').offset().top,
+    //   $('#panel2').offset().top,
+    //   $('#panel3').offset().top,
+    //   $('#panel4').offset().top,
+    //   $('#panel5').offset().top,
+    //   $('#panel6').offset().top,
+    //   $('#panel7').offset().top,
+    //   $('#panel8').offset().top
+    // ]
+    // var panelsLeft= [
+    //   $('#comicPanel').offset().left,
+    //   $('#panel1').offset().left,
+    //   $('#panel2').offset().left,
+    //   $('#panel3').offset().left,
+    //   $('#panel4').offset().left,
+    //   $('#panel5').offset().left,
+    //   $('#panel6').offset().left,
+    //   $('#panel7').offset().left,
+    //   $('#panel8').offset().left
+    // ]
   //make everything responsive
   $(window).resize(function(){
     if ($(window).width() <= 4040){ $('#comicPanel').css({width: $(window).width()*0.9+'px'}) }
@@ -10,7 +44,6 @@ $(document).ready(function(){
   else { $('#comicPanel').css({width: 4040}) }
 
   $('#comicPanel').css({zoom: $('#comicPanel').width()/4040});
-
   $('.speechBubble').hide();
   $('.kidTalk').hide();
 
@@ -328,7 +361,7 @@ $(document).ready(function(){
     girlE.render();
     computer1.render();
     computer2.render();
-    // centerAll();
+    centerAll();
     window.setInterval(function(){
       moveClouds();
       moveLessons();
@@ -461,7 +494,8 @@ $(document).ready(function(){
       case 39:  //right
       // //person
       pos.left += 20;
-
+      (frame <= 8) ? frame+=1 : frame = 0;
+      zoomTo(frame);
       if(pos.left > 420  && pos.left < 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').show(); }
       else if (pos.left >= 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').hide(); }
       if (pos.left > 2400 && pos.left < 2700 && Math.round(pos.top) === 500) { $('#panel2speechBubble').show(); }
@@ -657,16 +691,24 @@ $(document).ready(function(){
     }
   }
 
-  // function centerAll(){
-  //   var win = $(window);
-  //   $('#comicPanel').css({width: $(window).width()*.9 < 4000 ? $(window).width()*.9 : 4000 });
-  //   var winOffset = { left: $(window).width()/2 - $('#comicPanel').width()/2, top: $('#comicPanel').width()*0.01 };
-  //   $('#comicPanel').offset(winOffset);
-  // }
-
-  function center1(){
-      $('#comicPanel').animate({ 'zoom': $('#panel1'),'top': $('#panel1').top, 'left': $('panel1').left }, 400);
+  function centerAll(){
+    var win = $(window);
+    var winOffset = { left: $(window).width()/2 - $('#comicPanel').width()/2, top: $('#comicPanel').width()*0.01 };
+    $('#comicPanel').offset(winOffset);
   }
+
+  function zoomTo(panel){
+    console.log("panel = "+panel)
+    console.log("panel width= "+panels[panel].width)
+    console.log("panel top= "+panels[panel].top)
+    console.log("panel left= "+panels[panel].left)
+    $('#comicPanel').animate({
+      zoom: $('#comicPanel').width()*$('#comicPanel').width()/panels[panel].width/$('#comicPanel').width(),
+      top: panels[panel].top*-1+panels[panel].width*0.1,
+      left: panels[panel].left*-1 + 50
+    })
+  }
+
   $(document).on("swiperight",function(){
     var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
     var officeBGCurrent = $('#officeBackground').offset().left + $('#officeBackground').width();
