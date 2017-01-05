@@ -1,8 +1,24 @@
 $(document).ready(function(){
+  //make everything responsive
+  $(window).resize(function(){
+    if ($(window).width() <= 4040){ $('#comicPanel').css({width: $(window).width()*0.9+'px'}) }
+    else { $('#comicPanel').css({width: 4040}) }
+
+    $('#comicPanel').css({zoom: $('#comicPanel').width()/4040});
+  })
+  if ($(window).width() <= 4040){ $('#comicPanel').css({width: $(window).width()*0.9+'px'}) }
+  else { $('#comicPanel').css({width: 4040}) }
+
+  $('#comicPanel').css({zoom: $('#comicPanel').width()/4040});
+
   $('.speechBubble').hide();
   $('.kidTalk').hide();
+
+  // $('#comicPanel').style.MozTransform = 4040/$('#comicPanel').width();
+  // $('#comicPanel').style.WebkitTransform = 4040/$('#comicPanel').width();
+
   var start = { left: $('#walkAnimation').width()*-1, top: 500 };
-  // var start = { left: $('#panel6').width(), top: 2300 };
+  // var start = { left: $('#panel6').width(), top: 2300 }; Debug
   $('#walkAnimation').offset(start)
   var sitCount = 0;
   var officeBGOriginal = $('#officeBackground').offset().left;
@@ -455,8 +471,8 @@ $(document).ready(function(){
       if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').show(); }
       else if (pos.left >= 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').hide() }
       if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').show(); }
-      else if (pos.left >= panel7Width && Math.round(pos.top) === 1300) { $('#thanksSpeechBubble').hide() }
-      if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#thanksSpeechBubble').show(); }
+      // else if (pos.left >= panel7Width && Math.round(pos.top) === 1300) { $('#thanksSpeechBubble').hide() }
+      // if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#thanksSpeechBubble').show(); }
       else if (pos.left >= 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').hide() }
       if(pos.left > $('#panel3').width() && Math.round(pos.top) === 1300){ $('#awesome').hide(); }
 
@@ -625,7 +641,7 @@ $(document).ready(function(){
     horzLesson1Pos.top > 450 ? horzLesson1Pos.top-- : horzLesson1Pos.top = vertLesson6Pos.top+775;
     horzLesson2Pos.top > 450 ? horzLesson2Pos.top-- : horzLesson2Pos.top = horzLesson1Pos.top+425;
     horzLesson3Pos.top > 450 ? horzLesson3Pos.top-- : horzLesson3Pos.top = horzLesson1Pos.top+425;
-    horzLesson4Pos.top > 450 ? horzLesson4Pos.top-- : horzLesson4Pos.top = vertLesson4Pos.top+275;
+    horzLesson4Pos.top > 450 ? horzLesson4Pos.top-- : horzLesson4Pos.top = vertLesson4Pos.top+175;
 
     $('#lessonv1').offset(vertLesson1Pos);
     $('#lessonv2').offset(vertLesson2Pos);
@@ -644,7 +660,7 @@ $(document).ready(function(){
 
   // function centerAll(){
   //   var win = $(window);
-  //   $('#comicPanel').css({width: $(window).width()*.9 < 4000 ? $(window).width()*.9 : 4000 }) ;
+  //   $('#comicPanel').css({width: $(window).width()*.9 < 4000 ? $(window).width()*.9 : 4000 });
   //   var winOffset = { left: $(window).width()/2 - $('#comicPanel').width()/2, top: $('#comicPanel').width()*0.01 };
   //   $('#comicPanel').offset(winOffset);
   // }
