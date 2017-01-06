@@ -26,7 +26,7 @@ $(document).ready(function(){
   $('.speechBubble').hide();
   $('.kidTalk').hide();
   var row1 = 500;
-  var row2 = 1300;
+  var row2 = 1350;
   var row3 = 2300;
   var leftStart = $('#comicPanel').offset().left;
 
