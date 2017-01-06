@@ -438,8 +438,14 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 #patron2{
   z-index: 3;
-  top: 375px;
+  top: 425px;
   left: 1700px;
+}
+
+#sally{
+  z-index: 6;
+  top: 375px;
+  left: 825px;
 }
 
 #patron3{
@@ -572,7 +578,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   position: absolute;
   width: 110px;
   height: 110px;
-  top: 20px;
+  top: 25px;
   left: 70px;
 }
 
@@ -588,7 +594,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   position: absolute;
   width: 110px;
   height:110px;
-  top: 10px;
+  top: 15px;
   left: 70px;
 }
 

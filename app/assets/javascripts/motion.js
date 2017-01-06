@@ -11,7 +11,7 @@ $(document).ready(function(){
       {left: $('#panel7').offset().left, top: $('#panel7').offset().top, width: $('#panel7').width(), current: false },
       {left: $('#panel8').offset().left, top: $('#panel8').offset().top, width: $('#panel8').width(), current: false }
     ];
-  var row =[0, 0, 1];
+  var row =[1, 0, 0];
   //make everything responsive
   $(window).resize(function(){
     if ($(window).width() <= 4040){ $('#comicPanel').css({width: $(window).width()*0.9+'px'}) }
@@ -25,15 +25,15 @@ $(document).ready(function(){
   $('#comicPanel').css({zoom: $('#comicPanel').width()/4040});
   $('.speechBubble').hide();
   $('.kidTalk').hide();
-  var row1 = 550;
+  var row1 = 500;
   var row2 = 1300;
   var row3 = 2300;
   var leftStart = $('#comicPanel').offset().left;
 
-  var pos = { left: 2500, top: row1 };
-  // var pos = { left: $('#walkAnimation').width()*-1, top: row1 };
+  // var pos = { left: 2000, top: row3 };
+  var pos = { left: $('#walkAnimation').width()*-1, top: row1 };
 
-  var sitCount = 0;
+  var renderCount = 0;
   var officeBGOriginal = $('#officeBackground').offset().left;
   var officeFGOriginal = $('#officeForeground').offset().left;
   var cityMGOriginal = $('#cityMidground').offset().left;
@@ -158,10 +158,10 @@ $(document).ready(function(){
   sittingImage = new Image();
   sitting = sprite({
     context: canvas.getContext("2d"),
-    width: 5200,
+    width: 10000,
     height: 600,
     image: sittingImage,
-    numberOfFrames: 13,
+    numberOfFrames: 25,
     ticksPerFrame: 1
   });
   // Lesson walk
@@ -177,7 +177,19 @@ $(document).ready(function(){
     numberOfFrames: 6,
     ticksPerFrame: 1
   });
-  // Contact walk 2
+  // Sally
+  canvas = document.getElementById("sally");
+  canvas.width = 232;
+  canvas.height = 224;
+  sallyImage = new Image();
+  sally = sprite({
+    context: canvas.getContext("2d"),
+    width: 1856,
+    height: 224,
+    image: sallyImage,
+    numberOfFrames: 8,
+    ticksPerFrame: 1
+  });
   // Kids
   canvas = document.getElementById("seatA1");
   canvas.width = 166;
@@ -310,6 +322,7 @@ $(document).ready(function(){
   });
 
   // Load sprite sheets
+  sallyImage.src = "./images/animations/sally.png";
   contactWalk1Image.src = "./images/animations/finalWalkSpriteSheet.png";
   contactWalk2Image.src = "./images/animations/finalLessonWalk.png";
   sittingImage.src = "./images/animations/sittingSpriteSheet.png";
@@ -331,6 +344,7 @@ $(document).ready(function(){
   computer2Image.src = "./images/classroom/computerBoy.png";
   window.onload = function(){
     // standing.render();
+    sally.render();
     kidA.render();
     kidB.render();
     kidC.render();
@@ -385,8 +399,8 @@ $(document).ready(function(){
     var homeWidth = $('#homeBackground').width();
 
     var bubble = {left: pos.left+175, top: pos.top-200}
-    if(pos.left >= 3950 && row[0] ){ pos.left = -250; row = [0,1,0] }
-    else if (pos.left >= 3950 && row[1] ){ pos.left = 0; row = [0,0,1] }
+    if(pos.left >= 3950 && row[0] ){ pos.left = -250; row = [0,1,0]; pos.top = row2 }
+    else if (pos.left >= 3950 && row[1] ){ pos.left = 0; row = [0,0,1]; pos.top = row3 }
     //office
     var oBGpos = { left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
     var oFGpos = { left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
@@ -472,8 +486,6 @@ $(document).ready(function(){
       pos.left += 20;
 
       console.log('pos '+pos.left);
-      console.log("left "+$('#contactWalk1').offset().left);
-      console.log("top "+$('#contactWalk1').offset().top);
 
       if(pos.left > 420  && pos.left < +720 && row[0]){ $('#panel1speechBubble').show(); }
       else if (pos.left >= 720 && row[0]){ $('#panel1speechBubble').hide(); }
@@ -489,16 +501,26 @@ $(document).ready(function(){
       // else if (pos.left >= 1880 && row[2]){ $('#panel4speechBubble').hide() }
       // if(pos.left > $('#panel3').width() && row[2]){ $('#awesome').hide(); }
       var leftPos = parseFloat(pos.left-panels[7].width-750);
+      // $('#walkAnimation').offset(pos);
+      // $('#cityWalk').offset({left: pos.left-panels[2].left + 50, top: pos.top+150});
+      // $('#classWalk').offset({left: pos.left, top: pos.top-100});
+      // $('#lessonWalk').offset({left: pos.left-panels[4].left + 50, top: pos.top-100});
+      // $('#contactWalk2').offset({left: pos.left-panels[7].left + 50, top: pos.top});
+      // if( panels[7].current){ $('#contactWalk1').offset({left: pos.left-panels[7].left-25, top: pos.top}); }
+      // if( panels[8].current){ $('#contactWalk1').offset({left: pos.left - panels[8].left-25, top: 500});}
+      // $('#sitting').offset({ left: pos.left - panels[8].left-25, top: 500 });
+      // // console.log($('#contactWalk1').offset.left);
+      // $('.speechBubble').offset(bubble);
+
       $('#walkAnimation').offset(pos);
-      $('#cityWalk').offset({left: pos.left-panels[2].left + 50, top: pos.top+150});
-      $('#classWalk').offset({left: pos.left, top: pos.top-100});
-      $('#lessonWalk').offset({left: pos.left-panels[4].left + 50, top: pos.top-100});
-      $('#contactWalk2').offset({left: pos.left-panels[7].left + 50, top: pos.top});
-      if( panels[7].current){ $('#contactWalk1').offset({left: pos.left-panels[7].left-25, top: pos.top}); }
-      if( panels[8].current){ $('#contactWalk1').offset({left: pos.left - panels[8].left-25, top: 500});}
-      $('#sitting').offset({ left: pos.left - panels[8].left-25, top: 500 });
-      // console.log($('#contactWalk1').offset.left);
+      $('#cityWalk').offset(pos);
+      $('#classWalk').offset(pos);
+      $('#lessonWalk').offset(pos);
+      $('#contactWalk2').offset(pos);
+      $('#contactWalk1').offset(pos);
+      $('#sitting').offset(pos);
       $('.speechBubble').offset(bubble);
+      $('#thanksSpeechBubble').offset({left: bubble.left+50, top: bubble.top-50});
 
       //office
       if (oBGpos.left <= officeBGOriginal && officeBGCurrent > panel1Width) {
@@ -564,8 +586,14 @@ $(document).ready(function(){
         $('#statue').offset(gSpos);
         $('#patron1').offset(gP1pos);
         $('#patron3').offset(gP3pos);
+        if(renderCount<15){
+          sally.update();
+          sally.render();
+          renderCount+=1;
+        }
       }else if(pos.left < 1000 && pos && row[2]){
         if(!panels[6].current){ currentPanel(6); }
+        renderCount = 0;
         $('#newyork').css({opacity:nyOpacity});
       }else if(pos.left >= 1000 && pos.left < 2700 && row[2]){
         if(!panels[7].current){ currentPanel(7); }
@@ -574,26 +602,39 @@ $(document).ready(function(){
         contactWalk2.update();
         contactWalk2.render();
       }
-      else if(pos.left >= 2700 && pos.left < 3000  && row[2]){
+      else if(pos.left >= 2700 && pos.left < 2580  && row[2]){
         if(!panels[8].current){ currentPanel(8); }
         contactWalk1.update();
         contactWalk1.render();
         $('#homeBackground').offset(brPos);
         $('#homeForeground').offset(brPos);
+      }else if(pos.left >= 2580 && pos.left < 3000 && row[2]){
+        $('#thanksSpeechBubble').show()
+        contactWalk1.update();
+        contactWalk1.render();
+        $('#homeBackground').offset(brPos);
+        $('#homeForeground').offset(brPos);
+        sitting.update();
+        sitting.render();
+        renderCount+=1;
       }else if(pos.left >= 3000 && row[2]){
         contactWalk1.context.clearRect(0, 0, $('#contactWalk1').width(), $('#contactWalk1').height());
-        if (leftPos < 3500){
+        if (leftPos < 3440){
           $('#homeBackground').offset(brPos);
           $('#homeForeground').offset(brPos);
         }else{
-          console.log('STOP!!!'+ $('#sitting').offset().left)
-          $('#sitting').offset({left: panels[8].width/2+150, top: 550 });
-          console.log( $('#sitting').offset().left)
+          $('#thanksSpeechBubble').hide()
+          pos.left = 3440;
+          $('#sitting').offset(pos);
         }
-        if(sitCount<=23){
+        console.log('sit count'+renderCount)
+        if(renderCount<=48){
           sitting.update();
           sitting.render();
-          sitCount+=1;
+          renderCount+=1;
+        }
+        else{
+          $('#codingSpeechBubble').show()
         }
       }
       break;
@@ -693,13 +734,17 @@ $(document).ready(function(){
   }
   function currentPanel(panel){
     for(var i = 0; i < panels.length; i++){ panels[i].current = (i === panel ) ? true : false; }
-    zoomTo(panel);
+    // zoomTo(panel);
   }
   function zoomTo(panel){
+    // switch(panel){
+    //   case: 1
+    //   break;
+    // }
     $('#comicPanel').animate({
-      zoom: $('#comicPanel').width()*$('#comicPanel').width()/panels[panel].width/$('#comicPanel').width(),
-      top: panels[panel].top*-1+panels[panel].width*0.1,
-      left: panels[panel].left*-1 + 50
+      zoom: $('#comicPanel').width()*$('#comicPanel').width()*$('#comicPanel').width()/panels[panel].width*1.2,
+      top: panels[panel].top*-100,
+      left: panels[panel].left+panels[panel].width*0.1
     })
     // row1*=$('#comicPanel').css("zoom");
     // row2*=$('#comicPanel').css("zoom");
