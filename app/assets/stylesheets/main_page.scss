@@ -45,8 +45,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #poster{
   pointer-events: auto;
   position: absolute;
-  top: 2em;
-  left: 40em;
+  top: 60px;
+  left: 1500px;
 }
 
 .buttonO{
@@ -57,8 +57,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #nav{
   pointer-events: auto;
   position: absolute;
-  top: 2em;
-  left: 25em;
+  top: 60px;
+  left: 1000px;
 }
 
 #panel2{
@@ -175,8 +175,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 
 .frame{
   position: absolute;
-  top: -0.6em;
-  left: -0.8em;
+  top: -20px;
+  left: -30px;
   z-index:3;
 }
 
@@ -358,7 +358,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #text5{ z-index: 7; top: 700px; left: 1000px; }
 #text6{ left: 50px; }
 #text3{ left: 150px; }
-#text10{ top: 1em; left: 8em; }
+#text10{ top: 30px; left: 300px; }
 #text11{ left: 130px; }
 #text12{ top: 200px; left: 250px; }
 
@@ -498,7 +498,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 .close {
     color: red;
     float: right;
-    font-size: 20em;
+    font-size: 60px;
     font-weight: bold;
 }
 
@@ -706,7 +706,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   pointer-events: auto;
   border: none;
   background: transparent;
-  font-size: 0.2vw;
+  font-size: 1vw;
 }
 
 #email{
@@ -719,33 +719,33 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #sender{
   position: absolute;
   z-index: 12;
-  top: 0em;
-  left: 0em;
-  width: 15em;
+  top: -10px;
+  left: 0px;
+  width: 540px;
 }
 
 #subject{
   position: absolute;
   z-index: 12;
-  top: 1.3em;
-  left: 18em;
-  width: 10em;
+  top: 30px;
+  left: 630px;
+  width: 420px;
 }
 
 #content{
   position: absolute;
   z-index: 12;
-  top: 4.5em;
-  left: 0em;
-  width: 27em;
-  height: 11.5em;
+  top: 155px;
+  left: 0px;
+  width: 1000px;
+  height: 370px;
 }
 
 #subButton{
   pointer-events: auto;
   position: absolute;
-  top: 16em;
-  left: 28em;
+  top: 550px;
+  left: 1000px;
 }
 
 #emailBalloon{
@@ -814,20 +814,20 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #chair{
   z-index:4;
   position: absolute;
-  left: 35em;
-  top: 17em;
+  left: 1240px;
+  top: 600px;
 }
 
 #computer{
   position: absolute;
   z-index:8;
-  left: 42em;
-  top: 17.5em;
+  left: 1482px;
+  top: 618px;
 }
 
 #table{
   position: absolute;
   z-index:8;
-  left: 38em;
-  top: 19em;
+  left: 1341px;
+  top: 670px;
 }

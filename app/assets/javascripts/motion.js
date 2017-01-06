@@ -1,38 +1,17 @@
 $(document).ready(function(){
   var frame = 0
     var panels = [
-      {left: $('#comicPanel').offset().left, top: $('#comicPanel').offset().top, width: $('#comicPanel').width() },
-      {left: $('#panel1').offset().left, top: $('#panel1').offset().top, width: $('#panel1').width() },
-      {left: $('#panel2').offset().left, top: $('#panel2').offset().top, width: $('#panel2').width() },
-      {left: $('#panel3').offset().left, top: $('#panel3').offset().top, width: $('#panel3').width() },
-      {left: $('#panel4').offset().left, top: $('#panel4').offset().top, width: $('#panel4').width() },
-      {left: $('#panel5').offset().left, top: $('#panel5').offset().top, width: $('#panel5').width() },
-      {left: $('#panel6').offset().left, top: $('#panel6').offset().top, width: $('#panel6').width() },
-      {left: $('#panel7').offset().left, top: $('#panel7').offset().top, width: $('#panel7').width() },
-      {left: $('#panel8').offset().left, top: $('#panel8').offset().top, width: $('#panel8').width() },
+      {left: $('#comicPanel').offset().left, top: $('#comicPanel').offset().top, width: $('#comicPanel').width(), current: true },
+      {left: $('#panel1').offset().left, top: $('#panel1').offset().top, width: $('#panel1').width(), current: false },
+      {left: $('#panel2').offset().left, top: $('#panel2').offset().top, width: $('#panel2').width(), current: false },
+      {left: $('#panel3').offset().left, top: $('#panel3').offset().top, width: $('#panel3').width(), current: false },
+      {left: $('#panel4').offset().left, top: $('#panel4').offset().top, width: $('#panel4').width(), current: false },
+      {left: $('#panel5').offset().left, top: $('#panel5').offset().top, width: $('#panel5').width(), current: false },
+      {left: $('#panel6').offset().left, top: $('#panel6').offset().top, width: $('#panel6').width(), current: false },
+      {left: $('#panel7').offset().left, top: $('#panel7').offset().top, width: $('#panel7').width(), current: false },
+      {left: $('#panel8').offset().left, top: $('#panel8').offset().top, width: $('#panel8').width(), current: false }
     ];
-    // var panelsTop= [
-    //   $('#comicPanel').offset().top,
-    //   $('#panel1').offset().top,
-    //   $('#panel2').offset().top,
-    //   $('#panel3').offset().top,
-    //   $('#panel4').offset().top,
-    //   $('#panel5').offset().top,
-    //   $('#panel6').offset().top,
-    //   $('#panel7').offset().top,
-    //   $('#panel8').offset().top
-    // ]
-    // var panelsLeft= [
-    //   $('#comicPanel').offset().left,
-    //   $('#panel1').offset().left,
-    //   $('#panel2').offset().left,
-    //   $('#panel3').offset().left,
-    //   $('#panel4').offset().left,
-    //   $('#panel5').offset().left,
-    //   $('#panel6').offset().left,
-    //   $('#panel7').offset().left,
-    //   $('#panel8').offset().left
-    // ]
+  var row =[true, false, false];
   //make everything responsive
   $(window).resize(function(){
     if ($(window).width() <= 4040){ $('#comicPanel').css({width: $(window).width()*0.9+'px'}) }
@@ -46,13 +25,14 @@ $(document).ready(function(){
   $('#comicPanel').css({zoom: $('#comicPanel').width()/4040});
   $('.speechBubble').hide();
   $('.kidTalk').hide();
+  var row1 = 450;
+  var row2 = 1300;
+  var row3 = 2300;
+  var leftStart = $('#comicPanel').offset().left;
 
-  // $('#comicPanel').style.MozTransform = 4040/$('#comicPanel').width();
-  // $('#comicPanel').style.WebkitTransform = 4040/$('#comicPanel').width();
-
-  var start = { left: $('#walkAnimation').width()*-1, top: 500 };
-  // var start = { left: $('#panel6').width(), top: 2300 }; Debug
+  var start = { left: +$('#walkAnimation').width()*-1, top: row1 };
   $('#walkAnimation').offset(start)
+
   var sitCount = 0;
   var officeBGOriginal = $('#officeBackground').offset().left;
   var officeFGOriginal = $('#officeForeground').offset().left;
@@ -361,7 +341,7 @@ $(document).ready(function(){
     girlE.render();
     computer1.render();
     computer2.render();
-    centerAll();
+    // centerAll();
     window.setInterval(function(){
       moveClouds();
       moveLessons();
@@ -382,9 +362,9 @@ $(document).ready(function(){
     var galeryP1Current = $('#patron1').offset().left + $('#patron1').width();
     var galeryP2Current = $('#patron3').offset().left + $('#patron3').width();
     var galeryHCurrent = $('#homeBackground').offset().left + $('#homeBackground').width();
-
+    console.log()
     var border = $('#comicPanel').width()*0.025;
-    var panel1Transition = $('#panel1').width() + $('#walkAnimation').width();
+    var panel1Transition = $('#panel1').width()*0.75 + $('#walkAnimation').width();
     var panel1Width = $('#panel1').width() + $('#panel1').offset().left * 2;
     var panel2Transition = $('#comicPanel').width() + $('#cityWalk').width();
     var panel2Width = $('#panel2').width() + $('#panel2').offset().left;
@@ -409,8 +389,8 @@ $(document).ready(function(){
 
     var bubble = {left: pos.left+175, top: pos.top-200}
 
-    if(pos.left >= panel2Transition && Math.round(pos.top) === 500 ){ pos.left = -250; pos.top = 1300 }
-    else if (pos.left >= panel5Transition && Math.round(pos.top) === 1300 ){ pos.left = -250; pos.top = 2300 }
+    if(pos.left >= panel2Transition && row[0] ){ pos.left = -250; pos.top = row2; row[0,1,0] }
+    else if (pos.left >= panel5Transition && row[1] ){ pos.left = -250; pos.top = row3; row[0,0,1] }
     //office
     var oBGpos = { left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
     var oFGpos = { left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
@@ -460,33 +440,33 @@ $(document).ready(function(){
       // //bedroom
       // //if (brPos.left) <= 21
 
-      // if(pos.left< 1610 && Math.round(pos.top) === 500){
+      // if(pos.left< 1610 && row[0]){
       //   walk.update();
       //   walk.render();
       //   $('#officeBackground').offset(oBGpos);
       //   $('#officeForeground').offset(oFGpos);
-      // } else if(pos.left >= 1610 && Math.round(pos.top) === 500){
+      // } else if(pos.left >= 1610 && row[0]){
       //   cityWalk.update();
       //   cityWalk.render();
       //   $('#cityMidground').offset(cMGpos);
       //   $('#buildings').offset(cBpos);
-      // } else if(pos.left <= 1250 && Math.round(pos.top) === 1300){
+      // } else if(pos.left <= 1250 && row[1]{
       //   classWalk.update();
       //   classWalk.render();
       //   turnKids(pos.left);
       //   $('#classroomBackground').offset(cRBG);
       //   $('#classroomForeground').offset(cRFG);
-      // } else if(pos.left > 1240 && pos.left < 1250 &&Math.round(pos.top) === 1300){
+      // } else if(pos.left > 1240 && pos.left < 1250 &&row2{
       //   lessonWalk.update();
       //   lessonWalk.render();
-      // } else if(pos.left >= 2660 && Math.round(pos.top) === 1300){
+      // } else if(pos.left >= 2660 && row[1]{
       //   $('#galleryBackground').offset(gBpos);
       //   $('#statue').offset(gSpos);
       //   $('#patron1').offset(gP1pos);
       //   $('#patron3').offset(gP3pos);
-      // }else if(pos.left >= 100 && Math.round(pos.top) === 2300){
+      // }else if(pos.left >= 100 && row[3]){
       //   $('#map').offset(mappos);
-      // }else if(pos.left >= 100 && Math.round(pos.top) === 2300){
+      // }else if(pos.left >= 100 && row[3]){
       //   $('#homeBackground').offset(brPos);
       // }
       break;
@@ -494,21 +474,28 @@ $(document).ready(function(){
       case 39:  //right
       // //person
       pos.left += 20;
-      (frame <= 8) ? frame+=1 : frame = 0;
-      zoomTo(frame);
-      if(pos.left > 420  && pos.left < 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').show(); }
-      else if (pos.left >= 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').hide(); }
-      if (pos.left > 2400 && pos.left < 2700 && Math.round(pos.top) === 500) { $('#panel2speechBubble').show(); }
-      else if (pos.left >= 2700 && Math.round(pos.top) === 500){ $('#panel2speechBubble').hide(); }
-      if (pos.left > 420 && pos.left > 720 && Math.round(pos.top) === 1300) { $('#panel3speechBubble').show(); }
-      else if (pos.left >= 820 && Math.round(pos.top) === 1300){ $('#panel3speechBubble').hide(); }
-      if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').show(); }
-      else if (pos.left >= 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').hide() }
-      if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').show(); }
-      // else if (pos.left >= panel7Width && Math.round(pos.top) === 1300) { $('#thanksSpeechBubble').hide() }
-      // if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#thanksSpeechBubble').show(); }
-      else if (pos.left >= 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').hide() }
-      if(pos.left > $('#panel3').width() && Math.round(pos.top) === 1300){ $('#awesome').hide(); }
+
+      // console.log($('#comicPanel').css("zoom"));
+      // console.log('row1= '+row1 );
+
+
+      // console.log('pos= '+pos.top);
+
+      // console.log('pos= '+(pos.top-row1) );
+
+      if(pos.left > 420  && pos.left < +720 && row[0]){ $('#panel1speechBubble').show(); }
+      else if (pos.left >= 720 && row[0]){ $('#panel1speechBubble').hide(); }
+      if (pos.left > 2400 && pos.left < +2700 && row[0]) { $('#panel2speechBubble').show(); }
+      else if (pos.left >= 2700 && row[0]){ $('#panel2speechBubble').hide(); }
+      if (pos.left > 420 && pos.left > 720 && row[1]) { $('#panel3speechBubble').show(); }
+      else if (pos.left >= 820 && row[1]){ $('#panel3speechBubble').hide(); }
+      if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
+      else if (pos.left >= 1880 && row[1]){ $('#panel4speechBubble').hide() }
+      if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
+      // else if (pos.left >= panel7Width && row[2] { $('#thanksSpeechBubble').hide() }
+      // if (pos.left > 1380 && pos.left > 1880 && row[2] { $('#thanksSpeechBubble').show(); }
+      // else if (pos.left >= 1880 && row[2]){ $('#panel4speechBubble').hide() }
+      // if(pos.left > $('#panel3').width() && row[2]){ $('#awesome').hide(); }
 
       $('#walkAnimation').offset(pos);
       $('#cityWalk').offset(pos);
@@ -547,19 +534,24 @@ $(document).ready(function(){
         brPos.left -= $('#homeBackground').width()/150;
       }
 
-      if(pos.left< panel1Transition && Math.round(pos.top) === 500){
+      if(pos.left<= panel1Transition && row[0]){
+        if(!panels[1].current){ currentPanel(1); }
         walk.update();
         walk.render();
         cityWalk.update();
         cityWalk.render();
         $('#officeBackground').offset(oBGpos);
         $('#officeForeground').offset(oFGpos);
-      } else if(pos.left <= panel2Transition && Math.round(pos.top) === 500){
+      } else if(pos.left> panel1Transition && row[0]){
+        console.log('pos in pos2 '+pos.left);
+        console.log('p1T in pos2 '+panel1Transition);
+        if(!panels[2].current){ currentPanel(2); }
         cityWalk.update();
         cityWalk.render();
         $('#cityMidground').offset(cMGpos);
         $('#buildings').offset(cBpos);
-      } else if(pos.left <= panel4Transition && Math.round(pos.top) === 1300){
+      } else if(pos.left <= panel4Transition && row[1]){
+        if(!panels[3].current){ currentPanel(3); }
         classWalk.update();
         classWalk.render();
         turnKids(pos.left);
@@ -569,24 +561,29 @@ $(document).ready(function(){
           $('#classroomBackground').offset(cRBG);
           $('#classroomForeground').offset(cRFG);
         }
-      } else if(pos.left > panel4Transition && pos.left <= panel5Transition && Math.round(pos.top) === 1300){
+      }else if(pos.left > panel4Transition && pos.left <= panel5Transition && row[1]){
+        if(!panels[4].current){ currentPanel(4); }
         $('#galleryBackground').offset(gBpos);
         $('#statue').offset(gSpos);
         $('#patron1').offset(gP1pos);
         $('#patron3').offset(gP3pos);
-      }else if(pos.left > 0 && pos.left < panel6Transition && pos && Math.round(pos.top) === 2300){
+      }else if(pos.left > 0 && pos.left < panel6Transition && pos && row[3]){
+        if(!panels[5].current){ currentPanel(5); }
         $('#newyork').css({opacity:nyOpacity});
-      }else if(pos.left >= panel6Transition && pos.left < panel7Width && Math.round(pos.top) === 2300){
+      }else if(pos.left >= panel6Transition && pos.left < panel7Width && row[3]){
+        if(!panels[6].current){ currentPanel(6); }
         contactWalk1.update();
         contactWalk1.render();
         contactWalk2.update();
         contactWalk2.render();
-      }else if(pos.left >= panel7Width && pos.left < panel7Width + $('#panel8').width()*0.4  && Math.round(pos.top) === 2300){
+      }else if(pos.left >= panel7Width && pos.left < panel7Width + $('#panel8').width()*0.4  && row[3]){
+        if(!panels[7].current){ currentPanel(7); }
         contactWalk1.update();
         contactWalk1.render();
         $('#homeBackground').offset(brPos);
         $('#homeForeground').offset(brPos);
-      }else if(pos.left >= panel7Width && Math.round(pos.top) === 2300){
+      }else if(pos.left >= panel7Width && row[3]){
+        if(!panels[8].current){ currentPanel(8); }
         contactWalk1.context.clearRect(0, 0, $('#contactWalk1').width(), $('#contactWalk1').height());
         if (pos.left < $('#comicPanel').width()*0.85){
           $('#homeBackground').offset(brPos);
@@ -696,186 +693,20 @@ $(document).ready(function(){
     var winOffset = { left: $(window).width()/2 - $('#comicPanel').width()/2, top: $('#comicPanel').width()*0.01 };
     $('#comicPanel').offset(winOffset);
   }
-
+  function currentPanel(panel){
+    for(var i = 0; i < panels.length; i++){ panels[i].current = (i === panel ) ? true : false; }
+    zoomTo(panel);
+  }
   function zoomTo(panel){
-    console.log("panel = "+panel)
-    console.log("panel width= "+panels[panel].width)
-    console.log("panel top= "+panels[panel].top)
-    console.log("panel left= "+panels[panel].left)
     $('#comicPanel').animate({
       zoom: $('#comicPanel').width()*$('#comicPanel').width()/panels[panel].width/$('#comicPanel').width(),
       top: panels[panel].top*-1+panels[panel].width*0.1,
       left: panels[panel].left*-1 + 50
     })
+    // row1*=$('#comicPanel').css("zoom");
+    // row2*=$('#comicPanel').css("zoom");
+    // row3*=$('#comicPanel').css("zoom");
   }
 
-  $(document).on("swiperight",function(){
-    var pos = {left: $('#walkAnimation').offset().left, top: $('#walkAnimation').offset().top };
-    var officeBGCurrent = $('#officeBackground').offset().left + $('#officeBackground').width();
-    var officeFGCurrent = $('#officeForeground').offset().left + $('#officeForeground').width();
-    var cityMGCurrent = $('#cityMidground').offset().left + $('#cityMidground').width();
-    var cityBCurrent = $('#buildings').offset().left + $('#buildings').width();
-    var classBGCurrent = $('#classroomBackground').offset().left + $('#classroomBackground').width();
-    var classFGCurrent = $('#classroomForeground').offset().left + $('#classroomForeground').width();
-    var galleryBGCurrent = $('#galleryBackground').offset().left + $('#galleryBackground').width();
-    var galerySCurrent = $('#statue').offset().left + $('#statue').width();
-    var galeryP1Current = $('#patron1').offset().left + $('#patron1').width();
-    var galeryP2Current = $('#patron3').offset().left + $('#patron3').width();
-    var galeryHCurrent = $('#homeBackground').offset().left + $('#homeBackground').width();
-
-    var border = $('#comicPanel').width()*0.025;
-    var panel1Transition = $('#panel1').width() + $('#walkAnimation').width();
-    var panel1Width = $('#panel1').width() + $('#panel1').offset().left * 2;
-    var panel2Transition = $('#comicPanel').width() + $('#cityWalk').width();
-    var panel2Width = $('#panel2').width() + $('#panel2').offset().left;
-    var panel3Transition = $('#panel3').width() + $('#classWalk').width();
-    var panel3Width = $('#panel3').width() + $('#panel3').offset().left;
-    var panel4Transition = $('#panel3').width() + $('#panel4').width() + $('#lessonWalk').width();
-    var panel4Width = $('#panel4').width() + $('#panel4').offset().left;
-    var panel5Transition = $('#panel3').width() + $('#panel4').width() + $('#galleryBackground').width();
-    var panel6Transition = $('#panel6').width();
-    var panel7Transition = $('#panel6').width() + $('#panel7').width() + $('#contactWalk1').width();
-    var panel7Width = $('#panel7').width()*0.67 + $('#panel7').offset().left;
-    var panel8Width = $('#panel8').width() + $('#panel8').offset().left;
-    var panel8Transition = $('#panel7').offset().left + $('#panel7').width()*0.67;
-
-    var officeWidth = $('#officeBackground').width();
-    var cityWidth = $('#cityMidground').width();
-    var classWidth = $('#classroomBackground').width();
-    var lessonWidth = $('#panel4').width();
-    var mapWidth = $('#panel6').width();
-    var contactWidth = $('#panel7').width();
-    var homeWidth = $('#homeBackground').width();
-
-    var bubble = {left: pos.left+175, top: pos.top-200}
-
-    if(pos.left >= panel2Transition && Math.round(pos.top) === 500 ){ pos.left = -250; pos.top = 1300 }
-    else if (pos.left >= panel5Transition && Math.round(pos.top) === 1300 ){ pos.left = -250; pos.top = 2300 }
-    //office
-    var oBGpos = { left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
-    var oFGpos = { left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
-    //city
-    var cMGpos = { left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
-    var cBpos = { left: $('#buildings').offset().left, top: $('#buildings').offset().top };
-    //classroom
-    var cRBG  = { left: $('#classroomBackground').offset().left, top: $('#classroomBackground').offset().top };
-    var cRFG  = { left: $('#classroomForeground').offset().left, top: $('#classroomForeground').offset().top };
-    //gallery
-    var gBpos = { left: $('#galleryBackground').offset().left, top: $('#galleryBackground').offset().top };
-    var gSpos = { left: $('#statue').offset().left, top: $('#statue').offset().top };
-    var gP1pos = { left: $('#patron1').offset().left, top: $('#patron1').offset().top };
-    var gP3pos = { left: $('#patron3').offset().left, top: $('#patron3').offset().top };
-    //map
-    var nyOpacity = parseFloat($('#newyork').css('opacity'));
-    //bedroom
-    var brPos = { left: $('#homeBackground').offset().left, top: $('#homeBackground').offset().top };
-
-    pos.left += 20;
-
-    if(pos.left > 420  && pos.left < 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').show(); }
-    else if (pos.left >= 720 && Math.round(pos.top) === 500){ $('#panel1speechBubble').hide(); }
-    if (pos.left > 2400 && pos.left < 2700 && Math.round(pos.top) === 500) { $('#panel2speechBubble').show(); }
-    else if (pos.left >= 2700 && Math.round(pos.top) === 500){ $('#panel2speechBubble').hide(); }
-    if (pos.left > 420 && pos.left > 720 && Math.round(pos.top) === 1300) { $('#panel3speechBubble').show(); }
-    else if (pos.left >= 820 && Math.round(pos.top) === 1300){ $('#panel3speechBubble').hide(); }
-    if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').show(); }
-    else if (pos.left >= 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').hide() }
-    if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').show(); }
-    // else if (pos.left >= panel7Width && Math.round(pos.top) === 1300) { $('#thanksSpeechBubble').hide() }
-    // if (pos.left > 1380 && pos.left > 1880 && Math.round(pos.top) === 1300) { $('#thanksSpeechBubble').show(); }
-    else if (pos.left >= 1880 && Math.round(pos.top) === 1300) { $('#panel4speechBubble').hide() }
-    if(pos.left > $('#panel3').width() && Math.round(pos.top) === 1300){ $('#awesome').hide(); }
-
-    $('#walkAnimation').offset(pos);
-    $('#cityWalk').offset(pos);
-    $('#classWalk').offset(pos);
-    $('#lessonWalk').offset(pos);
-    $('#contactWalk1').offset(pos);
-    $('#contactWalk2').offset(pos);
-    $('.speechBubble').offset(bubble);
-
-    //office
-    if (oBGpos.left <= officeBGOriginal && officeBGCurrent > panel1Width) {
-      oBGpos.left -= (officeWidth-$('#panel1').width())/90;
-      oFGpos.left -= (officeFGOriginal)/5;
-    }
-    //city
-    if (cityBCurrent > panel2Width-border*3){
-      cMGpos.left -= cityWidth/500;
-      cBpos.left -= $('#buildings').width()/100;
-    }
-    //classroom
-    if (pos.left < panel3Width){
-      cRBG.left -= panel3Width/420;
-      cRFG.left -= panel3Width/120;
-    }
-    //gallery
-    if (pos.left > panel4Width){
-      gBpos.left -= $('#panel5').width()/50;
-      gSpos.left -= $('#panel5').width()/65;
-      gP1pos.left -= $('#panel5').width()/65;
-      gP3pos.left -= $('#panel5').width()/65;
-    }
-    //map
-    if (nyOpacity < 1){ nyOpacity += 0.05; }
-    //bedroom
-    if (pos.left > panel7Width && pos.left < panel7Width + $('#panel7').width()*0.4){
-      brPos.left -= $('#homeBackground').width()/150;
-    }
-
-    if(pos.left< panel1Transition && Math.round(pos.top) === 500){
-      walk.update();
-      walk.render();
-      cityWalk.update();
-      cityWalk.render();
-      $('#officeBackground').offset(oBGpos);
-      $('#officeForeground').offset(oFGpos);
-    } else if(pos.left <= panel2Transition && Math.round(pos.top) === 500){
-      cityWalk.update();
-      cityWalk.render();
-      $('#cityMidground').offset(cMGpos);
-      $('#buildings').offset(cBpos);
-    } else if(pos.left <= panel4Transition && Math.round(pos.top) === 1300){
-      classWalk.update();
-      classWalk.render();
-      turnKids(pos.left);
-      lessonWalk.update();
-      lessonWalk.render();
-      if (pos.left > 0){
-        $('#classroomBackground').offset(cRBG);
-        $('#classroomForeground').offset(cRFG);
-      }
-    } else if(pos.left > panel4Transition && pos.left <= panel5Transition && Math.round(pos.top) === 1300){
-      $('#galleryBackground').offset(gBpos);
-      $('#statue').offset(gSpos);
-      $('#patron1').offset(gP1pos);
-      $('#patron3').offset(gP3pos);
-    }else if(pos.left > 0 && pos.left < panel6Transition && pos && Math.round(pos.top) === 2300){
-      $('#newyork').css({opacity:nyOpacity});
-    }else if(pos.left >= panel6Transition && pos.left < panel7Width && Math.round(pos.top) === 2300){
-      contactWalk1.update();
-      contactWalk1.render();
-      contactWalk2.update();
-      contactWalk2.render();
-    }else if(pos.left >= panel7Width && pos.left < panel7Width + $('#panel8').width()*0.4  && Math.round(pos.top) === 2300){
-      contactWalk1.update();
-      contactWalk1.render();
-      $('#homeBackground').offset(brPos);
-      $('#homeForeground').offset(brPos);
-    }else if(pos.left >= panel7Width && Math.round(pos.top) === 2300){
-      contactWalk1.context.clearRect(0, 0, $('#contactWalk1').width(), $('#contactWalk1').height());
-      if (pos.left < $('#comicPanel').width()*0.85){
-        $('#homeBackground').offset(brPos);
-        $('#homeForeground').offset(brPos);
-        $('#sitting').offset(pos);
-      }else{
-        $('#sitting').offset({left: $('#comicPanel').width()*0.85, top: pos.top });
-      }
-      if(sitCount<=23){
-        sitting.update();
-        sitting.render();
-        sitCount+=1;
-      }
-    }
-  })
+  $(document).on("swiperight",function(){})
 })
