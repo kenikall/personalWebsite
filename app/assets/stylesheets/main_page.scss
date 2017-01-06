@@ -558,7 +558,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   width: 100%;
   margin-top: -7px;
   color: #fff;
-  font-size: 0.4vw;
+  font-size: 1vw;
   text-align: center;
 
   transition: all .3s ease-out;
@@ -832,4 +832,8 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   z-index:8;
   left: 1341px;
   top: 670px;
+}
+
+.closeCircle{
+  position: absolute;
 }

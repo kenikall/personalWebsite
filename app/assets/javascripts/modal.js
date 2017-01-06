@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // $('.closeCircle').offset({ left: ($('.close').offset.left, top: $('.close').offset.top });
     $('#lesson5Button').click(function(e) {
         boxh = $('#lessonModal1').height();
         windowh = $(window).height();
