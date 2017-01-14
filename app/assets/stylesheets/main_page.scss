@@ -699,16 +699,14 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   background-image: url("../../images/icons/email.png");
 }
 
-// .contactBalloon{
-//   position: absolute;
-//   z-index:2;
-// }
+
 
 .textbox {
+  font-family: 'Architects Daughter', cursive;
   pointer-events: auto;
   border: none;
   background: transparent;
-  font-size: 2vmin;
+  font-size: 4vmin;
 }
 
 #email{
@@ -833,7 +831,27 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
   left: 1341px;
   top: 670px;
 }
+h1{
+  color: #EEEEEE;
+}
+.preloader{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: #000000;
+}
 
-.closeCircle{
-  position: absolute;
+.loaded .preloader{
+  // -webkit-transform:
+  //     -ms-transform:
+  //         transform:
+
+  // -webkit-transition: all 0.3s 0.3s ease-out;
+  //         transition: all 0.3s 0.3s ease-out;
+}
+
+#instructions{
+  color: red;
 }

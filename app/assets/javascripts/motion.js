@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $('#instructions').show();
   var frame = 0
     var panels = [
       {left: $('#comicPanel').offset().left, top: $('#comicPanel').offset().top, width: $('#comicPanel').width(), current: true },
@@ -363,6 +364,7 @@ $(document).ready(function(){
   }
 
   $(document).keydown(function(e){
+    $('.preloader').hide();
     //Positioning
     var officeBGCurrent = $('#officeBackground').offset().left + $('#officeBackground').width();
     var officeFGCurrent = $('#officeForeground').offset().left + $('#officeForeground').width();

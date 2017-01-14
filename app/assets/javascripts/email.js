@@ -5,7 +5,6 @@ $(document).ready(function(){
     contactform =  $('#contactform');
 
     var sender =  $('#sender'),
-        subject = $('#subject'),
         content = $('#content');
     //logic for valid emails
     if(!sender.val() && !content.val()){
