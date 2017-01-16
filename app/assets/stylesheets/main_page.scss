@@ -828,7 +828,7 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 #table{
   position: absolute;
   z-index:8;
-  left: 1341px;
+  left: 1278px;
   top: 670px;
 }
 h1{
@@ -854,4 +854,12 @@ h1{
 
 #instructions{
   color: red;
+}
+
+.mobileButtons{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1100;
+  display: none;
 }
