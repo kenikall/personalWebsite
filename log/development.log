@@ -25686,3 +25686,267 @@ Processing by MainPageController#index as HTML
 Completed 200 OK in 914ms (Views: 897.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:09:28 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (68.7ms)
+Completed 200 OK in 1408ms (Views: 1351.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:11:04 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (47.2ms)
+Completed 200 OK in 643ms (Views: 609.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:11:44 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 939ms (Views: 918.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:15:55 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 653ms (Views: 635.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:16:07 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 451ms (Views: 443.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:17:18 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 515ms (Views: 503.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:18:10 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 483ms (Views: 470.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:37:48 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (56.7ms)
+Completed 200 OK in 1094ms (Views: 1023.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:38:12 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 618ms (Views: 595.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:38:50 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (29.3ms)
+Completed 200 OK in 561ms (Views: 541.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:39:03 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 275ms (Views: 262.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:39:44 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (34.8ms)
+Completed 200 OK in 553ms (Views: 526.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:40:32 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 410ms (Views: 404.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:40:52 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 245ms (Views: 237.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:47:33 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 326ms (Views: 313.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:48:34 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 495ms (Views: 476.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:49:02 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 348ms (Views: 324.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:49:18 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 212ms (Views: 209.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:49:56 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 226ms (Views: 216.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:52:08 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 237ms (Views: 227.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:53:07 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 176ms (Views: 171.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:53:36 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 222ms (Views: 217.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:54:18 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 286ms (Views: 282.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:54:19 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 53ms (Views: 49.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:56:51 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 264ms (Views: 254.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 13:59:57 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (36.2ms)
+Completed 200 OK in 582ms (Views: 556.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 14:01:15 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 620ms (Views: 604.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 14:02:30 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 363ms (Views: 348.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 14:03:48 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 402ms (Views: 386.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 14:04:08 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 169ms (Views: 166.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 14:06:53 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 480ms (Views: 468.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 14:07:13 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 326ms (Views: 321.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?_replyto=kenikall%40gmail.com&_subject=dsfadsfd&message=asdfdsfsdfdsfsdfasdfa&_gotcha=" for ::1 at 2017-01-16 14:07:35 -0800
+Processing by MainPageController#index as HTML
+  Parameters: {"_replyto"=>"kenikall@gmail.com", "_subject"=>"dsfadsfd", "message"=>"asdfdsfsdfdsfsdfasdfa", "_gotcha"=>""}
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 282ms (Views: 275.3ms | ActiveRecord: 0.0ms)
+
+

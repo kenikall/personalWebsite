@@ -16,8 +16,8 @@ $(document).ready(function(){
   var zoom = $('#comicPanel').css('zoom');
   var frame = 0
     var panels = [
-      {left: $('#comicPanel').offset().left, top: $('#comicPanel').offset().top, width: $('#comicPanel').width(), current: true },
-      {left: $('#panel1').offset().left, top: $('#panel1').offset().top, width: $('#panel1').width(), current: false },
+      {left: $('#comicPanel').offset().left, top: $('#comicPanel').offset().top, width: $('#comicPanel').width(), current: false },
+      {left: $('#panel1').offset().left, top: $('#panel1').offset().top, width: $('#panel1').width(), current: true },
       {left: $('#panel2').offset().left, top: $('#panel2').offset().top, width: $('#panel2').width(), current: false },
       {left: $('#panel3').offset().left, top: $('#panel3').offset().top, width: $('#panel3').width(), current: false },
       {left: $('#panel4').offset().left, top: $('#panel4').offset().top, width: $('#panel4').width(), current: false },
@@ -40,8 +40,7 @@ $(document).ready(function(){
   var pos = { left: $('#panel1').offset().left-$('#walkAnimation').width(), top: $('#panel1').height *0.6 };
 
   var renderCount = 0;
-  var officeBGOriginal = $('#officeBackground').offset().left;
-  var officeFGOriginal = $('#officeForeground').offset().left;
+
   var cityMGOriginal = $('#cityMidground').offset().left;
   var cityBOriginal = $('#buildings').offset().left;
   var classBGOriginal = $('#classroomBackground').offset().left;
@@ -400,14 +399,13 @@ $(document).ready(function(){
   $(document).keydown(function(e){
     $('.preloader').hide();
     //Positioning
-    var officeBGCurrent = $('#officeBackground').offset().left + $('#officeBackground').width();
     var cityBCurrent = $('#buildings').offset().left + $('#buildings').width();
     var border = $('#comicPanel').width()*0.025;
 
-    var panel1Left = $('#panel1').offset().left;
-    var panel1Width = $('#panel1').width() + $('#panel1').offset().left + $('#walkAnimation').width();
-
+    var panel2Left = $('#panel2').offset().left;
     var panel2Width = $('#panel2').width() + $('#panel2').offset().left;
+
+
     var panel3Width = $('#panel3').width() + $('#panel3').offset().left;
     // var panel4Transition = $('#panel3').width() + $('#panel4').width() + $('#lessonWalk').width();
     var panel4Width = $('#panel4').width() + $('#panel4').offset().left;
@@ -418,7 +416,6 @@ $(document).ready(function(){
     var panel8Width = $('#panel8').width() + $('#panel8').offset().left;
     var panel8Transition = $('#panel7').offset().left + $('#panel7').width()*0.67;
 
-    var officeWidth = $('#officeBackground').width();
     var cityWidth = $('#cityMidground').width();
     var classWidth = $('#classroomBackground').width();
     var lessonWidth = $('#panel4').width();
@@ -430,8 +427,7 @@ $(document).ready(function(){
     if(pos.left >= 3950 && row[0] ){ pos.left = -250; row = [0,1,0]; pos.top = row2 }
     else if (pos.left >= 3950 && row[1] ){ pos.left = 0; row = [0,0,1]; pos.top = row3 }
     //office
-    var oBGpos = { left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
-    var oFGpos = { left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
+
     //city
     var cMGpos = { left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
     var cBpos = { left: $('#buildings').offset().left, top: $('#buildings').offset().top };
@@ -461,9 +457,6 @@ $(document).ready(function(){
       // currentPanel(i);
       // i++;
 
-
-      if(pos.left > 420  && pos.left < +720 && row[0]){ $('#panel1speechBubble').show(); }
-      else if (pos.left >= 720 && row[0]){ $('#panel1speechBubble').hide(); }
       if (pos.left > 2400 && pos.left < +2700 && row[0]) { $('#panel2speechBubble').show(); }
       else if (pos.left >= 2700 && row[0]){ $('#panel2speechBubble').hide(); }
       if (pos.left > 420 && pos.left > 720 && row[1]) { $('#panel3speechBubble').show(); }
@@ -472,7 +465,7 @@ $(document).ready(function(){
       else if (pos.left >= 1880 && row[1]){ $('#panel4speechBubble').hide() }
       if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
 
-      $('#walkAnimation').offset(pos);
+
       $('#cityWalk').offset(pos);
       $('#classWalk').offset(pos);
       $('#lessonWalk').offset(pos);
@@ -483,10 +476,7 @@ $(document).ready(function(){
       $('#thanksSpeechBubble').offset({left: bubble.left+50, top: bubble.top-50});
 
       //office
-      if (oBGpos.left <= officeBGOriginal && officeBGCurrent > panel1Width) {
-        oBGpos.left -= (officeWidth-$('#panel1').width())/90;
-        oFGpos.left -= (officeFGOriginal)/5;
-      }
+
       //city
       if (cityBCurrent > panel2Width-border*3){
         cMGpos.left -= cityWidth/500;
@@ -510,23 +500,30 @@ $(document).ready(function(){
       if (pos.left > 2700 && pos.left < 3500){
         brPos.left -= $('#homeBackground').width()/150;
       }
-      var leftPos = pos.left;
-      if(pos.left>= panel1Left-$('#walkAnimation').width() && pos.left<= panel1Width && row[0]){
-        if(!panels[1].current){ currentPanel(1); }
-        walk.update();
-        walk.render();
-        cityWalk.update();
-        cityWalk.render();
-        if (pos.left>= panel1Left){
-          $('#officeBackground').offset(oBGpos);
-          $('#officeForeground').offset(oFGpos);
-      } else if(pos.left> 1450 && row[0]){
-        if(!panels[2].current){ currentPanel(2); }
-        cityWalk.update();
-        cityWalk.render();
-        $('#cityMidground').offset(cMGpos);
-        $('#buildings').offset(cBpos);
-    }
+
+      //walking script
+      if (panels[1].current){
+        $('#walkAnimation').offset(pos);
+        panel1Focus(pos);
+      }
+      // if(pos.left>= panel1Left-$('#walkAnimation').width() && pos.left<= panel1Width && row[0]){
+      //   if(!panels[1].current){ currentPanel(1); }
+      //   walk.update();
+      //   walk.render();
+      //   if (pos.left>= panel1Left){
+      //     $('#officeBackground').offset(oBGpos);
+      //     $('#officeForeground').offset(oFGpos);
+      //   }
+    //   } else if(pos.left> panel1Width && row[0]){
+    //     if(!panels[2].current){
+    //       currentPanel(2);
+    //       pos.left = panel2Left;
+    //     }
+    //     cityWalk.update();
+    //     cityWalk.render();
+    //     $('#cityMidground').offset(cMGpos);
+    //     $('#buildings').offset(cBpos);
+    // }
       // } else if(pos.left < 1200 && row[1]){
       //   if(!panels[3].current){ currentPanel(3); }
       //   classWalk.update();
@@ -597,7 +594,6 @@ $(document).ready(function(){
       //   else{
       //     $('#codingSpeechBubble').show()
       //   }
-      }
       break;
     }
     function turnKids(teacher){
@@ -697,16 +693,48 @@ $(document).ready(function(){
     for(var i = 0; i < panels.length; i++){ panels[i].current = (i === panel ) ? true : false; }
     zoomTo(panel);
   }
+
   function zoomTo(panel){
     var width = $('#comicPanel').width();
 
-    console.log( 'before = '+$('#comicPanel').css('zoom'));
     $('#comicPanel').animate({
       zoom: panels[panel].width/3000,
       top: panels[panel].top + $('#comicPanel').width()*0.05,
       left: panels[panel].left*-1-($(window).width()-panels[panel].width)/2
     })
-    console.log( 'after = '+$('#comicPanel').css('zoom'));
-
   }
+
+  function panel1Focus(pos){
+    //set current panel to 1
+    for(var i = 0; i < panels.length; i++){ panels[i].current = (i === 1 ) ? true : false; }
+    if ($('#comicPanel').css('zoom')!==panels[1].width/3000){ zoomTo(1); }
+    //set positions
+    var panel1Left = $('#panel1').offset().left;
+    var panel1Width = $('#panel1').width() + $('#panel1').offset().left;
+    var officeBGCurrent = $('#officeBackground').offset().left + $('#officeBackground').width();
+    var officeWidth = $('#officeBackground').width();
+    var officeBGOriginal = $('#officeBackground').offset().left;
+    var oBGpos = { left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
+    var oFGpos = { left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
+    //scene logic
+    if (oBGpos.left <= officeBGOriginal && officeBGCurrent > panel1Width) {
+      oBGpos.left -= (officeWidth-$('#panel1').width())/90;
+      oFGpos.left -= $('#officeForeground').width()/200;
+      console.log(oFGpos.left);
+    }
+    //speech bubble
+    $('#panel1speechBubble').offset({left: pos.left+175, top: pos.top-200});
+    if(pos.left > 420  && pos.left < +720 && row[0]){ $('#panel1speechBubble').show(); }
+    else if (pos.left >= 720 && row[0]){ $('#panel1speechBubble').hide(); }
+    //animations
+    if(pos.left>= panel1Left-$('#walkAnimation').width() && pos.left<= panel1Width && row[0]){
+      walk.update();
+      walk.render();
+      if (pos.left>= panel1Left){
+        $('#officeBackground').offset(oBGpos);
+        $('#officeForeground').offset(oFGpos);
+      }
+    } else{ panel2Focus();}
+  }
+  function panel2Focus(pos){}
 })
