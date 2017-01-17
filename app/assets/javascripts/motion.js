@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  var count = 0;
   //make width fit screen
   $(window).resize(function(){
     if ($(window).width() <= 4040){ $('#comicPanel').css({width: $(window).width()*0.9+'px'}) }
@@ -12,7 +13,6 @@ $(document).ready(function(){
   $('#comicPanel').css({zoom: $('#comicPanel').width()/4040});
 
   //set up initial values
-  var zoom = $('#comicPanel').css('zoom');
   var frame = 0
     var panels = [
       {left: $('#comicPanel').offset().left+100, top: $('#comicPanel').offset().top, width: $('#comicPanel').width(), current: false, zoom: 9696 },
@@ -33,10 +33,10 @@ $(document).ready(function(){
   var row1 = 500;
   var row2 = 1350;
   var row3 = 2300;
-  var leftStart = $('#comicPanel').offset().left;
 
   // var pos = { left: 2000, top: row3 };
-  var pos = { left: $('#panel1').offset().left-$('#walkAnimation').width(), top: $('#panel1').height *0.6 };
+  // var pos = { left: $('#panel1').offset().left-$('#walkAnimation').width(), top: $('#panel1').height *0.6 };
+  var pos = { left: $('#walkAnimation').width()*-1, top: $('#panel1').height *0.6 };
 
   var renderCount = 0;
 
@@ -398,7 +398,7 @@ $(document).ready(function(){
   $(document).keydown(function(e){
     $('.preloader').hide();
     //Positioning
-    console.log('pre '+$('#walkAnimation').offset().left);
+
 
 
     // var panel3Width = $('#panel3').width() + $('#panel3').offset().left;
@@ -443,8 +443,7 @@ $(document).ready(function(){
 
       case 39:  //right
       // //person
-      pos.left += 2;
-      console.log('a1 '+$('#walkAnimation').offset().left);
+      pos.left += 20;
 
       // if (pos.left > 420 && pos.left > 720 && row[1]) { $('#panel3speechBubble').show(); }
       // else if (pos.left >= 820 && row[1]){ $('#panel3speechBubble').hide(); }
@@ -487,10 +486,9 @@ $(document).ready(function(){
 
       //walking script
       if (panels[1].current){
-        console.log('a2 '+$('#walkAnimation').offset().left);
-        $('#walkAnimation').offset(pos);
-
         panel1Focus(pos);
+        // if ($('#comicPanel').hasClass('currentPanel1')){ pos.left = $('#panel1').offset().left-$('#walkAnimation').width() }
+
       } else if(panels[2].current){
         console.log('called?');
         $('#cityWalk').offset(pos);
@@ -697,6 +695,9 @@ $(document).ready(function(){
 
   function panel1Focus(pos){
     //zoom to current panel
+    // console.log('char '+$('#walkAnimation').offset().left);
+    console.log('pos '+pos.left);
+    $('#walkAnimation').css({ top: pos.top+'px', left: pos.left+'px' });
     $('body').removeClass('currentPanel2');
     $('body').removeClass('currentPanel3');
     $('body').removeClass('currentPanel4');
@@ -706,33 +707,28 @@ $(document).ready(function(){
     $('body').removeClass('currentPanel8');
     $('body').addClass('currentPanel1');
 
-    console.log('a3 '+$('#walkAnimation').offset().left);
 
-    for(var i = 0; i < panels.length; i++){ panels[i].current = (i === 1 ) ? true : false; }
-    // if ($('#comicPanel').css('zoom')!==panels[1].width/3000){ zoomTo(1); }
-    //set positions
-    var panel1Left = $('#panel1').offset().left;
-    var panel1Width = $('#panel1').width() + $('#panel1').offset().left;
-    var officeBGCurrent = $('#officeBackground').offset().left + $('#officeBackground').width();
-    var officeWidth = $('#officeBackground').width();
-    var officeBGOriginal = $('#officeBackground').offset().left;
+
+    // for(var i = 0; i < panels.length; i++){ panels[i].current = (i === 1 ) ? true : false; }
+
     var oBGpos = { left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
     var oFGpos = { left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
-    //scene logic
-    if (oBGpos.left <= officeBGOriginal && officeBGCurrent > panel1Width) {
-      oBGpos.left -= (officeWidth-$('#panel1').width())/90;
-      oFGpos.left -= $('#officeForeground').width()/200;
-    }
+
     //speech bubble
-    $('#panel1speechBubble').offset({left: pos.left+175, top: pos.top-200});
-    if(pos.left > 420  && pos.left < 720 && row[0]){ $('#panel1speechBubble').show(); }
-    else if (pos.left >= 720 && row[0]){ $('#panel1speechBubble').hide(); }
+    var bubble = { top: pos.top+150, left: pos.left+175 }
+    $('#panel1speechBubble').css({ top: bubble.top+'px', left: bubble.left+'px' });
+    (pos.left > -200 ) ? $('#text1').show() : $('#text1').hide();
+    (pos.left > -40 ) ? $('#text2').show() : $('#text2').hide();
+    (pos.left > 350  && row[0]) ? $('#panel1speechBubble').show() : $('#panel1speechBubble').hide();
+    (pos.left >= 750 && row[0]) ? $('#panel1speechBubble').hide() : $('#panelspeechBubble').show();
     //animations
-    if(pos.left<= panel1Width && row[0]){
-      console.log('a4 '+$('#walkAnimation').offset().left);
+    if(pos.left<= 1500 && row[0]){
       walk.update();
       walk.render();
-      if (pos.left>= panel1Left){
+      if (pos.left>= -180){
+        //scene logic
+        oBGpos.left -= ($('#officeBackground').width()-$('#panel1').width())/85;
+        oFGpos.left -= $('#officeForeground').width()/250;
         $('#officeBackground').offset(oBGpos);
         $('#officeForeground').offset(oFGpos);
       }
@@ -744,7 +740,6 @@ $(document).ready(function(){
       pos.left = $('#panel2').offset().left;
       panel2Focus(pos);
     }
-    console.log('a5 '+$('#walkAnimation').offset().left);
   }
   function panel2Focus(pos){
     //zoom to current panel

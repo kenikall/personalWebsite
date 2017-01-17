@@ -226,7 +226,7 @@ html, body {background-color: #42eef4; margin: 0 auto; height: 100%; overflow: h
   border: solid black 10px;
   background-color: white;
   height: 930px;
-  width: 975px;
+  width: 980px;
   top: 1900px;
   left: 100px;
 }
@@ -909,4 +909,8 @@ h1{
   width: 2020px;
   height: 2946px;
   z-index: 100;
+}
+
+div:first-child{
+  opacity: .99;
 }
