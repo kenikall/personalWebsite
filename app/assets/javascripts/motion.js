@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  var start = true;
-  var i = 1;
   //make width fit screen
   $(window).resize(function(){
     if ($(window).width() <= 4040){ $('#comicPanel').css({width: $(window).width()*0.9+'px'}) }
@@ -400,141 +398,101 @@ $(document).ready(function(){
   $(document).keydown(function(e){
     $('.preloader').hide();
     //Positioning
+    console.log('pre '+$('#walkAnimation').offset().left);
 
 
+    // var panel3Width = $('#panel3').width() + $('#panel3').offset().left;
+    // // var panel4Transition = $('#panel3').width() + $('#panel4').width() + $('#lessonWalk').width();
+    // var panel4Width = $('#panel4').width() + $('#panel4').offset().left;
+    // var panel5Transition = $('#panel3').width() + $('#panel4').width() + $('#galleryBackground').width();
+    // var panel6Transition = $('#panel6').width();
+    // var panel7Transition = $('#panel6').width() + $('#panel7').width() + $('#contactWalk1').width();
+    // var panel7Width = $('#panel7').width()*0.67 + $('#panel7').offset().left;
+    // var panel8Width = $('#panel8').width() + $('#panel8').offset().left;
+    // var panel8Transition = $('#panel7').offset().left + $('#panel7').width()*0.67;
 
+    // var classWidth = $('#classroomBackground').width();
+    // var lessonWidth = $('#panel4').width();
+    // var mapWidth = $('#panel6').width();
+    // var contactWidth = $('#panel7').width();
+    // var homeWidth = $('#homeBackground').width();
 
-    var panel3Width = $('#panel3').width() + $('#panel3').offset().left;
-    // var panel4Transition = $('#panel3').width() + $('#panel4').width() + $('#lessonWalk').width();
-    var panel4Width = $('#panel4').width() + $('#panel4').offset().left;
-    var panel5Transition = $('#panel3').width() + $('#panel4').width() + $('#galleryBackground').width();
-    var panel6Transition = $('#panel6').width();
-    var panel7Transition = $('#panel6').width() + $('#panel7').width() + $('#contactWalk1').width();
-    var panel7Width = $('#panel7').width()*0.67 + $('#panel7').offset().left;
-    var panel8Width = $('#panel8').width() + $('#panel8').offset().left;
-    var panel8Transition = $('#panel7').offset().left + $('#panel7').width()*0.67;
+    // var bubble = {left: pos.left+175, top: pos.top-200}
+    // if(pos.left >= 3950 && row[0] ){ pos.left = -250; row = [0,1,0]; pos.top = row2 }
+    // else if (pos.left >= 3950 && row[1] ){ pos.left = 0; row = [0,0,1]; pos.top = row3 }
+    // //office
 
-    var classWidth = $('#classroomBackground').width();
-    var lessonWidth = $('#panel4').width();
-    var mapWidth = $('#panel6').width();
-    var contactWidth = $('#panel7').width();
-    var homeWidth = $('#homeBackground').width();
+    // //city
 
-    var bubble = {left: pos.left+175, top: pos.top-200}
-    if(pos.left >= 3950 && row[0] ){ pos.left = -250; row = [0,1,0]; pos.top = row2 }
-    else if (pos.left >= 3950 && row[1] ){ pos.left = 0; row = [0,0,1]; pos.top = row3 }
-    //office
-
-    //city
-
-    //classroom
-    var cRBG  = { left: $('#classroomBackground').offset().left, top: $('#classroomBackground').offset().top };
-    var cRFG  = { left: $('#classroomForeground').offset().left, top: $('#classroomForeground').offset().top };
-    //gallery
-    var gBpos = { left: $('#galleryBackground').offset().left, top: $('#galleryBackground').offset().top };
-    var gSpos = { left: $('#statue').offset().left, top: $('#statue').offset().top };
-    var gP1pos = { left: $('#patron1').offset().left, top: $('#patron1').offset().top };
-    var gP3pos = { left: $('#patron3').offset().left, top: $('#patron3').offset().top };
-    //map
-    var nyOpacity = parseFloat($('#newyork').css('opacity'));
-    //bedroom
-    var brPos = { left: $('#homeBackground').offset().left, top: $('#homeBackground').offset().top };
+    // //classroom
+    // var cRBG  = { left: $('#classroomBackground').offset().left, top: $('#classroomBackground').offset().top };
+    // var cRFG  = { left: $('#classroomForeground').offset().left, top: $('#classroomForeground').offset().top };
+    // //gallery
+    // var gBpos = { left: $('#galleryBackground').offset().left, top: $('#galleryBackground').offset().top };
+    // var gSpos = { left: $('#statue').offset().left, top: $('#statue').offset().top };
+    // var gP1pos = { left: $('#patron1').offset().left, top: $('#patron1').offset().top };
+    // var gP3pos = { left: $('#patron3').offset().left, top: $('#patron3').offset().top };
+    // //map
+    // var nyOpacity = parseFloat($('#newyork').css('opacity'));
+    // //bedroom
+    // var brPos = { left: $('#homeBackground').offset().left, top: $('#homeBackground').offset().top };
 
     switch(e.which){
       case 37: //left
-        if (i===1){
-          $('body').addClass('currentPanel1');
-          i++;
-        }else if(i===2){
-          $('body').removeClass('currentPanel1');
-          $('body').addClass('currentPanel2');
-          i++;
-        }else if(i===3){
-          $('body').removeClass('currentPanel2');
-          $('body').addClass('currentPanel3');
-          i++;
-        }else if(i===4){
-          $('body').removeClass('currentPanel3');
-          $('body').addClass('currentPanel4');
-          i++;
-        }else if(i===5){
-          $('body').removeClass('currentPanel4');
-          $('body').addClass('currentPanel5');
-          i++;
-        }else if(i===6){
-          $('body').removeClass('currentPanel5');
-          $('body').addClass('currentPanel6');
-          i++;
-        }else if(i===7){
-          $('body').removeClass('currentPanel6');
-          $('body').addClass('currentPanel7');
-          i++;
-        }else if(i===8){
-          $('body').removeClass('currentPanel7');
-          $('body').addClass('currentPanel8');
-          i++;
-        }else {
-          $('body').removeClass('currentPanel8');
-          i = 1;
-        }
-
-      console.log('i='+i);
       break;
 
       case 39:  //right
       // //person
       pos.left += 2;
-      console.log('pos '+pos.left);
+      console.log('a1 '+$('#walkAnimation').offset().left);
 
-      // console.log(i);
-      // currentPanel(i);
-      // i++;
-
-
-      if (pos.left > 420 && pos.left > 720 && row[1]) { $('#panel3speechBubble').show(); }
-      else if (pos.left >= 820 && row[1]){ $('#panel3speechBubble').hide(); }
-      if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
-      else if (pos.left >= 1880 && row[1]){ $('#panel4speechBubble').hide() }
-      if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
+      // if (pos.left > 420 && pos.left > 720 && row[1]) { $('#panel3speechBubble').show(); }
+      // else if (pos.left >= 820 && row[1]){ $('#panel3speechBubble').hide(); }
+      // if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
+      // else if (pos.left >= 1880 && row[1]){ $('#panel4speechBubble').hide() }
+      // if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
 
 
 
-      $('#classWalk').offset(pos);
-      $('#lessonWalk').offset(pos);
-      $('#contactWalk2').offset(pos);
-      $('#contactWalk1').offset(pos);
-      $('#sitting').offset(pos);
-      $('.speechBubble').offset(bubble);
-      $('#thanksSpeechBubble').offset({left: bubble.left+50, top: bubble.top-50});
+      // $('#classWalk').offset(pos);
+      // $('#lessonWalk').offset(pos);
+      // $('#contactWalk2').offset(pos);
+      // $('#contactWalk1').offset(pos);
+      // $('#sitting').offset(pos);
+      // $('.speechBubble').offset(bubble);
+      // $('#thanksSpeechBubble').offset({left: bubble.left+50, top: bubble.top-50});
 
       //office
 
       //city
 
       //classroom
-      if (pos.left < panel3Width){
-        cRBG.left -= panel3Width/420;
-        cRFG.left -= panel3Width/120;
-      }
-      //gallery
-      if (pos.left > panel4Width){
-        gBpos.left -= $('#panel5').width()/75;
-        gSpos.left -= $('#panel5').width()/85;
-        gP1pos.left -= $('#panel5').width()/85;
-        gP3pos.left -= $('#panel5').width()/85;
-      }
-      //map
-      if (nyOpacity < 1){ nyOpacity += 0.05; }
-      //bedroom
-      if (pos.left > 2700 && pos.left < 3500){
-        brPos.left -= $('#homeBackground').width()/150;
-      }
+      // if (pos.left < panel3Width){
+      //   cRBG.left -= panel3Width/420;
+      //   cRFG.left -= panel3Width/120;
+      // }
+      // //gallery
+      // if (pos.left > panel4Width){
+      //   gBpos.left -= $('#panel5').width()/75;
+      //   gSpos.left -= $('#panel5').width()/85;
+      //   gP1pos.left -= $('#panel5').width()/85;
+      //   gP3pos.left -= $('#panel5').width()/85;
+      // }
+      // //map
+      // if (nyOpacity < 1){ nyOpacity += 0.05; }
+      // //bedroom
+      // if (pos.left > 2700 && pos.left < 3500){
+      //   brPos.left -= $('#homeBackground').width()/150;
+      // }
 
       //walking script
       if (panels[1].current){
+        console.log('a2 '+$('#walkAnimation').offset().left);
         $('#walkAnimation').offset(pos);
+
         panel1Focus(pos);
       } else if(panels[2].current){
+        console.log('called?');
         $('#cityWalk').offset(pos);
         panel2Focus(pos);
       }
@@ -672,81 +630,84 @@ $(document).ready(function(){
   }
 
   function moveLessons(){
-    if ($('#walkAnimation').offset().left >= 1280 && $('#walkAnimation').offset().left <= 2620 && row[1]) {
-    var vertLesson1Pos = {left: $('#lessonv1').offset().left, top: $('#lessonv1').offset().top};
-    var vertLesson2Pos = {left: $('#lessonv2').offset().left, top: $('#lessonv2').offset().top};
-    var vertLesson3Pos = {left: $('#lessonv3').offset().left, top: $('#lessonv3').offset().top};
-    var vertLesson4Pos = {left: $('#lessonv4').offset().left, top: $('#lessonv4').offset().top};
-    var vertLesson5Pos = {left: $('#lessonv5').offset().left, top: $('#lessonv5').offset().top};
-    var vertLesson6Pos = {left: $('#lessonv6').offset().left, top: $('#lessonv6').offset().top};
-    var vertLesson7Pos = {left: $('#lessonv7').offset().left, top: $('#lessonv7').offset().top};
-    var vertLesson8Pos = {left: $('#lessonv8').offset().left, top: $('#lessonv8').offset().top};
+    if (panels[4].curent) {
+      var vertLesson1Pos = {left: $('#lessonv1').offset().left, top: $('#lessonv1').offset().top};
+      var vertLesson2Pos = {left: $('#lessonv2').offset().left, top: $('#lessonv2').offset().top};
+      var vertLesson3Pos = {left: $('#lessonv3').offset().left, top: $('#lessonv3').offset().top};
+      var vertLesson4Pos = {left: $('#lessonv4').offset().left, top: $('#lessonv4').offset().top};
+      var vertLesson5Pos = {left: $('#lessonv5').offset().left, top: $('#lessonv5').offset().top};
+      var vertLesson6Pos = {left: $('#lessonv6').offset().left, top: $('#lessonv6').offset().top};
+      var vertLesson7Pos = {left: $('#lessonv7').offset().left, top: $('#lessonv7').offset().top};
+      var vertLesson8Pos = {left: $('#lessonv8').offset().left, top: $('#lessonv8').offset().top};
 
-    var horzLesson1Pos = {left: $('#lessonh1').offset().left, top: $('#lessonh1').offset().top};
-    var horzLesson2Pos = {left: $('#lessonh2').offset().left, top: $('#lessonh2').offset().top};
-    var horzLesson3Pos = {left: $('#lessonh3').offset().left, top: $('#lessonh3').offset().top};
-    var horzLesson4Pos = {left: $('#lessonh4').offset().left, top: $('#lessonh4').offset().top};
+      var horzLesson1Pos = {left: $('#lessonh1').offset().left, top: $('#lessonh1').offset().top};
+      var horzLesson2Pos = {left: $('#lessonh2').offset().left, top: $('#lessonh2').offset().top};
+      var horzLesson3Pos = {left: $('#lessonh3').offset().left, top: $('#lessonh3').offset().top};
+      var horzLesson4Pos = {left: $('#lessonh4').offset().left, top: $('#lessonh4').offset().top};
 
-    vertLesson1Pos.top > -500 ? vertLesson1Pos.top-- : vertLesson1Pos.top = vertLesson6Pos.top+600;
-    vertLesson2Pos.top > -500 ? vertLesson2Pos.top-- : vertLesson2Pos.top = vertLesson6Pos.top+600;
-    vertLesson3Pos.top > -500 ? vertLesson3Pos.top-- : vertLesson3Pos.top = vertLesson1Pos.top+600;
-    vertLesson4Pos.top > -500 ? vertLesson4Pos.top-- : vertLesson4Pos.top = vertLesson3Pos.top+425;
-    vertLesson5Pos.top > -500 ? vertLesson5Pos.top-- : vertLesson5Pos.top = vertLesson3Pos.top+425;
-    vertLesson6Pos.top > -500 ? vertLesson6Pos.top-- : vertLesson6Pos.top = vertLesson5Pos.top+600;
-    vertLesson7Pos.top > -500 ? vertLesson7Pos.top-- : vertLesson7Pos.top = vertLesson5Pos.top+650;
-    vertLesson8Pos.top > -500 ? vertLesson8Pos.top-- : vertLesson8Pos.top = vertLesson5Pos.top+600;
+      vertLesson1Pos.top > -500 ? vertLesson1Pos.top-- : vertLesson1Pos.top = vertLesson6Pos.top+600;
+      vertLesson2Pos.top > -500 ? vertLesson2Pos.top-- : vertLesson2Pos.top = vertLesson6Pos.top+600;
+      vertLesson3Pos.top > -500 ? vertLesson3Pos.top-- : vertLesson3Pos.top = vertLesson1Pos.top+600;
+      vertLesson4Pos.top > -500 ? vertLesson4Pos.top-- : vertLesson4Pos.top = vertLesson3Pos.top+425;
+      vertLesson5Pos.top > -500 ? vertLesson5Pos.top-- : vertLesson5Pos.top = vertLesson3Pos.top+425;
+      vertLesson6Pos.top > -500 ? vertLesson6Pos.top-- : vertLesson6Pos.top = vertLesson5Pos.top+600;
+      vertLesson7Pos.top > -500 ? vertLesson7Pos.top-- : vertLesson7Pos.top = vertLesson5Pos.top+650;
+      vertLesson8Pos.top > -500 ? vertLesson8Pos.top-- : vertLesson8Pos.top = vertLesson5Pos.top+600;
 
-    horzLesson1Pos.top > -550 ? horzLesson1Pos.top-- : horzLesson1Pos.top = vertLesson6Pos.top+775;
-    horzLesson2Pos.top > -550 ? horzLesson2Pos.top-- : horzLesson2Pos.top = horzLesson1Pos.top+425;
-    horzLesson3Pos.top > -550 ? horzLesson3Pos.top-- : horzLesson3Pos.top = horzLesson1Pos.top+425;
-    horzLesson4Pos.top > -550 ? horzLesson4Pos.top-- : horzLesson4Pos.top = vertLesson4Pos.top+175;
+      horzLesson1Pos.top > -550 ? horzLesson1Pos.top-- : horzLesson1Pos.top = vertLesson6Pos.top+775;
+      horzLesson2Pos.top > -550 ? horzLesson2Pos.top-- : horzLesson2Pos.top = horzLesson1Pos.top+425;
+      horzLesson3Pos.top > -550 ? horzLesson3Pos.top-- : horzLesson3Pos.top = horzLesson1Pos.top+425;
+      horzLesson4Pos.top > -550 ? horzLesson4Pos.top-- : horzLesson4Pos.top = vertLesson4Pos.top+175;
 
-    $('#lessonv1').offset(vertLesson1Pos);
-    $('#lessonv2').offset(vertLesson2Pos);
-    $('#lessonv3').offset(vertLesson3Pos);
-    $('#lessonv4').offset(vertLesson4Pos);
-    $('#lessonv5').offset(vertLesson5Pos);
-    $('#lessonv6').offset(vertLesson6Pos);
-    $('#lessonv7').offset(vertLesson7Pos);
-    $('#lessonv8').offset(vertLesson8Pos);
-    $('#lessonh1').offset(horzLesson1Pos);
-    $('#lessonh2').offset(horzLesson2Pos);
-    $('#lessonh3').offset(horzLesson3Pos);
-    $('#lessonh4').offset(horzLesson4Pos);
+      $('#lessonv1').offset(vertLesson1Pos);
+      $('#lessonv2').offset(vertLesson2Pos);
+      $('#lessonv3').offset(vertLesson3Pos);
+      $('#lessonv4').offset(vertLesson4Pos);
+      $('#lessonv5').offset(vertLesson5Pos);
+      $('#lessonv6').offset(vertLesson6Pos);
+      $('#lessonv7').offset(vertLesson7Pos);
+      $('#lessonv8').offset(vertLesson8Pos);
+      $('#lessonh1').offset(horzLesson1Pos);
+      $('#lessonh2').offset(horzLesson2Pos);
+      $('#lessonh3').offset(horzLesson3Pos);
+      $('#lessonh4').offset(horzLesson4Pos);
     }
   }
 
-  function centerAll(){
-    var win = $(window);
-    var winOffset = { left: $(window).width()/2 - $('#comicPanel').width()/2, top: $('#comicPanel').width()*0.01 };
-    $('#comicPanel').offset(winOffset);
-  }
-  function currentPanel(panel){
-    for(var i = 0; i < panels.length; i++){ panels[i].current = (i === panel ) ? true : false; }
-    zoomTo(panel);
-  }
+  // function centerAll(){
+  //   var win = $(window);
+  //   var winOffset = { left: $(window).width()/2 - $('#comicPanel').width()/2, top: $('#comicPanel').width()*0.01 };
+  //   $('#comicPanel').offset(winOffset);
+  // }
+  // function currentPanel(panel){
+  //   for(var i = 0; i < panels.length; i++){ panels[i].current = (i === panel ) ? true : false; }
+  //   zoomTo(panel);
+  // }
 
-  function zoomTo(panel){
-    // console.log('panel= '+panel);
-    // console.log(panels[panel].left*-1-($(window).width()-panels[panel].width)/2);
-    // console.log('left'+panels[panel].left);
-    console.log($('#comicPanel').width()/2);
-    $('#comicPanel').stop();
-    $('#comicPanel').animate({
-      width: panels[panel].zoom,
-      top: panels[panel].top + $('#comicPanel').width()*0.05,
-      left: panels[panel].left
-    },500, function(){});
-    console.log($('#comicPanel').width()/2);
-  }
+  // function zoomTo(panel){
+  //   console.log($('#comicPanel').width()/2);
+  //   $('#comicPanel').stop();
+  //   $('#comicPanel').animate({
+  //     width: panels[panel].zoom,
+  //     top: panels[panel].top + $('#comicPanel').width()*0.05,
+  //     left: panels[panel].left
+  //   },500, function(){});
+  //   console.log($('#comicPanel').width()/2);
+  // }
 
   function panel1Focus(pos){
     //zoom to current panel
+    $('body').removeClass('currentPanel2');
+    $('body').removeClass('currentPanel3');
+    $('body').removeClass('currentPanel4');
+    $('body').removeClass('currentPanel5');
+    $('body').removeClass('currentPanel6');
+    $('body').removeClass('currentPanel7');
+    $('body').removeClass('currentPanel8');
     $('body').addClass('currentPanel1');
-    if (start){
-      start = false;
-      $('walkAnimation').offset({left: $('panel1').offset().left-$('walkAnimation').width()})
-    }
+
+    console.log('a3 '+$('#walkAnimation').offset().left);
+
     for(var i = 0; i < panels.length; i++){ panels[i].current = (i === 1 ) ? true : false; }
     // if ($('#comicPanel').css('zoom')!==panels[1].width/3000){ zoomTo(1); }
     //set positions
@@ -764,10 +725,11 @@ $(document).ready(function(){
     }
     //speech bubble
     $('#panel1speechBubble').offset({left: pos.left+175, top: pos.top-200});
-    if(pos.left > 420  && pos.left < +720 && row[0]){ $('#panel1speechBubble').show(); }
+    if(pos.left > 420  && pos.left < 720 && row[0]){ $('#panel1speechBubble').show(); }
     else if (pos.left >= 720 && row[0]){ $('#panel1speechBubble').hide(); }
     //animations
     if(pos.left<= panel1Width && row[0]){
+      console.log('a4 '+$('#walkAnimation').offset().left);
       walk.update();
       walk.render();
       if (pos.left>= panel1Left){
@@ -782,8 +744,18 @@ $(document).ready(function(){
       pos.left = $('#panel2').offset().left;
       panel2Focus(pos);
     }
+    console.log('a5 '+$('#walkAnimation').offset().left);
   }
   function panel2Focus(pos){
+    //zoom to current panel
+    $('body').removeClass('currentPanel1');
+    $('body').removeClass('currentPanel3');
+    $('body').removeClass('currentPanel4');
+    $('body').removeClass('currentPanel5');
+    $('body').removeClass('currentPanel6');
+    $('body').removeClass('currentPanel7');
+    $('body').removeClass('currentPanel8');
+    $('body').addClass('currentPanel2');
     //set positions
     var panel2Left = $('#panel2').offset().left;
     var panel2Width = $('#panel2').width() + $('#panel2').offset().left;
@@ -802,10 +774,6 @@ $(document).ready(function(){
     else if (pos.left >= 2700 && row[0]){ $('#panel2speechBubble').hide(); }
     //animations
     if(pos.left< panel2Width + $('cityWalk').width() && row[0]){
-      if(!panels[2].current){
-        currentPanel(2);
-        pos.left = panel2Left;
-      }
       cityWalk.update();
       cityWalk.render();
       $('#cityMidground').offset(cMGpos);

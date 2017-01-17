@@ -26838,3 +26838,150 @@ Processing by MainPageController#index as HTML
 Completed 200 OK in 40ms (Views: 37.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-01-16 18:55:55 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 295ms (Views: 286.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 18:59:30 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 312ms (Views: 302.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:04:19 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 512ms (Views: 501.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:05:40 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 272ms (Views: 260.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:06:35 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 261ms (Views: 255.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:12:09 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 300ms (Views: 288.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:13:31 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 434ms (Views: 423.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:17:58 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 507ms (Views: 476.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:22:00 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (40.8ms)
+Completed 200 OK in 620ms (Views: 591.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:24:23 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (37.9ms)
+Completed 200 OK in 642ms (Views: 614.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:25:09 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 529ms (Views: 514.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:25:49 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 807ms (Views: 791.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:29:00 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 438ms (Views: 430.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:31:44 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 324ms (Views: 307.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:32:28 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 227ms (Views: 217.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:35:15 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 264ms (Views: 254.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:41:00 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 297ms (Views: 283.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:41:30 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 271ms (Views: 265.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:42:46 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 261ms (Views: 254.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:44:44 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 294ms (Views: 280.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 19:49:37 -0800
+Processing by MainPageController#index as HTML
+  Rendering main_page/index.html.erb within layouts/application
+  Rendered main_page/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 230ms (Views: 219.3ms | ActiveRecord: 0.0ms)
+
+
