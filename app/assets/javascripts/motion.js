@@ -1,6 +1,7 @@
 $(document).ready(function(){
+  var start = true;
   var i = 1;
-  //make everything responsive
+  //make width fit screen
   $(window).resize(function(){
     if ($(window).width() <= 4040){ $('#comicPanel').css({width: $(window).width()*0.9+'px'}) }
     else { $('#comicPanel').css({width: 4040}) }
@@ -16,7 +17,7 @@ $(document).ready(function(){
   var zoom = $('#comicPanel').css('zoom');
   var frame = 0
     var panels = [
-      {left: $('#comicPanel').offset().left, top: $('#comicPanel').offset().top, width: $('#comicPanel').width(), current: false },
+      {left: $('#comicPanel').offset().left+100, top: $('#comicPanel').offset().top, width: $('#comicPanel').width(), current: false, zoom: 9696 },
       {left: $('#panel1').offset().left, top: $('#panel1').offset().top, width: $('#panel1').width(), current: true },
       {left: $('#panel2').offset().left, top: $('#panel2').offset().top, width: $('#panel2').width(), current: false },
       {left: $('#panel3').offset().left, top: $('#panel3').offset().top, width: $('#panel3').width(), current: false },
@@ -399,11 +400,8 @@ $(document).ready(function(){
   $(document).keydown(function(e){
     $('.preloader').hide();
     //Positioning
-    var cityBCurrent = $('#buildings').offset().left + $('#buildings').width();
-    var border = $('#comicPanel').width()*0.025;
 
-    var panel2Left = $('#panel2').offset().left;
-    var panel2Width = $('#panel2').width() + $('#panel2').offset().left;
+
 
 
     var panel3Width = $('#panel3').width() + $('#panel3').offset().left;
@@ -416,7 +414,6 @@ $(document).ready(function(){
     var panel8Width = $('#panel8').width() + $('#panel8').offset().left;
     var panel8Transition = $('#panel7').offset().left + $('#panel7').width()*0.67;
 
-    var cityWidth = $('#cityMidground').width();
     var classWidth = $('#classroomBackground').width();
     var lessonWidth = $('#panel4').width();
     var mapWidth = $('#panel6').width();
@@ -429,8 +426,7 @@ $(document).ready(function(){
     //office
 
     //city
-    var cMGpos = { left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
-    var cBpos = { left: $('#buildings').offset().left, top: $('#buildings').offset().top };
+
     //classroom
     var cRBG  = { left: $('#classroomBackground').offset().left, top: $('#classroomBackground').offset().top };
     var cRFG  = { left: $('#classroomForeground').offset().left, top: $('#classroomForeground').offset().top };
@@ -446,19 +442,55 @@ $(document).ready(function(){
 
     switch(e.which){
       case 37: //left
-      centerAll();
+        if (i===1){
+          $('body').addClass('currentPanel1');
+          i++;
+        }else if(i===2){
+          $('body').removeClass('currentPanel1');
+          $('body').addClass('currentPanel2');
+          i++;
+        }else if(i===3){
+          $('body').removeClass('currentPanel2');
+          $('body').addClass('currentPanel3');
+          i++;
+        }else if(i===4){
+          $('body').removeClass('currentPanel3');
+          $('body').addClass('currentPanel4');
+          i++;
+        }else if(i===5){
+          $('body').removeClass('currentPanel4');
+          $('body').addClass('currentPanel5');
+          i++;
+        }else if(i===6){
+          $('body').removeClass('currentPanel5');
+          $('body').addClass('currentPanel6');
+          i++;
+        }else if(i===7){
+          $('body').removeClass('currentPanel6');
+          $('body').addClass('currentPanel7');
+          i++;
+        }else if(i===8){
+          $('body').removeClass('currentPanel7');
+          $('body').addClass('currentPanel8');
+          i++;
+        }else {
+          $('body').removeClass('currentPanel8');
+          i = 1;
+        }
+
+      console.log('i='+i);
       break;
 
       case 39:  //right
       // //person
-      pos.left += 20;
-      // console.log('pos '+pos.left);
+      pos.left += 2;
+      console.log('pos '+pos.left);
+
       // console.log(i);
       // currentPanel(i);
       // i++;
 
-      if (pos.left > 2400 && pos.left < +2700 && row[0]) { $('#panel2speechBubble').show(); }
-      else if (pos.left >= 2700 && row[0]){ $('#panel2speechBubble').hide(); }
+
       if (pos.left > 420 && pos.left > 720 && row[1]) { $('#panel3speechBubble').show(); }
       else if (pos.left >= 820 && row[1]){ $('#panel3speechBubble').hide(); }
       if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
@@ -466,7 +498,7 @@ $(document).ready(function(){
       if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
 
 
-      $('#cityWalk').offset(pos);
+
       $('#classWalk').offset(pos);
       $('#lessonWalk').offset(pos);
       $('#contactWalk2').offset(pos);
@@ -478,10 +510,7 @@ $(document).ready(function(){
       //office
 
       //city
-      if (cityBCurrent > panel2Width-border*3){
-        cMGpos.left -= cityWidth/500;
-        cBpos.left -= $('#buildings').width()/100;
-      }
+
       //classroom
       if (pos.left < panel3Width){
         cRBG.left -= panel3Width/420;
@@ -505,6 +534,9 @@ $(document).ready(function(){
       if (panels[1].current){
         $('#walkAnimation').offset(pos);
         panel1Focus(pos);
+      } else if(panels[2].current){
+        $('#cityWalk').offset(pos);
+        panel2Focus(pos);
       }
       // if(pos.left>= panel1Left-$('#walkAnimation').width() && pos.left<= panel1Width && row[0]){
       //   if(!panels[1].current){ currentPanel(1); }
@@ -618,7 +650,7 @@ $(document).ready(function(){
   });
 
   function moveClouds(){
-    if ($('#walkAnimation').offset().left >= 1450 && $('#walkAnimation').offset().left <= 3800 && row[0]) {
+    if (panels[2].current) {
     var aCloudsPos = {left: $('#cloud1').offset().left, top: $('#cloud1').offset().top};
     var bCloudsPos = {left: $('#cloud2').offset().left, top: $('#cloud2').offset().top};
     var cCloudsPos = {left: $('#cloud3').offset().left, top: $('#cloud3').offset().top};
@@ -695,19 +727,28 @@ $(document).ready(function(){
   }
 
   function zoomTo(panel){
-    var width = $('#comicPanel').width();
-
+    // console.log('panel= '+panel);
+    // console.log(panels[panel].left*-1-($(window).width()-panels[panel].width)/2);
+    // console.log('left'+panels[panel].left);
+    console.log($('#comicPanel').width()/2);
+    $('#comicPanel').stop();
     $('#comicPanel').animate({
-      zoom: panels[panel].width/3000,
+      width: panels[panel].zoom,
       top: panels[panel].top + $('#comicPanel').width()*0.05,
-      left: panels[panel].left*-1-($(window).width()-panels[panel].width)/2
-    })
+      left: panels[panel].left
+    },500, function(){});
+    console.log($('#comicPanel').width()/2);
   }
 
   function panel1Focus(pos){
-    //set current panel to 1
+    //zoom to current panel
+    $('body').addClass('currentPanel1');
+    if (start){
+      start = false;
+      $('walkAnimation').offset({left: $('panel1').offset().left-$('walkAnimation').width()})
+    }
     for(var i = 0; i < panels.length; i++){ panels[i].current = (i === 1 ) ? true : false; }
-    if ($('#comicPanel').css('zoom')!==panels[1].width/3000){ zoomTo(1); }
+    // if ($('#comicPanel').css('zoom')!==panels[1].width/3000){ zoomTo(1); }
     //set positions
     var panel1Left = $('#panel1').offset().left;
     var panel1Width = $('#panel1').width() + $('#panel1').offset().left;
@@ -720,21 +761,61 @@ $(document).ready(function(){
     if (oBGpos.left <= officeBGOriginal && officeBGCurrent > panel1Width) {
       oBGpos.left -= (officeWidth-$('#panel1').width())/90;
       oFGpos.left -= $('#officeForeground').width()/200;
-      console.log(oFGpos.left);
     }
     //speech bubble
     $('#panel1speechBubble').offset({left: pos.left+175, top: pos.top-200});
     if(pos.left > 420  && pos.left < +720 && row[0]){ $('#panel1speechBubble').show(); }
     else if (pos.left >= 720 && row[0]){ $('#panel1speechBubble').hide(); }
     //animations
-    if(pos.left>= panel1Left-$('#walkAnimation').width() && pos.left<= panel1Width && row[0]){
+    if(pos.left<= panel1Width && row[0]){
       walk.update();
       walk.render();
       if (pos.left>= panel1Left){
         $('#officeBackground').offset(oBGpos);
         $('#officeForeground').offset(oFGpos);
       }
-    } else{ panel2Focus();}
+    } else{
+      panels[1].current=false;
+      panels[2].current=true;
+
+      // zoomTo(2);
+      pos.left = $('#panel2').offset().left;
+      panel2Focus(pos);
+    }
   }
-  function panel2Focus(pos){}
+  function panel2Focus(pos){
+    //set positions
+    var panel2Left = $('#panel2').offset().left;
+    var panel2Width = $('#panel2').width() + $('#panel2').offset().left;
+    var cityBCurrent = $('#buildings').offset().left + $('#buildings').width();
+    var cityWidth = $('#cityMidground').width();
+    var cMGpos = { left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
+    var cBpos = { left: $('#buildings').offset().left, top: $('#buildings').offset().top };
+    //scene logic
+    if (cityBCurrent > panel2Width-$('#comicPanel').width()*0.025*3){
+      cMGpos.left -= cityWidth/500;
+      cBpos.left -= $('#buildings').width()/100;
+    }
+    //speech bubble
+    $('#panel2speechBubble').offset({left: pos.left+175, top: pos.top-200});
+    if (pos.left > 2400 && pos.left < +2700 && row[0]) { $('#panel2speechBubble').show(); }
+    else if (pos.left >= 2700 && row[0]){ $('#panel2speechBubble').hide(); }
+    //animations
+    if(pos.left< panel2Width + $('cityWalk').width() && row[0]){
+      if(!panels[2].current){
+        currentPanel(2);
+        pos.left = panel2Left;
+      }
+      cityWalk.update();
+      cityWalk.render();
+      $('#cityMidground').offset(cMGpos);
+      $('#buildings').offset(cBpos);
+    } else{
+      panels[2].current=false;
+      panels[3].current=true;
+      pos.left = $('#panel3').offset().left;
+      panel3Focus(pos);
+    }
+  }
+  function panel3Focus(pos){}
 })

@@ -1,4 +1,4 @@
-html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden}
+html, body {background-color: #42eef4; margin: 0 auto; height: 100%; overflow: hidden}
 
 .background{ position: absolute; height: 100%}
 
@@ -16,10 +16,15 @@ html, body {background-color: #42eef4; margin: 0; height: 100%; overflow: hidden
 }
 
 #comicPanel{
+  margin: 0 auto;
+  width: 80%;
   max-width: 4040px;
   zoom: 1;
   pointer-events: none;
   position: absolute;
+  left: 10%;
+  top: 5%;
+  transition: all 1s;
 }
 
 #panelFrame{
@@ -862,4 +867,46 @@ h1{
   left: 0px;
   z-index: 1100;
   display: none;
+}
+
+.currentPanel1 #comicPanel{
+  transform: scale(2.5) translate(300px, 150px);
+}
+
+.currentPanel2 #comicPanel{
+  transform: scale(1.6) translate(-1040px, 500px);
+}
+
+.currentPanel3 #comicPanel{
+  transform: scale(3.25) translate(300px, -850px);
+}
+
+.currentPanel4 #comicPanel{
+  transform: scale(3.25) translate(-1025px, -850px);
+}
+
+.currentPanel5 #comicPanel{
+  transform: scale(3.35) translate(-2350px, -850px);
+}
+
+.currentPanel6 #comicPanel{
+  transform: scale(3.75) translate(310px, -1875px);
+}
+
+.currentPanel7 #comicPanel{
+  transform: scale(2.25) translate(-900px, -1650px);
+}
+
+.currentPanel8 #comicPanel{
+  transform: scale(3) translate(-2250px, -1750px);
+}
+
+.cover{
+  background-color: black;
+  position: absolute;
+  left: 2020px;
+  top: 0px;
+  width: 2020px;
+  height: 2946px;
+  z-index: 100;
 }
