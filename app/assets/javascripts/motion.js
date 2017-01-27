@@ -401,7 +401,6 @@ $(document).ready(function(){
 
 
 
-    // var panel3Width = $('#panel3').width() + $('#panel3').offset().left;
     // // var panel4Transition = $('#panel3').width() + $('#panel4').width() + $('#lessonWalk').width();
     // var panel4Width = $('#panel4').width() + $('#panel4').offset().left;
     // var panel5Transition = $('#panel3').width() + $('#panel4').width() + $('#galleryBackground').width();
@@ -425,8 +424,6 @@ $(document).ready(function(){
     // //city
 
     // //classroom
-    // var cRBG  = { left: $('#classroomBackground').offset().left, top: $('#classroomBackground').offset().top };
-    // var cRFG  = { left: $('#classroomForeground').offset().left, top: $('#classroomForeground').offset().top };
     // //gallery
     // var gBpos = { left: $('#galleryBackground').offset().left, top: $('#galleryBackground').offset().top };
     // var gSpos = { left: $('#statue').offset().left, top: $('#statue').offset().top };
@@ -444,18 +441,15 @@ $(document).ready(function(){
       case 39:  //right
       // //person
 
-      if( panels[0].current || panels[1].current || panels[2].current || panels[3].current || panels[4].current || panels[5].current || panels[6].current || panels[7].current || panels[8].current ){ pos.left += 20; } else { console.log('waiting')}
-      // (panels[2].current)? console.log('Panel 2: '+pos.left) : console.log('');
+      if( panels[0].current || panels[1].current || panels[2].current || panels[3].current || panels[4].current || panels[5].current || panels[6].current || panels[7].current || panels[8].current ){ pos.left += 20; }
 
-      // if (pos.left > 420 && pos.left > 720 && row[1]) { $('#panel3speechBubble').show(); }
-      // else if (pos.left >= 820 && row[1]){ $('#panel3speechBubble').hide(); }
+
       // if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
       // else if (pos.left >= 1880 && row[1]){ $('#panel4speechBubble').hide() }
       // if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
 
 
 
-      // $('#classWalk').offset(pos);
       // $('#lessonWalk').offset(pos);
       // $('#contactWalk2').offset(pos);
       // $('#contactWalk1').offset(pos);
@@ -489,6 +483,7 @@ $(document).ready(function(){
       //walking script
       if (panels[1].current){ panel1Focus(pos); }
       else if(panels[2].current){ panel2Focus(pos); }
+      else if(panels[3].current){ panel3Focus(pos); }
 
       // if(pos.left>= panel1Left-$('#walkAnimation').width() && pos.left<= panel1Width && row[0]){
       //   if(!panels[1].current){ currentPanel(1); }
@@ -609,11 +604,11 @@ $(document).ready(function(){
     var dCloudsPos = {left: $('#cloud4').offset().left, top: $('#cloud4').offset().top};
     var eCloudsPos = {left: $('#cloud5').offset().left, top: $('#cloud5').offset().top};
 
-      aCloudsPos.left > 871 ? aCloudsPos.left-- : aCloudsPos.left = 4000;
-      bCloudsPos.left > 871 ? bCloudsPos.left-- : bCloudsPos.left = 4000;
-      cCloudsPos.left > 871 ? cCloudsPos.left-- : cCloudsPos.left = 4000;
-      dCloudsPos.left > 871 ? dCloudsPos.left-- : dCloudsPos.left = 4000;
-      eCloudsPos.left > 871 ? eCloudsPos.left-- : eCloudsPos.left = 4000;
+      aCloudsPos.left > 0 ? aCloudsPos.left-- : aCloudsPos.left = 4000;
+      bCloudsPos.left > 0 ? bCloudsPos.left-- : bCloudsPos.left = 4000;
+      cCloudsPos.left > 0 ? cCloudsPos.left-- : cCloudsPos.left = 4000;
+      dCloudsPos.left > 0 ? dCloudsPos.left-- : dCloudsPos.left = 4000;
+      eCloudsPos.left > 0 ? eCloudsPos.left-- : eCloudsPos.left = 4000;
 
       $('#cloud1').offset(aCloudsPos);
       $('#cloud2').offset(bCloudsPos);
@@ -668,32 +663,10 @@ $(document).ready(function(){
     }
   }
 
-  // function centerAll(){
-  //   var win = $(window);
-  //   var winOffset = { left: $(window).width()/2 - $('#comicPanel').width()/2, top: $('#comicPanel').width()*0.01 };
-  //   $('#comicPanel').offset(winOffset);
-  // }
-  // function currentPanel(panel){
-  //   for(var i = 0; i < panels.length; i++){ panels[i].current = (i === panel ) ? true : false; }
-  //   zoomTo(panel);
-  // }
-
-  // function zoomTo(panel){
-  //   console.log($('#comicPanel').width()/2);
-  //   $('#comicPanel').stop();
-  //   $('#comicPanel').animate({
-  //     width: panels[panel].zoom,
-  //     top: panels[panel].top + $('#comicPanel').width()*0.05,
-  //     left: panels[panel].left
-  //   },500, function(){});
-  //   console.log($('#comicPanel').width()/2);
-  // }
-
   function panel1Focus(pos){
     //set character in the right place
-    $('#walkAnimation').css({ top: pos.top+'px', left: pos.left+'px' });
-    //zoom to current panel
-    for(var i=1 ; i < 9 ; i++){ $('body').removeClass('currentPanel'+i) }
+    $('#walkAnimation').css({ top: pos.top+'0px', left: pos.left+'px' });
+    // for(var i=1 ; i < 9 ; i++){ $('body').removeClass('currentPanel'+i) }
     $('body').addClass('currentPanel1');
     //parallax
     var oBGpos = { left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
@@ -717,9 +690,10 @@ $(document).ready(function(){
       }
     } else{
       panels[1].current=false;
-      //zoom to panel 2
       pos.left = -300;
-      panel2Focus(pos)
+      //zoom to next panel
+      $('body').removeClass('currentPanel1')
+      $('body').addClass('currentPanel2');
       setTimeout(function(){ panels[2].current=true; }, 1000);
     }
   }
@@ -729,21 +703,18 @@ $(document).ready(function(){
     var cityPos = pos.left + panel2Left - 100;
     $('#cityWalk').css({ top: pos.top+'px', left: cityPos+'px' });
     //zoom to current panel
-    for(var i=1 ; i < 9 ; i++){ $('body').removeClass('currentPanel'+i) }
-    $('body').addClass('currentPanel2');
+
     //parallax
-    // var panel2Width = $('#panel2').width() + $('#panel2').offset().left;
-    // var cityBCurrent = $('#buildings').offset().left + $('#buildings').width();
     var cityWidth = $('#panel2').width();
     var cMGpos = { left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
     var cBpos = { left: $('#buildings').offset().left, top: $('#buildings').offset().top };
     //speech bubble
-    $('#panel2speechBubble').position({left: $('#cityWalk').offset().left+175, top: pos.top-200});
+    (pos.left > 200 ) ? $('#text3').show() : $('#text2').hide();
+    var bubble = { top: pos.top-200, left: cityPos+175 }
+    $('#panel2speechBubble').css({ top: bubble.top+'px', left: bubble.left+'px' });
     (cityPos > 930 && cityPos <= 1600) ? $('#panel2speechBubble').show() : $('#panel2speechBubble').hide();
     //animations
-    console.log('pos '+cityPos);
-    if(cityPos <= panel2Left + cityWidth) {
-      // console.log('called render');
+    if(cityPos < cityWidth) {
       cityWalk.update();
       cityWalk.render();
       //scene logic
@@ -751,13 +722,49 @@ $(document).ready(function(){
       cBpos.left -= $('#buildings').width()/100;
       $('#cityMidground').offset(cMGpos);
       if (cBpos.left > 1600){ $('#buildings').offset(cBpos); }
+    } else{
+      panels[2].current=false;
+      pos.left = 0;
+      //zoom to next panel
+      $('body').removeClass('currentPanel2')
+      $('body').addClass('currentPanel3');
+      setTimeout(function(){ panels[3].current=true; }, 1000);
+    }
+  }
+  function panel3Focus(pos){
+    //set character in the right place
+    pos.left-=5;
+    console.log('b4 '+pos.left)
+    $('#classWalk').css({ top: '340px', left: pos.left+'px' });
+    console.log('after '+pos.left)
+    console.log($('#classWalk').offset().left);
+    var panel3Left = $('#panel3').offset().left;
+    var panel3Width = $('#panel3').width() + $('#panel3').offset().left;
+    //parallax
+    var cRBG  = { left: $('#classroomBackground').offset().left - panel3Width/420, top: $('#classroomBackground').offset().top };
+    var cRFG  = { left: $('#classroomForeground').offset().left - panel3Width/120, top: $('#classroomForeground').offset().top };
+    //speech bubble
+    var bubble = { top: 150, left: pos.left+145 }
+    // (pos.left > 200 ) ? $('#text4').show() : $('#text4').hide();
+    $('#panel3speechBubble').css({ top: bubble.top+'px', left: bubble.left+'px' });
+    (pos.left > 420 && pos.left < 820) ? $('#panel3speechBubble').show() : $('#panel3speechBubble').hide();
+    //animations
+    if(pos.left <= panel3Width) {
+      classWalk.update();
+      classWalk.render();
+      // turnKids(pos.left);
+      if (pos.left > 0){
+        $('#classroomBackground').offset(cRBG);
+        $('#classroomForeground').offset(cRFG);
+      }
     }
     // } else{
-    //   panels[2].current=false;
-    //   panels[3].current=true;
-    //   pos.left = $('#panel3').offset().left;
-    //   panel3Focus(pos);
+    //   panels[3].current=false;
+    //   pos.left = -300;
+    //   //zoom to next panel
+    //   $('body').removeClass('currentPanel3')
+    //   $('body').addClass('currentPanel4');
+    //   setTimeout(function(){ panels[4].current=true; }, 1000);
     // }
   }
-  function panel3Focus(pos){}
 })
