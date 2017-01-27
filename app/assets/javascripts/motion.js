@@ -443,7 +443,9 @@ $(document).ready(function(){
 
       case 39:  //right
       // //person
-      pos.left += 20;
+
+      if( panels[0].current || panels[1].current || panels[2].current || panels[3].current || panels[4].current || panels[5].current || panels[6].current || panels[7].current || panels[8].current ){ pos.left += 20; } else { console.log('waiting')}
+      // (panels[2].current)? console.log('Panel 2: '+pos.left) : console.log('');
 
       // if (pos.left > 420 && pos.left > 720 && row[1]) { $('#panel3speechBubble').show(); }
       // else if (pos.left >= 820 && row[1]){ $('#panel3speechBubble').hide(); }
@@ -485,15 +487,9 @@ $(document).ready(function(){
       // }
 
       //walking script
-      if (panels[1].current){
-        panel1Focus(pos);
-        // if ($('#comicPanel').hasClass('currentPanel1')){ pos.left = $('#panel1').offset().left-$('#walkAnimation').width() }
+      if (panels[1].current){ panel1Focus(pos); }
+      else if(panels[2].current){ panel2Focus(pos); }
 
-      } else if(panels[2].current){
-        console.log('called?');
-        $('#cityWalk').offset(pos);
-        panel2Focus(pos);
-      }
       // if(pos.left>= panel1Left-$('#walkAnimation').width() && pos.left<= panel1Width && row[0]){
       //   if(!panels[1].current){ currentPanel(1); }
       //   walk.update();
@@ -694,33 +690,20 @@ $(document).ready(function(){
   // }
 
   function panel1Focus(pos){
-    //zoom to current panel
-    // console.log('char '+$('#walkAnimation').offset().left);
-    console.log('pos '+pos.left);
+    //set character in the right place
     $('#walkAnimation').css({ top: pos.top+'px', left: pos.left+'px' });
-    $('body').removeClass('currentPanel2');
-    $('body').removeClass('currentPanel3');
-    $('body').removeClass('currentPanel4');
-    $('body').removeClass('currentPanel5');
-    $('body').removeClass('currentPanel6');
-    $('body').removeClass('currentPanel7');
-    $('body').removeClass('currentPanel8');
+    //zoom to current panel
+    for(var i=1 ; i < 9 ; i++){ $('body').removeClass('currentPanel'+i) }
     $('body').addClass('currentPanel1');
-
-
-
-    // for(var i = 0; i < panels.length; i++){ panels[i].current = (i === 1 ) ? true : false; }
-
+    //parallax
     var oBGpos = { left: $('#officeBackground').offset().left, top: $('#officeBackground').offset().top };
     var oFGpos = { left: $('#officeForeground').offset().left, top: $('#officeForeground').offset().top };
-
     //speech bubble
     var bubble = { top: pos.top+150, left: pos.left+175 }
     $('#panel1speechBubble').css({ top: bubble.top+'px', left: bubble.left+'px' });
     (pos.left > -200 ) ? $('#text1').show() : $('#text1').hide();
     (pos.left > -40 ) ? $('#text2').show() : $('#text2').hide();
-    (pos.left > 350  && row[0]) ? $('#panel1speechBubble').show() : $('#panel1speechBubble').hide();
-    (pos.left >= 750 && row[0]) ? $('#panel1speechBubble').hide() : $('#panelspeechBubble').show();
+    (pos.left > 350 && pos.left <= 700) ? $('#panel1speechBubble').show() : $('#panel1speechBubble').hide();
     //animations
     if(pos.left<= 1500 && row[0]){
       walk.update();
@@ -734,51 +717,47 @@ $(document).ready(function(){
       }
     } else{
       panels[1].current=false;
-      panels[2].current=true;
-
-      // zoomTo(2);
-      pos.left = $('#panel2').offset().left;
-      panel2Focus(pos);
+      //zoom to panel 2
+      pos.left = -300;
+      panel2Focus(pos)
+      setTimeout(function(){ panels[2].current=true; }, 1000);
     }
   }
   function panel2Focus(pos){
-    //zoom to current panel
-    $('body').removeClass('currentPanel1');
-    $('body').removeClass('currentPanel3');
-    $('body').removeClass('currentPanel4');
-    $('body').removeClass('currentPanel5');
-    $('body').removeClass('currentPanel6');
-    $('body').removeClass('currentPanel7');
-    $('body').removeClass('currentPanel8');
-    $('body').addClass('currentPanel2');
-    //set positions
+    //set character in the right place
     var panel2Left = $('#panel2').offset().left;
-    var panel2Width = $('#panel2').width() + $('#panel2').offset().left;
-    var cityBCurrent = $('#buildings').offset().left + $('#buildings').width();
-    var cityWidth = $('#cityMidground').width();
+    var cityPos = pos.left + panel2Left - 100;
+    $('#cityWalk').css({ top: pos.top+'px', left: cityPos+'px' });
+    //zoom to current panel
+    for(var i=1 ; i < 9 ; i++){ $('body').removeClass('currentPanel'+i) }
+    $('body').addClass('currentPanel2');
+    //parallax
+    // var panel2Width = $('#panel2').width() + $('#panel2').offset().left;
+    // var cityBCurrent = $('#buildings').offset().left + $('#buildings').width();
+    var cityWidth = $('#panel2').width();
     var cMGpos = { left: $('#cityMidground').offset().left, top: $('#cityMidground').offset().top };
     var cBpos = { left: $('#buildings').offset().left, top: $('#buildings').offset().top };
-    //scene logic
-    if (cityBCurrent > panel2Width-$('#comicPanel').width()*0.025*3){
-      cMGpos.left -= cityWidth/500;
-      cBpos.left -= $('#buildings').width()/100;
-    }
     //speech bubble
-    $('#panel2speechBubble').offset({left: pos.left+175, top: pos.top-200});
-    if (pos.left > 2400 && pos.left < +2700 && row[0]) { $('#panel2speechBubble').show(); }
-    else if (pos.left >= 2700 && row[0]){ $('#panel2speechBubble').hide(); }
+    $('#panel2speechBubble').position({left: $('#cityWalk').offset().left+175, top: pos.top-200});
+    (cityPos > 930 && cityPos <= 1600) ? $('#panel2speechBubble').show() : $('#panel2speechBubble').hide();
     //animations
-    if(pos.left< panel2Width + $('cityWalk').width() && row[0]){
+    console.log('pos '+cityPos);
+    if(cityPos <= panel2Left + cityWidth) {
+      // console.log('called render');
       cityWalk.update();
       cityWalk.render();
+      //scene logic
+      cMGpos.left -= cityWidth/500;
+      cBpos.left -= $('#buildings').width()/100;
       $('#cityMidground').offset(cMGpos);
-      $('#buildings').offset(cBpos);
-    } else{
-      panels[2].current=false;
-      panels[3].current=true;
-      pos.left = $('#panel3').offset().left;
-      panel3Focus(pos);
+      if (cBpos.left > 1600){ $('#buildings').offset(cBpos); }
     }
+    // } else{
+    //   panels[2].current=false;
+    //   panels[3].current=true;
+    //   pos.left = $('#panel3').offset().left;
+    //   panel3Focus(pos);
+    // }
   }
   function panel3Focus(pos){}
 })
