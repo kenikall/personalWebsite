@@ -1,51 +1,40 @@
-<!-- <div class="preloader">
-  <h1>Welcome To Mannah's Website.</h1>
-  <h2 class="start" id="instructions"> Press the right arrow </h2>
-  <div class="icon" id="officelocFB">
-  <div class="icon--facebook" >
-    <a href="https://www.facebook.com/mannahcodes/" target="_blank">
-      <span class="icon__name">Facebook</span>
-    </a>
-  </div>
-  </div>
-  <div class="icon" id="officelocTW">
-    <div class="icon--twitter">
-      <a href="https://twitter.com/mannahKallon" target="_blank">
-        <span class="icon__name">Twitter</span>
-      </a>
+<div class="flipbook-viewport">
+  <div class="container">
+    <div class="flipbook sample-docs">
+      <div style="background-image:url(./pages/cover.png)"></div>
+      <div style="background-image:url(./pages/p2.png)"></div>
+      <div style="background-image:url(./pages/p3.png)"></div>
     </div>
   </div>
-  <div class="icon" id="officelocLI">
-    <div class="icon--linkedin" >
-      <a href="https://www.linkedin.com/in/kenikall" target="_blank">
-        <span class="icon__name">LinkedIn</span>
-      </a>
-    </div>
-  </div>
-  <div class="icon" id="officelocGH">
-    <div class="icon--github">
-      <a href="https://github.com/kenikall" target="_blank">
-        <span class="icon__name">GitHub</span>
-      </a>
-    </div>
-  </div>
-  <div class="icon"  id="officelocRM">
-    <div class="icon--resume">
-      <a href="./images/mannah_resume.pdf" target="_blank">
-        <span class="icon__name">Resume</span>
-      </a>
-    </div>
-  </div>
-  <div class="icon"  id="officelocEM">
-    <div class="icon--email">
-      <a href="" target="_blank">
-        <span class="icon__name">Email</span>
-      </a>
-    </div>
-  </div>
-  <img id="navInstruction" src="./images/office/navagation.png">
-<div id="cover"></div>
-</div> -->
+</div>
+
+
+<script type="text/javascript">
+
+function loadApp() {
+  // Create the flipbook
+
+  $('.flipbook').turn({
+      width:673,
+      height:491,
+      elevation: 50,
+      gradients: true,
+      autoCenter: true
+  });
+}
+
+// Load the HTML4 version if there's not CSS transform
+
+yepnope({
+  test : Modernizr.csstransforms,
+  yep: ['../../lib/turn.js'],
+  nope: ['../../lib/turn.html4.min.js'],
+  both: ['css/basic.css'],
+  complete: loadApp
+});
+
+</script>
+<!-- ****************************************************************** -->
 <div class="mobileButtons">
   <canvas id="leftButton"></canvas>
   <canvas id="rightButton"></canvas>

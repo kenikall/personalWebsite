@@ -1,4 +1,4 @@
-html, body {background-color: #42eef4; margin: 0 auto; height: 100%; overflow: hidden}
+html, body {background-color: Cornsilk; margin: 0 auto; height: 100%; overflow: hidden}
 
 .background{ position: absolute; height: 100%}
 
@@ -16,6 +16,7 @@ html, body {background-color: #42eef4; margin: 0 auto; height: 100%; overflow: h
 }
 
 #comicPanel{
+  box-shadow: 100px 100px 100px black;
   margin: 0 auto;
   width: 80%;
   max-width: 4040px;
@@ -310,7 +311,6 @@ html, body {background-color: #42eef4; margin: 0 auto; height: 100%; overflow: h
 }
 
 #classroomForeground{
-  opacity: .99;
   position: absolute;
   top: 30px;
 }
@@ -370,6 +370,7 @@ html, body {background-color: #42eef4; margin: 0 auto; height: 100%; overflow: h
 
 #classroomBackground {
   position: absolute;
+  z-index:3;
   top: 0;
   left: 0;
   height: 100%;
@@ -871,11 +872,11 @@ h1{
 }
 
 .currentPanel1 #comicPanel{
-  transform: scale(2.5) translate(300px, 150px);
+  transform: scale(2.5) translate(300px, 50px);
 }
 
 .currentPanel2 #comicPanel{
-  transform: scale(1.6) translate(-1040px, 500px);
+  transform: scale(1.6) translate(-1140px, 500px);
 }
 
 .currentPanel3 #comicPanel{
@@ -912,6 +913,5 @@ h1{
   z-index: 100;
 }
 
-div:first-child{
-  opacity: .99;
-}
+div:first-child{ opacity: .99; }
+.student{ z-index:10; }
