@@ -16,13 +16,13 @@ $(document).ready(function(){
   var frame = 0
     var panels = [
       {left: $('#comicPanel').offset().left+100, top: $('#comicPanel').offset().top, width: $('#comicPanel').width(), current: false, zoom: 9696 },
-      {left: $('#panel1').offset().left, top: $('#panel1').offset().top, width: $('#panel1').width(), current: false },
+      {left: $('#panel1').offset().left, top: $('#panel1').offset().top, width: $('#panel1').width(), current: true },
       {left: $('#panel2').offset().left, top: $('#panel2').offset().top, width: $('#panel2').width(), current: false },
       {left: $('#panel3').offset().left, top: $('#panel3').offset().top, width: $('#panel3').width(), current: false },
       {left: $('#panel4').offset().left, top: $('#panel4').offset().top, width: $('#panel4').width(), current: false },
       {left: $('#panel5').offset().left, top: $('#panel5').offset().top, width: $('#panel5').width(), current: false },
       {left: $('#panel6').offset().left, top: $('#panel6').offset().top, width: $('#panel6').width(), current: false },
-      {left: $('#panel7').offset().left, top: $('#panel7').offset().top, width: $('#panel7').width(), current: true },
+      {left: $('#panel7').offset().left, top: $('#panel7').offset().top, width: $('#panel7').width(), current: false },
       {left: $('#panel8').offset().left, top: $('#panel8').offset().top, width: $('#panel8').width(), current: false }
     ];
 
@@ -665,7 +665,7 @@ $(document).ready(function(){
     (pos.left > -40 ) ? $('#text2').show() : $('#text2').hide();
     (pos.left > 350 && pos.left <= 700) ? $('#panel1speechBubble').show() : $('#panel1speechBubble').hide();
     //animations
-    if(pos.left<= 1500 && row[0]){
+    if(pos.left<= 1500){
       walk.update();
       walk.render();
       if (pos.left>= -180){
@@ -719,6 +719,7 @@ $(document).ready(function(){
     }
   }
   function panel3Focus(pos){
+    document.getElementById("frontrow"). style. zIndex = "1000";
     //set character in the right place
     pos.left-=5;
     $('#classWalk').css({ top: '340px', left: pos.left+'px' });

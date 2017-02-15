@@ -1,0 +1,85 @@
+<div id="finalPanels">
+  <div id="email" class="contact">
+
+    <form id="contactform">
+      <input id="sender" class="textbox" type="email" name="_replyto" maxlength="75" placeholder="Your email">
+      <input id="subject" class="textbox" type="text" name="_subject" maxlength="75" placeholder="Subject">
+      <textarea id="content" class="textbox" type="text" name="message" placeholder="Your message"  rows="5" cols="50"></textarea>
+
+      <input type="text" name="_gotcha" style="display:none" />
+
+      <input id="subButton" type="submit" src="./images/contact/subButton.png" value="Send email">
+    </form>
+    <form method="post" action="/messages">
+      <input id="sender" class="textbox" type="email-address" name="text" maxlength="75" placeholder="Your email">
+      <input id="subject" class="textbox" type="email-subject" name="text" maxlength="75" placeholder="Subject">
+      <textarea id="content" class="textbox" type="email-body" name="text" placeholder="Your message"  rows="5" cols="50"></textarea>
+      <input id="subButton" type="image" src="./images/contact/subButton.png" value="Send email">
+    </form>
+  </div>
+  <div id="emailPanel">
+    <canvas id="contactWalk2"></canvas>
+  </div>
+  <div id=panel7 class="panel">
+    <canvas id="contactWalk1"></canvas>
+    <img class="background" src="./images/contact/contact.png">
+    <img class="text" id="text10" src="./images/text/suggestions.png">
+    <div class="icon">
+      <div class="icon--facebook" id="contactlocFB">
+        <a href="https://www.facebook.com/mannahcodes/" target="_blank">
+          <span class="icon__name">Facebook</span>
+        </a>
+      </div>
+      <img class="contactBalloon" id="fbBalloon" src="./images/contact/fbBalloon.png">
+    </div>
+    <div class="icon">
+      <div class="icon--twitter" id="contactlocTW">
+        <a href="https://twitter.com/mannahKallon" target="_blank">
+          <span class="icon__name">Twitter</span>
+        </a>
+      </div>
+      <img class="contactBalloon" id="twitBalloon" src="./images/contact/twitBalloon.png">
+    </div>
+    <div class="icon">
+      <div class="icon--linkedin" id="contactlocLI">
+        <a href="https://www.linkedin.com/in/kenikall" target="_blank">
+          <span class="icon__name">LinkedIn</span>
+        </a>
+      </div>
+      <img class="contactBalloon" id="liBalloon" src="./images/contact/liBalloon.png">
+    </div>
+    <div class="icon">
+      <div class="icon--github" id="contactlocGH">
+        <a href="https://github.com/kenikall" target="_blank">
+          <span class="icon__name">GitHub</span>
+        </a>
+      </div>
+      <img class="contactBalloon" id="gitBalloon" src="./images/contact/gitBalloon.png">
+    </div>
+    <div class="icon">
+      <div class="icon--resume" id="contactlocRM">
+        <a href="./images/mannah_resume.pdf" target="_blank">
+          <span class="icon__name">Resume</span>
+        </a>
+      </div>
+      <img class="contactBalloon" id="resBalloon" src="./images/contact/resBalloon.png">
+    </div>
+    <img id="emailBalloon" src="./images/contact/emailBubble.png">
+  </div>
+
+  <div id=panel8 class="panel">
+    <canvas id="sitting"></canvas>
+    <img class="speechBubble" id="thanksSpeechBubble" src="./images/text/thanks.png">
+    <img class="speechBubble" id="codingSpeechBubble" src="./images/text/coding.png">
+    <img class="text" id="text11" src="./images/text/projects.png">
+    <img class="text" id="text12" src="./images/text/new.png">
+    <div id="homeBackground" class="background">
+      <img src="./images/bedroom/bedroomBackground.png">
+      <img id="chair" src="./images/bedroom/chair.png">
+    </div>
+    <div id="homeForeground" class="foreground">
+      <img id="table" src="./images/bedroom/table.png">
+      <img id="computer" src="./images/bedroom/computer.png">
+    </div>
+  </div>
+</div>
