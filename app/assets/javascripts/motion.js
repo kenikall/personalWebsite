@@ -16,8 +16,8 @@ $(document).ready(function(){
   var frame = 0
     var panels = [
       {left: $('#comicPanel').offset().left+100, top: $('#comicPanel').offset().top, width: $('#comicPanel').width(), current: false, zoom: 9696 },
-      {left: $('#panel1').offset().left, top: $('#panel1').offset().top, width: $('#panel1').width(), current: true },
-      {left: $('#panel2').offset().left, top: $('#panel2').offset().top, width: $('#panel2').width(), current: false },
+      {left: $('#panel1').offset().left, top: $('#panel1').offset().top, width: $('#panel1').width(), current: false },
+      {left: $('#panel2').offset().left, top: $('#panel2').offset().top, width: $('#panel2').width(), current: true },
       {left: $('#panel3').offset().left, top: $('#panel3').offset().top, width: $('#panel3').width(), current: false },
       {left: $('#panel4').offset().left, top: $('#panel4').offset().top, width: $('#panel4').width(), current: false },
       {left: $('#panel5').offset().left, top: $('#panel5').offset().top, width: $('#panel5').width(), current: false },
@@ -389,176 +389,31 @@ $(document).ready(function(){
     // centerAll();
     window.setInterval(function(){
       moveClouds();
-      moveLessons();
+      moveLessons(panels[4].current);
     }, 1);
   }
 
   $(document).keydown(function(e){
     $('.preloader').hide();
-    //Positioning
-
-
-
-    // // var panel4Transition = $('#panel3').width() + $('#panel4').width() + $('#lessonWalk').width();
-    // var panel4Width = $('#panel4').width() + $('#panel4').offset().left;
-    // var panel5Transition = $('#panel3').width() + $('#panel4').width() + $('#galleryBackground').width();
-    // var panel6Transition = $('#panel6').width();
-    // var panel7Transition = $('#panel6').width() + $('#panel7').width() + $('#contactWalk1').width();
-    // var panel7Width = $('#panel7').width()*0.67 + $('#panel7').offset().left;
-    // var panel8Width = $('#panel8').width() + $('#panel8').offset().left;
-    // var panel8Transition = $('#panel7').offset().left + $('#panel7').width()*0.67;
-
-    // var classWidth = $('#classroomBackground').width();
-    // var lessonWidth = $('#panel4').width();
-    // var mapWidth = $('#panel6').width();
-    // var contactWidth = $('#panel7').width();
-    // var homeWidth = $('#homeBackground').width();
-
-    // var bubble = {left: pos.left+175, top: pos.top-200}
-    // if(pos.left >= 3950 && row[0] ){ pos.left = -250; row = [0,1,0]; pos.top = row2 }
-    // else if (pos.left >= 3950 && row[1] ){ pos.left = 0; row = [0,0,1]; pos.top = row3 }
-    // //office
-
-    // //city
-
-    // //classroom
-    // //gallery
-
-    // //map
-    // var nyOpacity = parseFloat($('#newyork').css('opacity'));
-    // //bedroom
-    // var brPos = { left: $('#homeBackground').offset().left, top: $('#homeBackground').offset().top };
 
     switch(e.which){
       case 37: //left
       break;
 
       case 39:  //right
-      // //person
+        // //person
 
-      if( panels[0].current || panels[1].current || panels[2].current || panels[3].current || panels[4].current || panels[5].current || panels[6].current || panels[7].current || panels[8].current ){ pos.left += 20; }
+        if( panels[0].current || panels[1].current || panels[2].current || panels[3].current || panels[4].current || panels[5].current || panels[6].current || panels[7].current || panels[8].current ){ pos.left += 20; }
 
+        if (panels[1].current){ panel1Focus(pos); }
+        else if(panels[2].current){ panel2Focus(pos); }
+        else if(panels[3].current){ panel3Focus(pos); } //turnKids(pos.left);}
+        else if(panels[4].current){ panel4Focus(pos); }
+        else if(panels[5].current){ panel5Focus(pos); }
+        else if(panels[6].current){ panel6Focus(pos); }
+        else if(panels[7].current){ panel7Focus(pos); }
+        else if(panels[8].current){ panel8Focus(pos); }
 
-      // if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
-      // else if (pos.left >= 1880 && row[1]){ $('#panel4speechBubble').hide() }
-      // if (pos.left > 1380 && pos.left > 1880 && row[1]) { $('#panel4speechBubble').show(); }
-
-
-
-      // $('#lessonWalk').offset(pos);
-      // $('#contactWalk2').offset(pos);
-      // $('#contactWalk1').offset(pos);
-      // $('.speechBubble').offset(bubble);
-      // $('#thanksSpeechBubble').offset({left: bubble.left+50, top: bubble.top-50});
-
-      //office
-
-      //city
-
-      //classroom
-      // if (pos.left < panel3Width){
-      //   cRBG.left -= panel3Width/420;
-      //   cRFG.left -= panel3Width/120;
-      // }
-      // //gallery
-      // if (pos.left > panel4Width){
-
-      // }
-      // //map
-      // if (nyOpacity < 1){ nyOpacity += 0.05; }
-      // //bedroom
-      // if (pos.left > 2700 && pos.left < 3500){
-      //   brPos.left -= $('#homeBackground').width()/150;
-      // }
-
-      //walking script
-      if (panels[1].current){ panel1Focus(pos); }
-      else if(panels[2].current){ panel2Focus(pos); }
-      else if(panels[3].current){ panel3Focus(pos); }
-      else if(panels[4].current){ panel4Focus(pos); }
-      else if(panels[5].current){ panel5Focus(pos); }
-      else if(panels[6].current){ panel6Focus(pos); }
-      else if(panels[7].current){ panel7Focus(pos); }
-      else if(panels[8].current){ panel8Focus(pos); }
-
-      // if(pos.left>= panel1Left-$('#walkAnimation').width() && pos.left<= panel1Width && row[0]){
-      //   if(!panels[1].current){ currentPanel(1); }
-      //   walk.update();
-      //   walk.render();
-      //   if (pos.left>= panel1Left){
-      //     $('#officeBackground').offset(oBGpos);
-      //     $('#officeForeground').offset(oFGpos);
-      //   }
-    //   } else if(pos.left> panel1Width && row[0]){
-    //     if(!panels[2].current){
-    //       currentPanel(2);
-    //       pos.left = panel2Left;
-    //     }
-    //     cityWalk.update();
-    //     cityWalk.render();
-    //     $('#cityMidground').offset(cMGpos);
-    //     $('#buildings').offset(cBpos);
-    // }
-      // } else if(pos.left < 1200 && row[1]){
-      //   if(!panels[3].current){ currentPanel(3); }
-      //   classWalk.update();
-      //   classWalk.render();
-      //   turnKids(pos.left);
-      //   lessonWalk.update();
-      //   lessonWalk.render();
-      //   if (pos.left > 0){
-      //     $('#classroomBackground').offset(cRBG);
-      //     $('#classroomForeground').offset(cRFG);
-      //   }
-      // } else if(pos.left >= 1200 && pos.left < 2600 && row[1]){
-      //   if(!panels[4].current){ currentPanel(4); }
-      //   lessonWalk.update();
-      //   lessonWalk.render();
-      // }
-      // }else if(pos.left < 1000 && pos && row[2]){
-      //   if(!panels[6].current){ currentPanel(6); }
-      //   renderCount = 0;
-      //   $('#newyork').css({opacity:nyOpacity});
-      // }else if(pos.left >= 1000 && pos.left < 2700 && row[2]){
-      //   if(!panels[7].current){ currentPanel(7); }
-      //   contactWalk1.update();
-      //   contactWalk1.render();
-      //   contactWalk2.update();
-      //   contactWalk2.render();
-      // }
-      // else if(pos.left >= 2700 && pos.left < 2580  && row[2]){
-      //   if(!panels[8].current){ currentPanel(8); }
-      //   contactWalk1.update();
-      //   contactWalk1.render();
-      //   $('#homeBackground').offset(brPos);
-      //   $('#homeForeground').offset(brPos);
-      // }else if(pos.left >= 2580 && pos.left < 3000 && row[2]){
-      //   $('#thanksSpeechBubble').show()
-      //   contactWalk1.update();
-      //   contactWalk1.render();
-      //   $('#homeBackground').offset(brPos);
-      //   $('#homeForeground').offset(brPos);
-      //   sitting.update();
-      //   sitting.render();
-      //   renderCount+=1;
-      // }else if(pos.left >= 3000 && row[2]){
-      //   contactWalk1.context.clearRect(0, 0, $('#contactWalk1').width(), $('#contactWalk1').height());
-      //   if (leftPos < 3440){
-      //     $('#homeBackground').offset(brPos);
-      //     $('#homeForeground').offset(brPos);
-      //   }else{
-      //     $('#thanksSpeechBubble').hide()
-      //     pos.left = 3440;
-      //     $('#sitting').offset(pos);
-      //   }
-      //   if(renderCount<=48){
-      //     sitting.update();
-      //     sitting.render();
-      //     renderCount+=1;
-      //   }
-      //   else{
-      //     $('#codingSpeechBubble').show()
-      //   }
       break;
     }
     function turnKids(teacher){
@@ -604,9 +459,8 @@ $(document).ready(function(){
     }
   }
 
-  function moveLessons(){
-    if (panels[4].curent) {
-      console.log("move Lessons running "+panels[4].current);
+  function moveLessons(activate){
+    if (activate) {
       var vertLesson1Pos = {left: $('#lessonv1').offset().left, top: $('#lessonv1').offset().top};
       var vertLesson2Pos = {left: $('#lessonv2').offset().left, top: $('#lessonv2').offset().top};
       var vertLesson3Pos = {left: $('#lessonv3').offset().left, top: $('#lessonv3').offset().top};
@@ -719,7 +573,6 @@ $(document).ready(function(){
     }
   }
   function panel3Focus(pos){
-    document.getElementById("frontrow"). style. zIndex = "1000";
     //set character in the right place
     pos.left-=5;
     $('#classWalk').css({ top: '340px', left: pos.left+'px' });
@@ -826,7 +679,6 @@ $(document).ready(function(){
 
     $('#contactWalk1').css({ top: '340px', left: pos.left+'px' });
     $('#contactWalk2').css({ top: '10px', left: pos.left-340+'px' });
-    console.log($('#contactWalk2').offset().left - $('#contactWalk1').offset().left)
     contactWalk1.update();
     contactWalk1.render();
     contactWalk2.update();
@@ -846,13 +698,11 @@ $(document).ready(function(){
   function panel8Focus(pos){
     //set character in the right place
     pos.left-=5;
-    $('#sitting').css({ top: '340px', left: pos.left+'px' });
-    console.log(pos.left)
-
+    $('#sitting').css({ top: (340+renderCount)+'px', left: pos.left+'px' });
 
     var brPos = { left: $('#homeBackground').offset().left, top: $('#homeBackground').offset().top };
     brPos.left -= $('#homeBackground').width()/150;
-
+    var top = $('#sitting').offset().top += 1
     if (pos.left < 780){
       $('#homeBackground').offset(brPos);
       $('#homeForeground').offset(brPos);
